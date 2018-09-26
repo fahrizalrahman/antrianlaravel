@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -37,6 +37,41 @@
                                     </span>
                                 @endif
                             </div>
+                        </div>
+
+                       <div class="form-group row">
+                            {!! Form::label('id', 'Jabatan', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
+                            <div class="col-md-6">
+                            {!! Form::select('id',App\Jabatan::pluck('nama_jabatan','id')->all(), null,['class'=>'form-control','name'=>'jabatan','id'=>'jabatan']) !!}
+                            {!! $errors->first('id', '<p class="help-block">:message</p>') !!}
+                            </div>
+
+                             @if ($errors->has('jabatan'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('jabatan') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+
+
+
+                        <div class="form-group row">
+                             <label for="lantai" class="col-md-4 col-form-label text-md-right">{{ __('Lantai') }}</label>
+                             <div class="col-md-6">
+                                <select class="form-control{{ $errors->has('lantai') ? ' is-invalid' : '' }}" id="lantai" name="lantai">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                          </select>
+                              @if ($errors->has('lantai'))
+                                   <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('lantai') }}</strong>
+                                    </span>
+                                 @endif
+                             </div>
                         </div>
 
                         <div class="form-group row">
