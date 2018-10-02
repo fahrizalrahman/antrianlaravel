@@ -154,6 +154,7 @@
             <!-- end right-content -->
         </div>
         <!-- end register -->
+<<<<<<< HEAD
 	</div>
 	<!-- end page container -->
 	
@@ -172,5 +173,25 @@
 			App.init();
 		});
 	</script>
+=======
+    </div>
+    <!-- end page container -->
+    
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('js/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('js/js.cookie.js')}}"></script>
+    <script src="{{asset('js/transparent.min.js')}}"></script>
+    <script src="{{asset('js/apps.min.js')}}"></script>
+    <!-- ================== END BASE JS ================== -->
+
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+>>>>>>> 7e4b3f404248fe5c321b56625b5d6007e0a5c3a9
 </body>
 </html>

@@ -15,10 +15,10 @@
     <script src="{{asset('bootstrap.min.js')}}"></script>
 
 </head>
-<body style="background-image: url({{asset('img/log/bg-log.jpg')}}">
+<body class="container" style="background-image: url({{asset('img/log/bg-log.jpg')}}">
 
-    <div class="container-fluid">
-        <div class="row" style="padding:10px; margin:auto;">
+    <div>
+        <div class="row" style="margin-top:20px;">
             <div class="col-md-12" style="background-color:grey; margin-left:auto; height:100px; overflow-x:hidden; ">
                 <h1>IMAGE HERE</h1>
             </div>
@@ -32,7 +32,7 @@
         </div>
     </div>
     
-    <div class="row" style="margin-left:auto; margin-top:20px;">
+    {{-- <div class="row" style="margin-left:auto; margin-top:20px;">
         <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
             <div class="card-header" style="background-color:chocolate;">
                 Featured
@@ -106,7 +106,7 @@
                     <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         
     </div>
