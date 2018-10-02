@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Route::Resource('/buat','BuatController');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/lantai', 'HomeController@lantai')->name('lantai');
 Route::get('/lantai1', 'HomeController@lantai1')->name('lantai1');
 
@@ -32,7 +32,7 @@ Route::get('/lantai5', 'HomeController@lantai5')->name('lantai5');
 Route::get('/lantai6', 'HomeController@lantai6')->name('lantai6');
 
 Route::get('/layanan', 'HomeController@layanan')->name('layanan');
-Route::get('/display', 'HomeController@display')->name('antrian');
+Route::get('/display', 'HomeController@display')->name('antrian')->middleware('verified');
 
 Route::get('/utama','HomeController@utama')->name('utama');
 Route::get('/index', 'HomeController@index1')->name('index1');

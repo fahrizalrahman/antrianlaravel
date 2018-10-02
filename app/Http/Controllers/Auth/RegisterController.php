@@ -41,7 +41,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Get a validator for an incoming registration data.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -63,12 +63,39 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'jabatan'=>'petugas_loket',
-            'lantai'=>$data['lantai']
+         $user =  User::create([
+            'name'      => $data['name'],
+            'email'     => $data['email'],
+            'password'  => Hash::make($data['password']),
+            'jabatan'   =>'pelanggan',
+            'lantai'    => 0,
+            'nik'       =>$data['nik'],
+            'alamat'    =>$data['alamat'],
+            'no_telp'   =>$data['no_telp'],
+            'token'     => str_random(25),
         ]);
-    }
+
+        if ($data['foto']) {
+                $foto = $data['foto'];
+
+                if (is_array($foto) || is_object($foto)) {
+                    // Mengambil file yang diupload
+                    $uploaded_foto = $foto;
+                    // mengambil extension file
+                    $extension = $uploaded_foto->getClientOriginalExtension();
+                    // membuat nama file random berikut extension
+                    $filename     = str_random(40) . '.' . $extension;
+                    $image_resize = Image::make($foto->getRealPath());
+                    $image_resize->fit(300);
+                    $image_resize->save(public_path('foto_user/' . $filename));
+                    $insert_barang->foto = $filename;
+                    // menyimpan field foto di table barangs  dengan filename yang baru dibuat
+                    $insert_barang->save();
+                
+                }
+        }
+
+        
+        return $user;
+     }
 }

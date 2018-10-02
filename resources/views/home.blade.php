@@ -29,8 +29,8 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="lineChart" style="height:250px"></canvas>
+                <div id="linechart">
+                    
                 </div>
               </div>
               <!-- /.card-body -->

@@ -57,7 +57,7 @@
             <!-- end register-header -->
             <!-- begin register-content -->
             <div class="register-content">
-                <form action=" {{route('register')}} " method="POST" class="margin-bottom-0">
+                <form action=" {{route('register')}} " file="true" method="POST" class="margin-bottom-0">
                     @csrf
                     <label class="control-label">Nama <span class="text-danger">*</span></label>
                     <div class="row row-m-b-15">
@@ -83,41 +83,67 @@
                         </div>
                     </div>
 
-                    <label class="control-label"> Jabatan <span class="text-danger">*</span> </label>
-                        <div class="form-group row m-b-15">
-                            {{-- {!! Form::label('id', 'Jabatan', ['class'=>'text-danger']) !!} --}}
-                            <div class="col-md-12">
-                            {!! Form::select('id',App\Jabatan::pluck('nama_jabatan','id')->all(), null,['class'=>'form-control','name'=>'jabatan','id'=>'jabatan']) !!}
-                            {!! $errors->first('id', '<p class="help-block">:message</p>') !!}
-                            </div>
-
-                             @if ($errors->has('jabatan'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('jabatan') }}</strong>
-                                    </span>
+                    <label class="control-label">NIK <span class="text-danger">*</span></label>
+                    <div class="row row-m-b-15">
+                        <div class="col-md-12 m-b-15">
+                            <input type="text" id="nik" name="nik" value="{{ old('nik')}}" class="form-control" placeholder="Masukan Nama" required />
+                            @if ($errors->has('nik'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('nik') }}</strong>
+                                </span>
                             @endif
                         </div>
+                    </div>
+                    
 
-                        <label class="control-label col-form-label">Lantai <span class="text-danger">*</span> </label>
-                        <div class="form-group row m-b-15">
-                                {{-- <label for="lantai" class="col-md-4 col-form-label text-md-right">{{ __('Lantai') }}</label> --}}
-                                <div class="col-md-12" >
-                                   <select class="form-control{{ $errors->has('lantai') ? ' is-invalid' : '' }}" id="lantai" name="lantai">
-                                   <option >1</option>
-                                   <option >2</option>
-                                   <option >3</option>
-                                   <option >4</option>
-                                   <option >5</option>
-                                   <option >6</option>
-                                   </select>
-                                 @if ($errors->has('lantai'))
-                                      <span class="invalid-feedback" role="alert">
-                                           <strong>{{ $errors->first('lantai') }}</strong>
-                                       </span>
-                                    @endif
-                                </div>
-                           </div>
-                
+                    <label class="control-label">No Telp <span class="text-danger">*</span></label>
+                    <div class="row row-m-b-15">
+                        <div class="col-md-12 m-b-15">
+                            <input type="text" id="no_telp" name="no_telp" value="{{ old('no_telp')}}" class="form-control" placeholder="Masukan Nama" required />
+                            @if ($errors->has('no_telp'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('no_telp') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <label class="control-label">Alamat<span class="text-danger">*</span></label>
+                    <div class="row row-m-b-15">
+                        <div class="col-md-12 m-b-15">
+                            <input type="text" id="alamat" name="alamat" value="{{ old('alamat')}}" class="form-control" placeholder="Masukan Nama" required />
+                            @if ($errors->has('alamat'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('alamat') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                <label class="control-label">Foto<span class="text-danger">*</span></label>
+                <div class="row row-m-b-15">
+                     <div class="col-md-12 m-b-15">
+                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail">
+
+                            <img src="../../assets/img/image_placeholder.jpg" alt="Foto Akan Tampil Disini">
+
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        <div>
+                            <span class="btn btn-rose btn-round btn-file">
+                                <span class="fileinput-new">Ambil Foto</span>
+                                <span class="fileinput-exists">Ubah</span>
+                                {!! Form::file('foto',null,['id'=>'foto','name'=>'foto']) !!}
+                            </span>
+                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Batal</a>
+                        </div>
+                        {!! $errors->first('foto', '<p class="help-block">:message</p>') !!}
+                        <a style="color: red;">Size Foto (Ukuran Max : 3MB)</a>
+                    </div>
+                </div>
+                </div>
+
                     <label class="control-label">Password <span class="text-danger">*</span></label>
                     <div class="row m-b-15">
                         <div class="col-md-12">
@@ -145,7 +171,7 @@
                     </div>
                     <hr />
                     <p class="text-center">
-                        &copy; Color Admin All Right Reserved 2018
+                        &copy;  2018
                     </p>
                 </form>
             </div>

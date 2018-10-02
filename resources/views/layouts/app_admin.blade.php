@@ -45,8 +45,6 @@
 
     </ul>
 
-
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
@@ -59,7 +57,7 @@
             <!-- Message Start -->
             <div class="media">
               <div class="media-body">
-                <h3 class="dropdown-item-title" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <h3 class="dropdown-item-title"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                   <span class="float-right text-sm text-danger"></span>
                 </h3>
@@ -174,11 +172,68 @@
         <!-- DataTables -->
         <script src="{{ asset('plugins/datatables/jquery.dataTables.js')}}"></script>
         <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+        <script src="/highchart/js/highcharts.js"></script>
+
+        <script src="/highchart/js/modules/exporting.js"></script>
         <script>
           $(function () {
             $("#example1").DataTable();
           });
         </script>
+       <script type="text/javascript">
+
+$(function () {
+    $('#linechart').highcharts({
+        chart: {
+            type: 'line',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Rekap Jenis Jabatan <br /> Berdasarkan Permenpan No. 25 Tahun 2016'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            line: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b><br />: {point.percentage:.1f} %'
+                }
+            }
+        },
+        credits: {enabled: false},
+        series: [{
+            type: 'line',
+            name: 'Jenis Jabatan',
+            data: [
+                ['Jabatan Tinggi Pratama',   45.0],
+                ['Jabatan Administrator',       26.8],
+                {
+                    name: 'Jabatan Pengawas',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Jabatan Fungsional',    8.5],
+                ['Pelaksana',     6.2],
+            ]
+        }]
+    });
+});
+</script>
+
+<div id="linechart">
+    
+</div>
+
         @yield('scripts')
 
 </body>

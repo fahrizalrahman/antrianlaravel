@@ -21,8 +21,16 @@
         <p>Badan Pengawas Obat dan Makanan Jalan Percetakan Negara Nomor 23 Jakarta - 10560 - Indonesia</p>
     </div>
 
-    <div class="col-sm-12" style="background-image:url( {{asset )">
+    <div class="col-sm-12" style="background-image:url( {{asset('')}} )">
+ <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
     </div>
 </body>
 </html>
