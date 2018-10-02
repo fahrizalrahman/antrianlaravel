@@ -15,7 +15,7 @@
 <body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
     <div class="container">
         <div class="row" style="margin-top:20px;">
-            <div class="col-sm-12" style="height:100px; background-color:darkgrey;">
+            <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
                 <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
             </div>
             <div class="col-sm-8" style="background-image:url({{asset('img/come.jpg')}}); width:auto; height:auto;">

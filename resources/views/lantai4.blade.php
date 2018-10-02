@@ -15,7 +15,7 @@
 <div class="container">
   <div class="row" style="margin-top:20px;">
 
-      <div class="col-sm-12" style="height:100px; background-color:darkgrey;">
+      <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
           <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
       </div>
 
@@ -50,7 +50,6 @@
       </table>
 
       <div>
-<<<<<<< HEAD
           <img src="{{asset('img/come.jpg')}}" style="background-position:center; background-repeat:no-repeat; margin-left:-15px; height:400px; width:auto;">
       </div>
     </div>
@@ -62,29 +61,6 @@
     <div class="col-md-12" style="background-color:black;">
       <span style="float:left; height:30px; background-color:cornflowerblue; text-align:center; width:5%;">12:03</span> 
       <span style="float:right; height:30px; width:95%; text-align:center;"><marquee>Tulisan berjalan disini</marquee></span>
-=======
-          <img src=" {{asset('img/come.jpg')}}"width="100%" height="232px" style=" padding-top:2px; padding-left:-13px; padding-right:-10px;">
-      </div>
-      </div>
-
-      <div class="col-md-8" style=" padding-top:0px; padding-left:0px;">
-        <table>
-          <img src="{{asset('img/come.jpg')}}" width="100%" style="padding-right:-5px;" height="406px">
-        </table>        
-      </div>
-    {{-- <div class="col-md-12" style="width:100%; height:30px; background-color:black; float:left;">
-      <span><marquee>Pengunjung</marquee></span>
-    </div> --}}
-
-    {{-- <div class="col-md-12">
-      <table>
-        <img src=" {{asset('img/come.jpg')}} " style="width:100%; height:70px;">
-      </table>
-    </div> --}}
-    <div class="col-md-12" style="background-color:black;">
-      <span style="float:left; height:25px; background-color:cornflowerblue; width:5%;">12:03</span> 
-      <span style="float:right; height:25px; width:95%;"><marquee behavior="" direction="">Tulisan berjalan disini</marquee></span>
->>>>>>> 7e4b3f404248fe5c321b56625b5d6007e0a5c3a9
     </div>
 
 </div>
