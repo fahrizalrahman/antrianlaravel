@@ -16,7 +16,7 @@
   <div class="row" style="margin-top:20px;">
 
       <div class="col-sm-12" style="height:100px; background-color:darkgrey;">
-          <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
+          <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="130px" height="55px" >
       </div>
 
     <div class="col-md-12" style="height:25px; width:100%; background-color:deepskyblue;">
