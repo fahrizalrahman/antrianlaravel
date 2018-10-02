@@ -12,17 +12,17 @@
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="{{asset('css/jquery-ui.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('css/fontawesome-all.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('css/animate.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('css/style.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('css/style-responsive.min.css')}}" rel="stylesheet" />
-	<link href="{{asset('css/default.css')}}" rel="stylesheet" id="theme" />
+	<link href="{{asset('frontend/plugin/jquery-ui/jquery-ui.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('frontend/plugin/bootstrap/4.0.0/css/bootstrap.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('frontend/plugin/font-awesome/5.0/css/fontawesome-all.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('frontend/plugin/animate/animate.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('frontend/plugin/transparent/style.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('frontend/plugin/transparent/style-responsive.min.css')}}" rel="stylesheet" />
+	<link href="{{asset('frontend/plugin/transparent/theme/default.css')}}" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{{asset('js/pace.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/pace/pace.min.js')}}"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body class="pace-top">
@@ -32,7 +32,7 @@
 	<!-- end #page-loader -->
 	
 	<div class="login-cover">
-	    <div class="login-cover-image" style="background-image: url(../assets/img/login-bg/login-bg-17.jpg)" data-id="login-cover-image"></div>
+	    <div class="login-cover-image" style="background-image: url({{asset('img/log/bg-log.jpg')}})" data-id="login-cover-image"></div>
 	    <div class="login-cover-bg"></div>
 	</div>
 	<!-- begin #page-container -->
@@ -42,34 +42,30 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo"></span> <b>Color</b> Admin
-                    <small>responsive bootstrap 3 admin template</small>
+                    <img src=" {{asset('img/log/logo_bpom.png')}} " width="100px" height="50px"/> <b>Antrian BPOM</b>
+                    {{-- <small>Sistem Antrian Berbasis Web</small> --}}
                 </div>
-                <div class="icon">
+                <span class="icon">
                     <i class="fa fa-lock"></i>
-                </div>
+				</span>
             </div>
             <!-- end brand -->
             <!-- begin login-content -->
             <div class="login-content">
-                <form action="index.html" method="GET" class="margin-bottom-0">
+				<form action="{{ route('login') }}" method="POST" class="margin-bottom-0">
+					@csrf
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control form-control-lg" placeholder="Email Address" required />
+                        <input type="email" name="email" value="{{ old('email') }}" class="form-control form-control-lg" placeholder="Masukan Email" required />
                     </div>
                     <div class="form-group m-b-20">
-                        <input type="password" class="form-control form-control-lg" placeholder="Password" required />
+                        <input type="password" name="password" class="form-control form-control-lg" placeholder="Masukan Password" required />
                     </div>
-                    <div class="checkbox checkbox-css m-b-20">
-                        <input type="checkbox" id="remember_checkbox" /> 
-                        <label for="remember_checkbox">
-                        	Remember Me
-                        </label>
-                    </div>
+          
                     <div class="login-buttons">
-                        <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Masuk</button>
                     </div>
                     <div class="m-t-20">
-                        Not a member yet? Click <a href="javascript:;">here</a> to register.
+                        Belum Punya Akun ? Daftar <a href="{{ route('register') }}">disini</a>.
                     </div>
                 </form>
             </div>
@@ -80,18 +76,18 @@
 	<!-- end page container -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-	<script src="{{asset('js/jquery-ui.min.js')}}"></script>
-	<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/jquery/jquery-3.2.1.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/jquery-ui/jquery-ui.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/bootstrap/4.0.0/js/bootstrap.bundle.min.js')}}"></script>
 
-	<script src="{{asset('js/jquery.slimscroll.min.js')}}"></script>
-	<script src="{{asset('js/js.cookie.js')}}"></script>
-	<script src="{{asset('js/transparent.min.js')}}"></script>
-	<script src="{{asset('js/apps.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/slimscroll/jquery.slimscroll.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/js-cookie/js.cookie.js')}}"></script>
+	<script src="{{asset('frontend/plugin/theme/transparent.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/js/apps.min.js')}}"></script>
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
-	<script src="{{asset('js/login-v2.demo.min.js')}}"></script>
+	<script src="{{asset('frontend/plugin/demo/login-v2.demo.min.js')}}"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 
 	<script>
