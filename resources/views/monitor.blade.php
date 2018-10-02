@@ -23,7 +23,7 @@
             <div class="container-fluid">
               <div class="row" style="margin-top:20px; margin-left:5px;">
                     <div class="col-sm-6" style="margin-top:2%;">
-                        <table border="0%" class="table-responsive" style="position:static;">
+                        <table class="table-responsive" style="position:static;">
                         <col width="60">
                         <col width="430">
                         <col width="80">
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="col-sm-6" style="margin-top:2%;">
-                        <table border="1%" class="table-responsive" style="background-color:cadetblue; position:static;">
+                        <table class="table-responsive" style="background-color:cadetblue; position:static;">
                         <col width="60">
                         <col width="430">
                         <col width="80">
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="col-sm-6" style="margin-top:%;">
-                        <table border="1%" class="table-responsive" style="background-color:cadetblue; position:static;">
+                        <table class="table-responsive" style="background-color:cadetblue; position:static;">
                         <col width="60">
                         <col width="430">
                         <col width="80">
@@ -153,7 +153,7 @@
                     </div>
 
                     <div class="col-sm-6" style="margin-top:2%;">    
-                        <table border="1%" class="table-responsive" style="background-color:cadetblue; position:static;">
+                        <table class="table-responsive" style="background-color:cadetblue; position:static;">
                         <col width="60">
                         <col width="430">
                         <col width="80">
@@ -178,7 +178,7 @@
                     </div>
 
                     <div class="col-sm-6" style="margin-top:3%;">
-                        <table border="1%" class="table-responsive" style="background-color:cadetblue; position:static;">
+                        <table class="table-responsive" style="background-color:cadetblue; position:static;">
                         <col width="60">
                         <col width="430">
                         <col width="80">
@@ -208,7 +208,7 @@
                     </div>
 
                     <div class="col-sm-6" style="margin-top:-3%;">
-                        <table border="1%" class="table-responsive" style="background-color:cadetblue; position:static;">
+                        <table class="table-responsive" style="background-color:cadetblue; position:static;">
                         <col width="60">
                         <col width="430">
                         <col width="80">
@@ -248,7 +248,7 @@
                     </div>
 
                     <div class="col-sm-6" style=" margin-top:2%;">
-                        <table border="1%" class="table-responsive" style="background-color:beige; position:static;">
+                        <table class="table-responsive" style="background-color:beige; position:static;">
                         <col width="600px">    
                             <tr>
                                 <td style="color:black;">Keamanan Pangan Faktor Penting Dalam Perhelatan Asian Games</td>
@@ -264,12 +264,13 @@
                             </tr>
                         </table>
                     </div>                    
-              </div>
+                </div>
             </div>
+            
         </div>
-
-        
-        
+        <div class="col-md-12" style="width:100%; height:30px; background-color:black;">
+            <p style="size:18px; text-align:center;"> SELAMAT DATANG DI KANTOR BADAN PENGAWAS OBAT DAN MAKANAN</p>
+        </div>
     </div>
 </div>
         
