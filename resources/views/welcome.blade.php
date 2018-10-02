@@ -1,87 +1,114 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-        <title>Laravel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=" {{asset('css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href=" {{asset('css/file.css')}} ">
+    <link rel="stylesheet" href=" {{asset('css/font-awesome.min.css')}} ">
+    <script src="{{asset ('jquery.min.js')}}"></script>
+    <script src="{{asset('popper.min.js')}}"></script>
+    <script src="{{asset('bootstrap.min.js')}}"></script>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+</head>
+<body style="background-image: url({{asset('img/log/bg-log.jpg')}}">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <div class="container-fluid">
+        <div class="row" style="padding:10px; margin:auto;">
+            <div class="col-md-12" style="background-color:grey; margin-left:auto; height:100px; overflow-x:hidden; ">
+                <h1>IMAGE HERE</h1>
+            </div>
+            <div class="col-md-12" style="height:30px; background-color:black; margin-left:auto;">
+                <p style="color:whitesmoke; font-style:normal;"> 
+                    <marquee behavior="" direction=""> 
+                        Badan pengawas obat dan makanan jalan percetakan negara nomor 23 Jakarta - 10560 - Indonesia
+                    </marquee>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-left:auto; margin-top:20px;">
+        <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
+            <div class="card-header" style="background-color:chocolate;">
+                Featured
+            </div>
+            <div class="card-body">
+                <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+            </div>
+        </div>
 
-            .full-height {
-                height: 100vh;
-            }
+        <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
+            <div class="card-header" style="background-color:chocolate;">
+                Featured
+            </div>
+            <div class="card-body">
+                <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+            </div>
+        </div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">            
+            <div class="card-header" style="background-color:chocolate;">
+                Featured
+            </div>
+            <div class="card-body">
+                <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+            </div>
+        </div>
 
-            .position-ref {
-                position: relative;
-            }
+        <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
+            <div class="card-header" style="background-color:chocolate;">
+                Featured
+            </div>
+            <div class="card-body">
+                <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+            </div>
+        </div>
+    </div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+    <div class="row" style="margin-left:auto; margin-top:20px;">
+            <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
+                <div class="card-header" style="background-color:chocolate;">
+                    Featured
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Antrian Laravel
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
+                <div class="card-header" style="background-color:chocolate;">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">            
+                <div class="card-header" style="background-color:chocolate;">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 19rem; margin-right:auto; margin-left:10px; margin-top:10px; float:left; background-color:azure;">
+                <div class="card-header" style="background-color:chocolate;">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <a href="#" class="btn btn-primary btn-sm"> <i class="fa fa-arrow-circle-right"> Go Anywhere</i></a>
                 </div>
             </div>
         </div>
-    </body>
+
+        
+    </div>
+</body>
 </html>
