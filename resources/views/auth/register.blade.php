@@ -39,21 +39,6 @@
                             </div>
                         </div>
 
-                       <div class="form-group row">
-                            {!! Form::label('id', 'Jabatan', ['class'=>'col-md-4 col-form-label text-md-right']) !!}
-                            <div class="col-md-6">
-                            {!! Form::select('id',App\Jabatan::pluck('nama_jabatan','id')->all(), null,['class'=>'form-control','name'=>'jabatan','id'=>'jabatan']) !!}
-                            {!! $errors->first('id', '<p class="help-block">:message</p>') !!}
-                            </div>
-
-                             @if ($errors->has('jabatan'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('jabatan') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-
-
 
                         <div class="form-group row">
                              <label for="lantai" class="col-md-4 col-form-label text-md-right">{{ __('Lantai') }}</label>
