@@ -113,14 +113,16 @@ class LoketController extends Controller
 
 
         $loket = Loket::find($id);
-        if(!$loket->update([
+        $loket->update([
             'nama_layanan'    => $request->nama_layanan,
             'kode'    => $request->kode,
             'lantai'  => $request->lantai,
             'petugas' => $request->petugas,
-        ])) 
+        ]);
+            
+            return redirect()->route('loket.index'); 
 
-        return redirect()->route('loket.index');
+        
     }
 
     /**
@@ -130,6 +132,14 @@ class LoketController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+           Loket::where('id', $id)->delete();
+
+            return redirect()->route('loket.index');
+    }
+
+        public function delete($id)
     {
         //
            Loket::where('id', $id)->delete();

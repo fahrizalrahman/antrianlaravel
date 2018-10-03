@@ -23,49 +23,79 @@
             <div class="col-md-12" style="background-color:black; height:30px;">
                 <p><marquee>Badan Pengawas Obat dan Makanan, Jalan Percetakan Negara Nomor 23 Jakarta - 10560 - Indonesia </marquee></p>
             </div>
-            <div class="col-md-12" style="width:100%; height:auto; background-image:url( {{asset('img/come.jpg')}} ); background-size:cover; background-position:center; background-repeat:no-repeat;">
-                {{-- <div class="container-fluid"> --}}
-                <div class="row" style="margin-top:20px; margin-left:140px;">    	
-                    <div class="info-card">
-                        <div class="front">
-                            <img class="card-image" src="http://i.imgur.com/QHxnyes.jpg?1">
-                        </div>
-                    <div class="back">
-                        <h2 style="color:black;">Gentlesir</h2>
-                        <p style="color:black;">
-                            Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
-                        </p>
-                    </div>
-                    </div>
+            <div class="col-md-12" style="width:100%; height:600px; background-image:url( {{asset('img/come.jpg')}} ); background-size:cover; background-position:center; background-repeat:no-repeat;">
+                <div class="container">	
+                <section class="main" style="margin-top:20px;">		
+                    <ul class="ch-grid">
+                        <li>
+                            <div class="ch-item">				
+                                <div class="ch-info" id="flip-1">
+                                    <div class="ch-info-front ch-img-1"></div>
+                                    <div class="ch-info-back">
+                                        @if($layanan_loket->count() > 0)
+                                       @foreach($layanan_loket->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif
+                                    </div>	
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="ch-item">
+                                <div class="ch-info">
+                                    <div class="ch-info-front ch-img-2"></div>
+                                    <div class="ch-info-back">
+                                        @if($layanan_loket_2->count() > 0)
+                                        @foreach($layanan_loket_2->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
 
-                    <div class="info-card">
-                        <div class="front">
-                            <img class="card-image" style="width:250px; height:250px;" src="http://i.imgur.com/QHxnyes.jpg?1">
-                        </div>
-                    <div class="back">
-                            <h2 style="color:black;">Gentlesir</h2>
-                            <p style="color:black;">
-                                Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
-                            </p>
-                    </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="front">
-                            <img class="card-image" src="http://i.imgur.com/QHxnyes.jpg?1">
-                        </div>
-                    <div class="back">
-                            <h2 style="color:black;">Gentlesir</h2>
-                            <p style="color:black;">
-                                Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
-                            </p>
-                    </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-top:80px; margin-left:140px; margin-bottom:20px;">    	
-                        <div class="info-card">
-                            <div class="front">
-                                <img class="card-image" src="http://i.imgur.com/QHxnyes.jpg?1">
+                        <li>
+                            <div class="ch-item">
+                                <div class="ch-info">
+                                    <div class="ch-info-front ch-img-3"></div>
+                                    <div class="ch-info-back">
+                                        @if($layanan_loket_3->count() > 0)
+                                        @foreach($layanan_loket_3->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </li> <br><br><br>
+                        <li>
+                            <div class="ch-item">
+                                <div class="ch-info">
+                                    <div class="ch-info-front ch-img-3"></div>
+                                    <div class="ch-info-back">
+                                     @if($layanan_loket_4->count() > 0)
+                                        @foreach($layanan_loket_4->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        <div class="ch-item">
+                            <div class="ch-info">
+                                <div class="ch-info-front ch-img-3"></div>
+                                <div class="ch-info-back">
+                                   @if($layanan_loket_5->count() > 0)
+                                         @foreach($layanan_loket_5->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                    @endif  
+                                </div>
                             </div>
                         <div class="back">
                                 <h2 style="color:black;">Gentlesir</h2>
@@ -74,22 +104,19 @@
                                 </p>
                         </div>
                         </div>
-    
-                        <div class="info-card">
-                            <div class="front">
-                                <img class="card-image" src="http://i.imgur.com/QHxnyes.jpg?1">
-                            </div>
-                        <div class="back">
-                                <h2 style="color:black;">Gentlesir</h2>
-                                <p style="color:black;">
-                                    Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
-                                </p>
-                        </div>
-                        </div>
-    
-                        <div class="info-card">
-                            <div class="front">
-                                <img class="card-image" src="http://i.imgur.com/QHxnyes.jpg?1">
+                        </li>
+                        <li>
+                            <div class="ch-item">
+                                <div class="ch-info">
+                                    <div class="ch-info-front ch-img-3"></div>
+                                    <div class="ch-info-back">
+                                     @if($layanan_loket_5->count() > 0)
+                                        @foreach($layanan_loket_6->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                       @endif 
+                                    </div>
+                                </div>
                             </div>
                         <div class="back">
                                 <h2 style="color:black;">Gentlesir</h2>
@@ -113,3 +140,13 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+$(document).on('click', '#flip-1', function () { 
+
+      $.get('{{ url("layanan/1") }}',{'_token': $('meta[name=csrf-token]').attr('content')}, function(resp){  
+    });
+
+  });
+</script>
+

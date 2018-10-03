@@ -230,9 +230,7 @@ $(function () {
 });
 </script>
 
-<div id="linechart">
-    
-</div>
+
 
         @yield('scripts')
 
