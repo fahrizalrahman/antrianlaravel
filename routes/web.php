@@ -36,11 +36,6 @@ Route::get('/layanan', 'HomeController@layanan')->name('layanan');
 Route::get('/display', 'HomeController@display')->name('antrian')->middleware('verified');
 
 Route::get('/utama','HomeController@utama')->name('utama');
-<<<<<<< HEAD
 Route::get('/index', 'HomeController@index1')->name('index1');
-Route::get('/display', 'HomeController@display')->name('antrianUtama');
-Route::get('/monitor', 'HomeController@monitor')->name('monitor');
-=======
 Route::get('/display', 'HomeController@display')->name('antrian');
 Route::get('/monitor', 'HomeController@monitor')->name('monitor');
->>>>>>> cc92215bcc6605213ac6cea0c16f4c89f3460e90

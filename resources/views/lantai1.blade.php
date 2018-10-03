@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset ('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href=" {{asset('css/file.css')}} ">
-    <script src="{{asset ('jquery.min.js')}}"></script>
-    <script src="{{asset('popper.min.js')}}"></script>
-    <script src="{{asset('bootstrap.min.js')}}"></script>
+    <script src="{{asset ('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/moment.min.js')}}"></script>
+    <script src="{{asset('js/jquery.nicescroll.js')}}"></script>
     <title>Contoh Lantai 1</title>
 </head>
 <body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
@@ -109,9 +111,13 @@
         <div class="row">
             <div class="col-sd-12" style="background-image:url({{asset('img/come.jpg')}}); width:100%; height:100px;">
             </div>
-
+ 
             <div class="col-md-12" style="background-color:black; height:40px;">
-                <span style="float:left; text-align:center; height:40px; background-color:cornflowerblue; width:5%;">12:03</span>
+                <span style="float:left; text-align:center; height:40px; background-color:cornflowerblue; width:5%;">
+                    <div class="time">
+                        <h5 class="animated fadeInLeft">21:00</h5>
+                    </div>
+                </span>
                 <p style="text-align:center; color:aliceblue; padding-top:1%;">
                     SELAMAT DATANG DI KANTOR BADAN PENGAWAS OBAT DAN MAKANAN
                 </p>
