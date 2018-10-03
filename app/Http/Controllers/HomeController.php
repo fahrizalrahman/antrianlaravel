@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Loket;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,16 @@ class HomeController extends Controller
         if (Auth::user()->jabatan == "admin") {
             return view('home');       
          }else{
-            return view('layanan'); 
-         }
+        
+        $layanan_loket   = Loket::select()->where('lantai',1);
+        $layanan_loket_2 = Loket::select()->where('lantai',2);
+        $layanan_loket_3 = Loket::select()->where('lantai',3);
+        $layanan_loket_4 = Loket::select()->where('lantai',3);
+        $layanan_loket_5 = Loket::select()->where('lantai',5);
+        $layanan_loket_6 = Loket::select()->where('lantai',6);
+        return view('antrian', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
+
+        }
         
     }
 
@@ -69,7 +78,13 @@ class HomeController extends Controller
 
     public function display()
     {
-        return view('antrian');
+        $layanan_loket   = Loket::select()->where('lantai',1);
+        $layanan_loket_2 = Loket::select()->where('lantai',2);
+        $layanan_loket_3 = Loket::select()->where('lantai',3);
+        $layanan_loket_4 = Loket::select()->where('lantai',3);
+        $layanan_loket_5 = Loket::select()->where('lantai',5);
+        $layanan_loket_6 = Loket::select()->where('lantai',6);
+        return view('antrian', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
     }
 
     public function monitor()
@@ -77,9 +92,10 @@ class HomeController extends Controller
         return view('monitor');
     }
 
-    public function layanan()
-    {
-        return view('layanan');
+    public function layanan($lantai)
+    {   
+        $layanan_lantai = Loket::select()->where('lantai',$lantai)->get();
+        return view('layanan',['layanan_lantai' => $layanan_lantai]);
     }
 
 }

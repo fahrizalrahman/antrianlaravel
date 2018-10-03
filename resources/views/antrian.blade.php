@@ -29,11 +29,14 @@
                     <ul class="ch-grid">
                         <li>
                             <div class="ch-item">				
-                                <div class="ch-info">
+                                <div class="ch-info" id="flip-1">
                                     <div class="ch-info-front ch-img-1"></div>
                                     <div class="ch-info-back">
-                                        <h3>Lantai 1</h3>
-                                        
+                                        @if($layanan_loket->count() > 0)
+                                       @foreach($layanan_loket->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif
                                     </div>	
                                 </div>
                             </div>
@@ -44,8 +47,11 @@
                                 <div class="ch-info">
                                     <div class="ch-info-front ch-img-2"></div>
                                     <div class="ch-info-back">
-                                        <h3>You</h3>
-                                        
+                                        @if($layanan_loket_2->count() > 0)
+                                        @foreach($layanan_loket_2->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif                                        
                                     </div>
                                 </div>
                             </div>
@@ -56,8 +62,11 @@
                                 <div class="ch-info">
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
-                                        <h3>Love</h3>
-                                        
+                                        @if($layanan_loket_3->count() > 0)
+                                        @foreach($layanan_loket_3->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -67,8 +76,11 @@
                                 <div class="ch-info">
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
-                                        <h3>Love</h3>
-                                        
+                                     @if($layanan_loket_4->count() > 0)
+                                        @foreach($layanan_loket_4->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -78,8 +90,11 @@
                             <div class="ch-info">
                                 <div class="ch-info-front ch-img-3"></div>
                                 <div class="ch-info-back">
-                                    <h3>Love</h3>
-                                    
+                                   @if($layanan_loket_5->count() > 0)
+                                         @foreach($layanan_loket_5->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                    @endif  
                                 </div>
                             </div>
                         </div>
@@ -89,8 +104,11 @@
                                 <div class="ch-info">
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
-                                        <h3>Love</h3>
-                                        
+                                     @if($layanan_loket_5->count() > 0)
+                                        @foreach($layanan_loket_6->get() as $value)
+                                        <h3>{{$value->nama_layanan}}</h3> 
+                                        @endforeach
+                                       @endif 
                                     </div>
                                 </div>
                             </div>
@@ -113,3 +131,13 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+$(document).on('click', '#flip-1', function () { 
+
+      $.get('{{ url("layanan/1") }}',{'_token': $('meta[name=csrf-token]').attr('content')}, function(resp){  
+    });
+
+  });
+</script>
+
