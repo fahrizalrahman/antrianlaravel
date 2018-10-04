@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Loket;
 use Alert;
+use Session;
 
 class LoketController extends Controller
 {
@@ -68,6 +69,11 @@ class LoketController extends Controller
                     'petugas'       => $request->petugas,
                 ]);
 
+          Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Berhasil Menambah Loket"
+            ]);
+
          return redirect()->route('loket.index');
     }
 
@@ -120,6 +126,11 @@ class LoketController extends Controller
             'lantai'  => $request->lantai,
             'petugas' => $request->petugas,
         ]);
+
+        Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Berhasil Mengubah Loket"
+            ]);
             
             return redirect()->route('loket.index'); 
 
@@ -134,10 +145,7 @@ class LoketController extends Controller
      */
     public function destroy($id)
     {
-        //
-           Loket::where('id', $id)->delete();
 
-            return redirect()->route('loket.index');
     }
 
         public function delete($id)
@@ -145,6 +153,10 @@ class LoketController extends Controller
         //
            Loket::where('id', $id)->delete();
 
+        Session::flash("flash_notification", [
+            "level"=>"danger",
+            "message"=>"Berhasil Mengapus Loket"
+            ]);
             return redirect()->route('loket.index');
     }
 }

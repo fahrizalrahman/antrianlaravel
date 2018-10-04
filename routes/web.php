@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@display')->middleware('verified');
+Route::get('/', 'AntrianController@logout')->middleware('verified');
 
 
 Auth::routes(['verify' => true]);
@@ -22,9 +22,14 @@ Route::get('/lantai', 'HomeController@lantai')->name('lantai');
 Route::resource('loket','LoketController');
 Route::get('/loket/delete/{id}', 'LoketController@delete')->name('loket.delete');
 
+<<<<<<< HEAD
 // Route Tambah User
 Route::Get('/User','UserController@createUser')->name('loket.add');
 Route::get('/pelanggan','UserController@addPelanggan')->name('loket.addPelanggan');
+=======
+// Route User
+Route::get('/print-antrian/{id}', 'AntrianController@print')->name('print-antrian');
+>>>>>>> 42c2cbb8bd8c45404390da843cf54bd2d57aadbe
 
 // Route User
 
@@ -32,8 +37,5 @@ Route::get('/layanan/{lantai}', 'HomeController@layanan')->name('layanan');
 Route::get('/display', 'HomeController@display')->name('antrian')->middleware('verified');
 
 Route::get('/utama','HomeController@utama')->name('utama');
-Route::get('/index', 'HomeController@index1')->name('index1');
-Route::get('/display', 'HomeController@display')->name('antrianUtama');
 Route::get('/monitor', 'HomeController@monitor')->name('monitor');
 Route::get('/display', 'HomeController@display')->name('antrian');
-Route::get('/monitor', 'HomeController@monitor')->name('monitor');

@@ -14,6 +14,7 @@
 </head>
 <body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
     <div class="container">
+
         <div class="row" style="margin-top:20px;">
             <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
                 <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
@@ -35,8 +36,8 @@
                     <ul class="ch-grid">
                         <li>
                             <div class="ch-item">				
-                                <div class="ch-info" id="flip-1">
-                                    <div class="ch-info-front ch-img-1"></div>
+                                <div class="ch-info" id="flip-1" >
+                                    <div class="ch-info-front ch-front-1"><h4 style="margin-top:50px;">LANTAI <br>  1</h4></div>
                                     <div class="ch-info-back">
                                         @if($layanan_loket->count() > 0)
                                         @foreach($layanan_loket->get() as $value)
@@ -50,8 +51,8 @@
                         
                         <li>
                             <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
+                                <div class="ch-info" id="flip-2">
+                                    <div class="ch-info-front ch-front-2"><h4 style="margin-top:50px;">LANTAI <br> 2</h4></div>
                                     <div class="ch-info-back">
                                         @if($layanan_loket_2->count() > 0)
                                         @foreach($layanan_loket_2->get() as $value)
@@ -65,8 +66,8 @@
 
                         <li>
                             <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
+                                <div class="ch-info" id="flip-3">
+                                    <div class="ch-info-front ch-front-3"><h4 style="margin-top:50px;">LANTAI <br> 3</h4></div>
                                     <div class="ch-info-back">
                                         @if($layanan_loket_3->count() > 0)
                                         @foreach($layanan_loket_3->get() as $value)
@@ -79,8 +80,8 @@
                         </li> <br><br><br>
                         <li>
                             <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
+                                <div class="ch-info" id="flip-4">
+                                    <div class="ch-info-front ch-front-4"><h4 style="margin-top:50px;">LANTAI <br> 4</h4></div>
                                     <div class="ch-info-back">
                                      @if($layanan_loket_4->count() > 0)
                                         @foreach($layanan_loket_4->get() as $value)
@@ -93,8 +94,8 @@
                         </li>
                         <li>
                         <div class="ch-item">
-                            <div class="ch-info">
-                                <div class="ch-info-front ch-img-3"></div>
+                            <div class="ch-info" id="flip-5">
+                                <div class="ch-info-front ch-front-5"><h4 style="margin-top:50px;">LANTAI <br> 5</h4></div>
                                 <div class="ch-info-back">
                                    @if($layanan_loket_5->count() > 0)
                                          @foreach($layanan_loket_5->get() as $value)
@@ -113,8 +114,8 @@
                         </li>
                         <li>
                             <div class="ch-item">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
+                                <div class="ch-info" id="flip-6">
+                                    <div class="ch-info-front ch-front-6"><h4 style="margin-top:50px;">LANTAI <br>  6</h4></div>
                                     <div class="ch-info-back">
                                      @if($layanan_loket_5->count() > 0)
                                         @foreach($layanan_loket_6->get() as $value)
@@ -148,13 +149,23 @@
     </div>
 </body>
 </html>
-
 <script type="text/javascript">
-$(document).on('click', '#flip-1', function () { 
-
-      $.get('{{ url("layanan/1") }}',{'_token': $('meta[name=csrf-token]').attr('content')}, function(resp){  
-    });
-
-  });
+$("#flip-1").click(function () {
+  window.location.href = "{{URL::to('layanan/1')}}"
+});
+$("#flip-2").click(function () {
+  window.location.href = "{{URL::to('layanan/2')}}"
+});
+$("#flip-3").click(function () {
+  window.location.href = "{{URL::to('layanan/3')}}"
+});
+$("#flip-4").click(function () {
+  window.location.href = "{{URL::to('layanan/4')}}"
+});
+$("#flip-5").click(function () {
+  window.location.href = "{{URL::to('layanan/5')}}"
+});
+$("#flip-6").click(function () {
+  window.location.href = "{{URL::to('layanan/6')}}"
+});
 </script>
-

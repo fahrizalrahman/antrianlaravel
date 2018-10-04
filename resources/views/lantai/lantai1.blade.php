@@ -15,6 +15,20 @@
 </head>
 <body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
     <div class="container">
+                  <a class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                  <span class="float-right text-sm text-danger"></span>
+                </h3>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf
+                 </form>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
         <div class="row" style="margin-top:20px;">
             <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
                 <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >

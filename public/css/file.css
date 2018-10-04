@@ -97,22 +97,31 @@ body {
 	opacity: 0;
 }
 
-.ch-img-1 { 
-	background-image: url(../img/LT1.PNG);
+.ch-front-1 { 
+	background: #ff9900
 }
 
-.ch-img-2 { 
-	background-image: url(../img/18.jpg);
+.ch-front-2 { 
+	background: #ff3300
 }
 
-.ch-img-3 { 
-	background-image: url(../img/18.jpg);
+.ch-front-3 { 
+	background: #85adad
+}
+.ch-front-4 { 
+	background: #1a53ff
+}
+.ch-front-5 { 
+	background: #33ff33
+}
+.ch-front-6 { 
+	background: #c44dff
 }
 
 .ch-info h3 {
 	color: #fff;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	font-size: 6px;
 	margin: 0 15px;
 	padding: 20px 0 0 0;

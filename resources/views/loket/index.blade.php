@@ -15,6 +15,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+          @include('layouts._flash')
            <div class="card">
             <div class="card-header">
                 <a href="{{ route('loket.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Loket</a>
