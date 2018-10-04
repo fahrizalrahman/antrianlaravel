@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit User</h1>
+            <h1>Edit Petugas</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -19,32 +19,39 @@
             <!-- Content Header (Page header) -->
             <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Edit User</h3>
+                      <h3 class="card-title">Edit Petugas</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action=" {{route('user.update',$EditPetugas->id)}}" method="POST">
+                    <form action=" {{route('petugas.update',$editPetugas->id)}}" method="POST">
                         @csrf
                         @method('PUT')
                       <div class="card-body">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Nama</label>
-                          <input type="text" class="form-control" value="{{$EditPetugas->nama}}" name="nama" placeholder="Masukan Nama">
+                          <input type="text" class="form-control" value="{{$editPetugas->name}}" name="name" placeholder="Masukan Nama">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">E-Mail</label>
-                            <input type="email" class="form-control" value="{{$EditPetugas->email}}" name="email" placeholder="Masukan Email">
+                            <input type="email" class="form-control" value="{{$editPetugas->email}}" name="email" placeholder="Masukan Email">
                         </div>
+
                         <div class="form-group">
-                            <label>Pilih Jabatan</label>
-                            <select class="form-control" value="{{$EditPetugas->jabatan}}" name="jabatan">
-                                <option value="petugas">Petugas Loket</option>
-                                <option value="admin">Admin</option>
-                            </select>
-                        </div>
+                          <label for="exampleInputEmail1">NIK</label>
+                          <input type="text" class="form-control" value="{{$editPetugas->nik}}" name="nik" placeholder="Masukan NIK">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">No Telpn</label>
+                        <input type="text" class="form-control" value="{{$editPetugas->no_telp}}" name="no_telp" placeholder="Masukan no_telp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Alamat</label>
+                      <input type="text" class="form-control" value="{{$editPetugas->alamat}}" name="alamat" placeholder="Masukan Alamat">
+                  </div>
+          
                         <div class="form-group">
                             <label>Pilih Lantai</label>
-                            <select class="form-control" value="{{$EditPetugas->lantai}}" name="lantai">
+                            <select class="form-control" value="{{$editPetugas->lantai}}" name="lantai">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -57,7 +64,7 @@
                       <!-- /.card-body -->
       
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                       </div>
                     </form>
                   </div>

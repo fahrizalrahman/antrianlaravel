@@ -23,8 +23,10 @@ Route::resource('loket','LoketController');
 Route::get('/loket/delete/{id}', 'LoketController@delete')->name('loket.delete');
 
 // Route Tambah User
-Route::Get('/User','UserController@createUser')->name('loket.add');
-Route::get('/pelanggan','UserController@addPelanggan')->name('loket.addPelanggan');
+Route::resource('user','AddUserController');
+// Tambah Petugas
+Route::resource('petugas','addPetugasController');
+
 // Route User
 Route::get('/print-antrian/{id}', 'AntrianController@print')->name('print-antrian');
 

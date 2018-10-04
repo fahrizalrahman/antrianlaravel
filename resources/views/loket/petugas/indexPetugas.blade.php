@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Loket</h1>
+            <h1>Petugas</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
           @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('loket.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Loket</a>
+                <a href="{{ route('petugas.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Petugas</a>
             
             </div>
             <!-- /.card-header -->
@@ -26,27 +26,27 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nomor Loket</th>
-                  <th>Nama Layanan</th>
+                  <th>Nama Petugas</th>
+                  <th>Email </th>
+                  <th>NIK </th>
+                  <th>No Telp</th>
+                  <th>Jabatan</th>
                   <th>Lantai</th>
-                  <th>Petugas</th>
-                  <th>Aksi</th>
+                  {{-- <th>Action</th> --}}
+
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($loket as $value)
+                @foreach($petugas as $value)
                  <tr>
-                  <td>{{$value->kode}}</td>
-                  <td>{{$value->nama_layanan}}</td>
+                  <td>{{$value->name}}</td>
+                  <td>{{$value->email}}</td>
+                  <td>{{$value->nik}}</td>
+                  <td>{{$value->no_telp}}</td>
+              
+                  <td>{{$value->jabatan}}</td>
                   <td>{{$value->lantai}}</td>
-                  <td>{{$value->petugas}}</td>
-                  <td>
-                    <a href="{{ route('loket.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
-                    <form action=" {{route('loket.destroy',$value->id)}}" method="POST">
-                      i
-
-                    </form>
-                  </td>
+                  <td><a href="{{ route('petugas.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || <a  href="#" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a></td>
                 </tr>
                 @endforeach
                 </tbody>

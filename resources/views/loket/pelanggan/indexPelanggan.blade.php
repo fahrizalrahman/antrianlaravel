@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Loket</h1>
+            <h1>Pelanggan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
           @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('loket.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Loket</a>
+                <a href="{{ route('user.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Pelanggan</a>
             
             </div>
             <!-- /.card-header -->
@@ -26,26 +26,33 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nomor Loket</th>
-                  <th>Nama Layanan</th>
-                  <th>Lantai</th>
-                  <th>Petugas</th>
-                  <th>Aksi</th>
+                  <th>Nama Pelanggan</th>
+                  <th>Email </th>
+                  <th>NIK </th>
+                  <th>No Telp</th>
+                  <th>Jabatan</th>
+                  <th>lantai</th>
+                  <th style="width:auto">Action</th>
+
+
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($loket as $value)
+                @foreach($pelanggan as $value)
                  <tr>
-                  <td>{{$value->kode}}</td>
-                  <td>{{$value->nama_layanan}}</td>
+                  <td>{{$value->name}}</td>
+                  <td>{{$value->email}}</td>
+                  <td>{{$value->nik}}</td>
+                  <td>{{$value->no_telp}}</td>
+                  <td>{{$value->jabatan}}</td>
                   <td>{{$value->lantai}}</td>
-                  <td>{{$value->petugas}}</td>
                   <td>
-                    <a href="{{ route('loket.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
-                    <form action=" {{route('loket.destroy',$value->id)}}" method="POST">
-                      i
-
-                    </form>
+                    <a href="{{ route('user.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
+                      <form action="{{route('user.destroy', $value->id)}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i></button>
+                      </form>
                   </td>
                 </tr>
                 @endforeach

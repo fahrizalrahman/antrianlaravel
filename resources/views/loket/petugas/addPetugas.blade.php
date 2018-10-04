@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah User</h1>
+            <h1>Tambah Petugas</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -19,28 +19,47 @@
             <!-- Content Header (Page header) -->
             <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Tambah User</h3>
+                      <h3 class="card-title">Tambah Petugas</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action=" {{route('register')}}" method="POST">
+                    <form action=" {{route('petugas.store')}}" method="POST">
                         @csrf
-                      <div class="card-body">
-                        <div class="form-group">
-                          <label for="name">Nama</label>
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">E-Mail</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email">
-                        </div>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama" required>
+                          </div>
+                          
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">E-Mail</label>
+                              <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email" required>
+                          </div>
+  
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">NIK</label>
+                              <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukan NIK" required>
+                          </div>
+  
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">No Telp</label>
+                              <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Masukan No Telp" required>
+                          </div>
+  
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Alamat</label>
+                              <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukan Alamat" required>
+                          </div>
+  
         
-                      <div class="form-group">
-                          <label>Pilih Lantai</label>
-                          {!! Form::select('id',App\Jabatan::pluck('nama_jabatan','id')->all(), null,['class'=>'form-control','name'=>'jabatan','id'=>'jabatan']) !!}
-                          </select>
-                      </div>
+                          <div class="form-group">
+                              <label>Pilih Petugas</label>
+                              <select class="form-control" name="jabatan">
+                                  <option value="admin">Admin</option>
+                                  <option value="petugas_loket">Petugas Loket</option>
+                                
+                              </select>
+                          </div>
                         
                         <div class="form-group">
                             <label>Pilih Lantai</label>
