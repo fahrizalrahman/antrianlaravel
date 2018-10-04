@@ -21,7 +21,7 @@
 
         <div class="col-md-12" style="width:100%; height:auto; background-image:url( {{asset('img/come.jpg')}} ); background-size:cover; background-position:center; background-repeat:no-repeat;">
             <div class="container-fluid">
-              <div class="row" style="margin-top:20px; margin-left:5px;">
+              <div class="row" style="margin-top:20px; margin-left:5px; margin-bottom: 20px;">
                     <div class="col-sm-6" style="margin-top:2%;">
                         <table class="table-responsive" style="position:static;">
                         <col width="60">

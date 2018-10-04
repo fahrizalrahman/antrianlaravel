@@ -98,6 +98,12 @@
                                     @endif  
                                 </div>
                             </div>
+                        <div class="back">
+                                <h2 style="color:black;">Gentlesir</h2>
+                                <p style="color:black;">
+                                    Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                                </p>
+                        </div>
                         </div>
                         </li>
                         <li>
@@ -113,12 +119,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        
-                    </ul>
-                    
-                </section>
-                </div>                    
+                        <div class="back">
+                                <h2 style="color:black;">Gentlesir</h2>
+                                <p style="color:black;">
+                                    Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
+                                </p>
+                        </div>
+                        </div>
+                    </div>
+                {{-- </div>                     --}}
         </div>
     
         </div>
