@@ -17,7 +17,7 @@
 </head>
 <body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
     <div class="container">
-        <div class="row" style="margin-top:20px;">
+        <div class="row">
             <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
                 <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
             </div>
@@ -34,12 +34,11 @@
                     @foreach($layanan_lantai as $layanan_lantais)    
                      <div class="col-sm-4">
                         <div class="card" style="width: 20rem; background-color:azure;">
-                            <div class="card-header" style="background-color:chocolate;">
-                                {{$layanan_lantais->nama_layanan}}
-                                 
+                            <div class="card-header" style="background-color:chocolate;" data-toggle="tooltip" rel="tooltip" data-placement="top" title="{{$layanan_lantais->nama_layanan}}">
+                                {{ str_limit($layanan_lantais->nama_layanan, $limit = 30, $end = '...') }}      
                             </div>
                             <div class="card-body">
-                                <a href="#" class="btn btn-primary btn-sm"> 
+                                <a href="{{route('print-antrian',$layanan_lantais->id)}}" class="btn btn-primary btn-sm" > 
                                 <i class="fa fa-arrow-circle-right"> Pilih</i>
                                 </a>
                             </div>
@@ -60,3 +59,9 @@
     </div>
 </body>
 </html>
+
+<script>
+  $( document ).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+            });
+</script>

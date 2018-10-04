@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         if (Auth::user()->jabatan == "admin") {
             return view('home');       
-         }else{
+         }elseif (Auth::user()->jabatan == "pelanggan"){
         
         $layanan_loket   = Loket::select()->where('lantai',1);
         $layanan_loket_2 = Loket::select()->where('lantai',2);
@@ -37,6 +37,18 @@ class HomeController extends Controller
         $layanan_loket_6 = Loket::select()->where('lantai',6);
         return view('antrian', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
 
+        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 1 ){
+            return view('lantai.lantai1'); 
+        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 2 ){
+            return view('lantai.lantai2'); 
+        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 3 ){
+            return view('lantai.lantai3'); 
+        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 4 ){
+            return view('lantai.lantai4'); 
+        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 5 ){
+            return view('lantai.lantai5'); 
+        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 6 ){
+            return view('lantai.lantai6'); 
         }
         
     }
@@ -46,35 +58,6 @@ class HomeController extends Controller
         return view('lantai');
     }
 
-    public function lantai1()
-    {
-        return view('lantai1');
-    }
-
-    public function lantai2()
-    {
-        return view('lantai2');
-    }
-
-    public function lantai3()
-    {
-        return view('lantai3');
-    }
-
-    public function lantai4()
-    {
-        return view('lantai4');
-    }
-
-    public function lantai5()
-    {
-        return view('lantai5');
-    }
-
-    public function lantai6()
-    {
-        return view('lantai6');
-    }
 
     public function display()
     {

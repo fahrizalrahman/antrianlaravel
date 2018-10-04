@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@display')->middleware('verified');
+Route::get('/', 'AntrianController@logout')->middleware('verified');
 
 
 Route::Resource('/buat','BuatController');
@@ -25,14 +25,12 @@ Route::resource('loket','LoketController');
 Route::get('/loket/delete/{id}', 'LoketController@delete')->name('loket.delete');
 
 // Route User
+Route::get('/print-antrian/{id}', 'AntrianController@print')->name('print-antrian');
 
 
 Route::get('/layanan/{lantai}', 'HomeController@layanan')->name('layanan');
 Route::get('/display', 'HomeController@display')->name('antrian')->middleware('verified');
 
 Route::get('/utama','HomeController@utama')->name('utama');
-Route::get('/index', 'HomeController@index1')->name('index1');
-Route::get('/display', 'HomeController@display')->name('antrianUtama');
 Route::get('/monitor', 'HomeController@monitor')->name('monitor');
 Route::get('/display', 'HomeController@display')->name('antrian');
-Route::get('/monitor', 'HomeController@monitor')->name('monitor');

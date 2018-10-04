@@ -11,7 +11,7 @@ class Loket extends Model
         'nama_layanan', 'kode', 'lantai','petugas'
     ];
 
-    // relasi ke produk
+    // relasi ke user
     public function user()
     {
         return $this->hasOne('App\User', 'id', 'petugas');
