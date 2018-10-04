@@ -40,9 +40,7 @@
             <div class="news-image" style="background-image: url({{asset('img/log/bg-log.jpg')}})"></div>
             <div class="news-caption">
                 <h4 class="caption-title"><b>Antrian Laravel</b>
-                {{-- <p>
-                    As a Color Admin app administrator, you use the Color Admin console to manage your organization’s account, such as add new users, manage security settings, and turn on the services you want your team to access.
-                </p> --}}
+
             </div>
         </div>
         <!-- end news-feed -->

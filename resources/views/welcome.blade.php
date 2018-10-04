@@ -37,7 +37,7 @@
                                 Layanan Registrasi Dokumen Masuk 
                             </div>
                             <div class="card-body">
-                                <a href=" {{route('lantai1')}} " class="btn btn-primary btn-sm"> 
+                                <a href=" #" class="btn btn-primary btn-sm"> 
                                 <i class="fa fa-arrow-circle-right"> Pilih</i>
                                 </a>
                             </div>

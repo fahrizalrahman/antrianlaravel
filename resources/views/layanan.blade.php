@@ -24,6 +24,7 @@
             <div class="col-md-12" style="background-image:url({{asset('img/come.jpg')}}); width:auto; height:auto;">
             </div>
             
+            
             <div class="col-md-12" style="background-color:black; height:30px;">
                 <p><marquee>Badan Pengawas Obat dan Makanan, Jalan Percetakan Negara Nomor 23 Jakarta - 10560 - Indonesia </marquee></p>
             </div>

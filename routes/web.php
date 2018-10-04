@@ -14,8 +14,6 @@
 Route::get('/', 'HomeController@display')->middleware('verified');
 
 
-Route::Resource('/buat','BuatController');
-
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
@@ -24,8 +22,11 @@ Route::get('/lantai', 'HomeController@lantai')->name('lantai');
 Route::resource('loket','LoketController');
 Route::get('/loket/delete/{id}', 'LoketController@delete')->name('loket.delete');
 
-// Route User
+// Route Tambah User
+Route::Get('/User','UserController@createUser')->name('loket.add');
+Route::get('/pelanggan','UserController@addPelanggan')->name('loket.addPelanggan');
 
+// Route User
 
 Route::get('/layanan/{lantai}', 'HomeController@layanan')->name('layanan');
 Route::get('/display', 'HomeController@display')->name('antrian')->middleware('verified');

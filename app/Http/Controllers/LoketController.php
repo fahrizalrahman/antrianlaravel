@@ -9,6 +9,7 @@ use Alert;
 
 class LoketController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

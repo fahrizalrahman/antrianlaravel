@@ -23,6 +23,12 @@
             <div class="col-md-12" style="background-color:black; height:30px;">
                 <p><marquee>Badan Pengawas Obat dan Makanan, Jalan Percetakan Negara Nomor 23 Jakarta - 10560 - Indonesia </marquee></p>
             </div>
+            <h3 class="dropdown-item-title"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                    <span class="float-right text-sm text-danger"></span>
+                  </h3>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf
+                   </form>
             <div class="col-md-12" style="width:100%; height:600px; background-image:url( {{asset('img/come.jpg')}} ); background-size:cover; background-position:center; background-repeat:no-repeat;">
                 <div class="container">	
                 <section class="main" style="margin-top:20px;">		
@@ -33,7 +39,7 @@
                                     <div class="ch-info-front ch-img-1"></div>
                                     <div class="ch-info-back">
                                         @if($layanan_loket->count() > 0)
-                                       @foreach($layanan_loket->get() as $value)
+                                        @foreach($layanan_loket->get() as $value)
                                         <h3>{{$value->nama_layanan}}</h3> 
                                         @endforeach
                                         @endif
@@ -130,6 +136,7 @@
         </div>
     
         </div>
+        <div class="container">
         <div class="row">
             <div class="col-md-12" style="background-color:black; height:40px;">
                 <p style="text-align:center; color:aliceblue; padding-top:1%;">
@@ -137,6 +144,7 @@
                 </p>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

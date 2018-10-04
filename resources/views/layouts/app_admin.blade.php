@@ -114,6 +114,35 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-user"></i>
+                <p>
+                  Tambah User
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('loket.addPelanggan')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Tambah Pelanggan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('loket.add')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Tambah Petugas</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('loket.add')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Tambah Admin</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-percent"></i>
