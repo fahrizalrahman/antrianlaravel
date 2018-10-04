@@ -30,8 +30,9 @@
                   <th>Email </th>
                   <th>NIK </th>
                   <th>No Telp</th>
-                  <th>Alamat</th>
                   <th>Jabatan</th>
+                  <th>Lantai</th>
+                  {{-- <th>Action</th> --}}
 
                 </tr>
                 </thead>
@@ -42,8 +43,9 @@
                   <td>{{$value->email}}</td>
                   <td>{{$value->nik}}</td>
                   <td>{{$value->no_telp}}</td>
-                  <td>{{$value->alamat}}</td>
+              
                   <td>{{$value->jabatan}}</td>
+                  <td>{{$value->lantai}}</td>
                   <td><a href="{{ route('petugas.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || <a  href="#" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a></td>
                 </tr>
                 @endforeach

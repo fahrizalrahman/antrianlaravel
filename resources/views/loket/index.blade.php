@@ -40,7 +40,13 @@
                   <td>{{$value->nama_layanan}}</td>
                   <td>{{$value->lantai}}</td>
                   <td>{{$value->petugas}}</td>
-                  <td><a href="{{ route('loket.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || <a  href="{{ route('loket.delete', $value->id)}}" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a></td>
+                  <td>
+                    <a href="{{ route('loket.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
+                    <form action=" {{route('loket.destroy',$value->id)}}" method="POST">
+                      i
+
+                    </form>
+                  </td>
                 </tr>
                 @endforeach
                 </tbody>

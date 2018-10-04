@@ -135,12 +135,7 @@
                     <p>Tambah Petugas</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Tambah Admin</p>
-                  </a>
-                </li>
+               
               </ul>
             </li>
           <li class="nav-item">

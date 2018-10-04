@@ -16,12 +16,13 @@
     <div class="container">
 
         <div class="row" style="margin-top:20px;">
-            <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
-                <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
+            <div class="col-sm-12" style="height:70px; background-color:darkgrey;">
+                <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:7px;" width="100px" height="55px" >
+                <span style="float:right; width:180px; height:30px; background-color:green; margin-right:-15px; text-align:center;"> 01/Oktober/2018 | 20:10 </span>
             </div>
             <div class="col-md-12" style="background-image:url({{asset('img/come.jpg')}}); width:auto; height:auto;">
             </div>
-            <div class="col-md-12" style="background-color:black; height:30px;">
+            <div class="col-md-12" style="background-color:green; height:30px;">
                 <p><marquee>Badan Pengawas Obat dan Makanan, Jalan Percetakan Negara Nomor 23 Jakarta - 10560 - Indonesia </marquee></p>
             </div>
 

@@ -80,7 +80,8 @@ class AddUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editpelanggan = User::findorfail($id);
+        return view('loket.pelanggan.editPelanggan', compact('editpelanggan'));
     }
 
     /**
@@ -92,7 +93,18 @@ class AddUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findorfail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->nik = $request->nik;
+        $user->no_telp = $request->no_telp;
+        $user->alamat = $request->alamat;
+        $user->jabatan = 'pelanggan';
+        $user->lantai = $request->lantai;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        
+        return redirect()->route('user.index');
     }
 
     /**
@@ -103,6 +115,9 @@ class AddUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pelanggan = User::findorfail($id);
+        $pelanggan->delete();
+
+        return redirect()->route('user.index');
     }
 }

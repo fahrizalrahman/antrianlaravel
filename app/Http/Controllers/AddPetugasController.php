@@ -14,7 +14,7 @@ class AddPetugasController extends Controller
      */
     public function index()
     {
-        $petugas = User::where('id','Petugas Loket')->where('id','2')->get();
+        $petugas = User::all();
         return view('loket.petugas.indexPetugas', compact('petugas'));
     }
 
@@ -70,7 +70,8 @@ class AddPetugasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editPetugas = User::findorFail($id);
+        return view('loket.petugas.editPetugas', compact('editPetugas'));
     }
 
     /**
@@ -82,7 +83,19 @@ class AddPetugasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $petugas = User::findorfail($id);
+        $petugas->name = $request->name;
+        $petugas->email = $request->email;
+        $petugas->nik = $request->nik;
+        $petugas->no_telp = $request->no_telp;
+        $petugas->alamat = $request->alamat;
+        // $petugas->jabatan = $request->jabatan;
+        $petugas->lantai = $request->lantai;
+        $petugas->password = bcrypt($request->password);
+        $petugas->save();
+
+        
+        return redirect()->route('petugas.index');
     }
 
     /**

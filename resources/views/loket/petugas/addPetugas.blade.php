@@ -52,11 +52,14 @@
                           </div>
   
         
-                      <div class="form-group">
-                          <label>Pilih Jabatan</label>
-                          {!! Form::select('id',App\Jabatan::pluck('nama_jabatan','id')->all(), null,['class'=>'form-control','name'=>'jabatan','id'=>'jabatan']) !!}
-                          </select>
-                      </div>
+                          <div class="form-group">
+                              <label>Pilih Petugas</label>
+                              <select class="form-control" name="jabatan">
+                                  <option value="admin">Admin</option>
+                                  <option value="petugas_loket">Petugas Loket</option>
+                                
+                              </select>
+                          </div>
                         
                         <div class="form-group">
                             <label>Pilih Lantai</label>
