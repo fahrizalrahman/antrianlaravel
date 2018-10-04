@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href=" {{asset('css/bootstrap.min.css')}} ">
+    <link rel="stylesheet" href="{{asset ('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href=" {{asset('css/file.css')}} ">
-    <link rel="stylesheet" href=" {{asset('css/font-awesome.min.css')}} ">
     <script src="{{asset ('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-
+    <title>Display Antrian Utama</title>
 </head>
-<body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
+<body class="container-fluid" style="background-image:url({{ asset('img/log/bg-log.jpg') }})">
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top:20px;">
             <div class="col-sm-12" style="height:130px; background-color:darkgrey;">
                 <img src="{{asset('img/log/logo_bpom.png')}}" style="margin-top:13px;" width="100px" height="55px" >
             </div>
             <div class="col-md-12" style="background-image:url({{asset('img/come.jpg')}}); width:auto; height:auto;">
             </div>
-            
             
             <div class="col-md-12" style="background-color:black; height:30px;">
                 <p><marquee>Badan Pengawas Obat dan Makanan, Jalan Percetakan Negara Nomor 23 Jakarta - 10560 - Indonesia </marquee></p>

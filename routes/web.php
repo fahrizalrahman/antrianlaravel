@@ -22,14 +22,11 @@ Route::get('/lantai', 'HomeController@lantai')->name('lantai');
 Route::resource('loket','LoketController');
 Route::get('/loket/delete/{id}', 'LoketController@delete')->name('loket.delete');
 
-<<<<<<< HEAD
 // Route Tambah User
 Route::Get('/User','UserController@createUser')->name('loket.add');
 Route::get('/pelanggan','UserController@addPelanggan')->name('loket.addPelanggan');
-=======
 // Route User
 Route::get('/print-antrian/{id}', 'AntrianController@print')->name('print-antrian');
->>>>>>> 42c2cbb8bd8c45404390da843cf54bd2d57aadbe
 
 // Route User
 
