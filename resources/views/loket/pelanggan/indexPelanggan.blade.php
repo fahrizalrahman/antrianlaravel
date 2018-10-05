@@ -32,7 +32,7 @@
                   <th>No Telp</th>
                   <th>Jabatan</th>
                   <th>lantai</th>
-                  <th style="width:auto">Action</th>
+                  <th>Action</th>
 
 
                 </tr>
@@ -48,7 +48,7 @@
                   <td>{{$value->lantai}}</td>
                   <td>
                     <a href="{{ route('user.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
-                      <form action="{{route('user.destroy', $value->id)}}" method="POST">
+                      <form action="{{route('user.destroy', $value->id)}}" method="POST" style="margin-left:2px;">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i></button>

@@ -32,6 +32,7 @@
                   <th>No Telp</th>
                   <th>Jabatan</th>
                   <th>Lantai</th>
+                  <th>Action</th>
                   {{-- <th>Action</th> --}}
 
                 </tr>
