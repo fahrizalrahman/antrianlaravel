@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Pengggan</h1>
+            <h1>Tambah Pelanggan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -17,7 +17,7 @@
     <section class="content">
       <div class="container-fluid">
             <!-- Content Header (Page header) -->
-            <div class="card card-danger">
+            <div class="card card-primary">
                     <div class="card-header">
                       <h3 class="card-title">Tambah Pelanggan</h3>
                     </div>

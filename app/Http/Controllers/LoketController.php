@@ -20,9 +20,17 @@ class LoketController extends Controller
     {
         //  
         if (Auth::check()) {
-            $loket = Loket::select('lokets.id AS id', 'lokets.nama_layanan', 'lokets.kode', 'users.name AS petugas', 'lokets.lantai')->leftJoin('users', 'users.id', '=', 'lokets.petugas')->orderBy('id','desc')->get();  
-
+            if(Auth::user()->jabatan==='admin'){
+                $loket = Loket::select('lokets.id AS id', 'lokets.nama_layanan', 'lokets.kode', 'users.name AS petugas', 'lokets.lantai')->leftJoin('users', 'users.id', '=', 'lokets.petugas')->orderBy('id','desc')->get();  
                 return view('loket.index')->with(compact('loket'));
+            }else{
+                $loket = Loket::select('lokets.id AS id', 'lokets.nama_layanan', 'lokets.kode AS kode', 'users.name AS petugas', 'lokets.lantai')
+                    -> leftJoin('users', 'users.id', '=', 'lokets.petugas')
+                    -> orderBy('id','desc')
+                    -> first();
+                return view('petugas_loket.loket')
+                    -> with('_loket', $loket);
+            }
         }else{
                 return view('auth.login');
         }

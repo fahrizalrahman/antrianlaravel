@@ -31,8 +31,7 @@
                   <th>NIK </th>
                   <th>No Telp</th>
                   <th>Jabatan</th>
-                  <th>lantai</th>
-                  <th style="width:auto">Action</th>
+                  <th style="width:auto">Aksi</th>
 
 
                 </tr>
@@ -45,14 +44,13 @@
                   <td>{{$value->nik}}</td>
                   <td>{{$value->no_telp}}</td>
                   <td>{{$value->jabatan}}</td>
-                  <td>{{$value->lantai}}</td>
                   <td>
-                    <a href="{{ route('user.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
-                      <form action="{{route('user.destroy', $value->id)}}" method="POST">
+                    <a href="{{ route('user.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> ||                       <form action="{{route('user.destroy', $value->id)}}" method="POST">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i></button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></button>
                       </form>
+
                   </td>
                 </tr>
                 @endforeach

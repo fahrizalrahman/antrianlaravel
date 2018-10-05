@@ -14,7 +14,7 @@ class AddPetugasController extends Controller
      */
     public function index()
     {
-        $petugas = User::all();
+        $petugas = User::where('jabatan','!=','pelanggan')->get();
         return view('loket.petugas.indexPetugas', compact('petugas'));
     }
 

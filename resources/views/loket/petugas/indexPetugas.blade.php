@@ -32,7 +32,7 @@
                   <th>No Telp</th>
                   <th>Jabatan</th>
                   <th>Lantai</th>
-                  {{-- <th>Action</th> --}}
+                   <th>Aksi</th> 
 
                 </tr>
                 </thead>

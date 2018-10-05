@@ -41,7 +41,7 @@
               </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped" style="color:black;">
                 <thead>
                 <tr>
                   <th>Loket</th>
@@ -59,7 +59,7 @@
                   <td>{{$data_loket->kode}}</td>
                   <td>{{$data_loket->nama_layanan}}</td>
                   <td>{{$data_loket->lantai}}</td>
-                  <td><a href="{{ route('loket.edit', $data_loket->id) }}" style="background-color:#17A2B8;color:white;" class="btn btn-sm"><i class="nav-icon fa fa-eye" ></i> Lihat Tiket</a></td>
+                  <td><a href="{{ url('lihat-tiket') }}" style="background-color:#17A2B8;color:white;" class="btn btn-sm"><i class="nav-icon fa fa-eye" ></i> Lihat Tiket</a></td>
                 </tr>
                 @endif
                 </tbody>

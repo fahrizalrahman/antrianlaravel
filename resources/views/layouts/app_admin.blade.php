@@ -91,26 +91,17 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link">
+        <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Dashboard</p>
-                </a>
-              </li>
-
+            </a>
+        </li>
           <li class="nav-item">
             <a href="{{ route('loket.index') }}" class="nav-link">
               <i class="nav-icon fa fa-th"></i>
               <p>
                 Loket
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link">
-              <i class="nav-icon fa fa-universal-access"></i>
-              <p>
-                Presensi 
               </p>
             </a>
           </li>
@@ -135,9 +126,16 @@
                     <p>Tambah Petugas</p>
                   </a>
                 </li>
-               
               </ul>
-            </li>
+         </li>
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link">
+              <i class="nav-icon fa fa-universal-access"></i>
+              <p>
+                Presensi 
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-percent"></i>
@@ -146,7 +144,8 @@
               </p>
             </a>
           </li>
-        </ul>
+
+        </ul> <!-- penutup ul nav nav-pills nav-sidebar flex-column-->
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -210,7 +209,7 @@
 $(function () {
     $('#linechart').highcharts({
         chart: {
-            type: 'line',
+            type: 'pie',
             options3d: {
                 enabled: true,
                 alpha: 45,
@@ -218,37 +217,22 @@ $(function () {
             }
         },
         title: {
-            text: 'Rekap Jenis Jabatan <br /> Berdasarkan Permenpan No. 25 Tahun 2016'
+            text: 'Grafik Pengunjung 2018'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-        plotOptions: {
-            line: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                depth: 35,
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b><br />: {point.percentage:.1f} %'
-                }
-            }
-        },
         credits: {enabled: false},
         series: [{
             type: 'line',
-            name: 'Jenis Jabatan',
+            name: 'Lantai',
             data: [
-                ['Jabatan Tinggi Pratama',   45.0],
-                ['Jabatan Administrator',       26.8],
-                {
-                    name: 'Jabatan Pengawas',
-                    y: 12.8,
-                    sliced: true,
-                    selected: true
-                },
-                ['Jabatan Fungsional',    8.5],
-                ['Pelaksana',     6.2],
+                ['Lantai 1',   45.0],
+                ['Lantai 2',       26.8],
+                ['Lantai 3',    8.5],
+                ['Lantai 4',    8.5],
+                ['Lantai 5',     6.2],
+                ['Lantai 6',     6.2],
             ]
         }]
     });

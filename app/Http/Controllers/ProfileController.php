@@ -38,7 +38,7 @@ class ProfileController extends Controller
     }
 
     public function monitorTiket(){
-        $data_monitor_tiket = Antrian::select()->where('id_user',Auth::user()->id)->where('status','antri');
+        $data_monitor_tiket = Antrian::select()->where('id_user',Auth::user()->id)->where('status','antri')->orderBy('id','desc');
         if ($data_monitor_tiket->count() > 0 ) {
             $data_loket = Loket::select()->where('id',$data_monitor_tiket->first()->id_loket)->first();
 
@@ -50,6 +50,17 @@ class ProfileController extends Controller
         
 
         return view('pelanggan.monitor',['monitor_tiket' => $data_monitor_tiket,'data_loket'=>$data_loket,'data_sisa_panggilan'=>$data_sisa_panggilan]);
+    }
+
+
+     public function lihatTiket()
+    {
+        # code...
+            $data_monitor_tiket = Antrian::select()->where('id_user',Auth::user()->id)->where('status','antri');
+
+            $data_loket = Loket::select()->where('id',$data_monitor_tiket->first()->id_loket)->first();
+
+            return view('cetak.antrian',['data_antri' => $data_monitor_tiket->first(),'data_loket'=>$data_loket]);
     }   
 
     /**
