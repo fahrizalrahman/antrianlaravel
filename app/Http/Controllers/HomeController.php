@@ -29,13 +29,7 @@ class HomeController extends Controller
             return view('home');       
          }elseif (Auth::user()->jabatan == "pelanggan"){
         
-        $layanan_loket   = Loket::select()->where('lantai',1);
-        $layanan_loket_2 = Loket::select()->where('lantai',2);
-        $layanan_loket_3 = Loket::select()->where('lantai',3);
-        $layanan_loket_4 = Loket::select()->where('lantai',3);
-        $layanan_loket_5 = Loket::select()->where('lantai',5);
-        $layanan_loket_6 = Loket::select()->where('lantai',6);
-        return view('antrian', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
+             return view('home_pelanggan');
 
         }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 1 ){
             return view('lantai.lantai1'); 
