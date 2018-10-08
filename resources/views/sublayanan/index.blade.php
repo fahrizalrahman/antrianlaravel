@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Layanan</h1>
+            <h1>Sublayanan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -15,10 +15,10 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-          @include('layouts._flash')
+            @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('loket.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Layanan</a>
+                <a href="{{ route('sublayanan.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Sublayanan</a>
             
             </div>
             <!-- /.card-header -->
@@ -26,24 +26,20 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Loket</th>
+                  <th>Nama Sublayanan </th>
                   <th>Nama Layanan</th>
-                  <th>Lantai</th>
-                  <th>Petugas</th>
-                  <th>Aksi</th>
+                  <th >Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($loket as $value)
+                @foreach($data_sublayanan as $value)
                  <tr>
-                  <td>{{$value->kode}}</td>
+                  <td>{{$value->nama_sublayanan}}</td>
                   <td>{{$value->nama_layanan}}</td>
-                  <td>{{$value->lantai}}</td>
-                  <td>{{$value->petugas}}</td>
                   <td>
-                    <a href="{{ route('loket.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
+                    <a href="{{ route('sublayanan.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
                     
-                     <a href="{{route('loket.delete',$value->id)}}" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a>
+                     <a href="{{ route('sublayanan.destroy',$value->id)}}" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a>
 
                   </td>
                 </tr>

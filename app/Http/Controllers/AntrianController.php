@@ -40,8 +40,8 @@ class AntrianController extends Controller
 
             $data_loket = Loket::select()->where('id',$create_antrian->id_loket)->first();
             
-            $this->logout();
-            return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
+            return redirect()->route('monitor-tiket'); 
+            //$this->logout(); return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
             
         }else{
             $navActive = true;
@@ -54,8 +54,9 @@ class AntrianController extends Controller
            
             $data_loket = Loket::select()->where('id',$create_antrian->id_loket)->first();
 
-            $this->logout();
-            return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
+            return redirect()->route('monitor-tiket'); 
+
+//            $this->logout(); return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
             
         }
     }

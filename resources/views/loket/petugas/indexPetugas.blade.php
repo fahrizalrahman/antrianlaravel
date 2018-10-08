@@ -32,9 +32,7 @@
                   <th>No Telp</th>
                   <th>Jabatan</th>
                   <th>Lantai</th>
-                  <th>Action</th>
-                  {{-- <th>Action</th> --}}
-
+                   <th>Aksi</th> 
                 </tr>
                 </thead>
                 <tbody>
@@ -43,7 +41,11 @@
                   <td>{{$value->name}}</td>
                   <td>{{$value->email}}</td>
                   <td>{{$value->nik}}</td>
+<<<<<<< HEAD
                   <td>{{$value->no_telp}}</td> 
+=======
+                  <td>{{$value->no_telp}}</td>
+>>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
                   <td>{{$value->jabatan}}</td>
                   <td>{{$value->lantai}}</td>
                   <td>

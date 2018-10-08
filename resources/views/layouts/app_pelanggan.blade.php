@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Antrian BPOM') }}</title>
 
          <!-- Font Awesome -->
       <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}">
@@ -29,7 +29,8 @@
       <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
       <!-- Google Font: Source Sans Pro -->
       <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-             
+          <link rel="stylesheet" href=" {{asset('css/file.css')}} ">
+       
       <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap4.css')}}">
        
 </head>
@@ -104,18 +105,17 @@
                 </a>
             </li>
 
+           <li class="nav-item">
+                <a href="{{ route('monitor-tiket')}}" class="nav-link">
+                  <i class="fa fa-laptop nav-icon"></i>
+                  <p>Monitoring Tiket </p>
+                </a>
+            </li>
 
            <li class="nav-item">
                 <a href="{{ route('profile')}}" class="nav-link">
                   <i class="fa fa-user-circle nav-icon"></i>
                   <p>Profil</p>
-                </a>
-            </li>
-
-           <li class="nav-item">
-                <a href="{{ route('monitor-tiket')}}" class="nav-link">
-                  <i class="fa fa-laptop nav-icon"></i>
-                  <p>Monitoring Tiket </p>
                 </a>
             </li>
         </ul>
@@ -227,9 +227,36 @@ $(function () {
 });
 </script>
 
+<script type="text/javascript">
+$("#flip-1").click(function () {
+  window.location.href = "{{URL::to('layanan/1')}}"
+});
+$("#flip-2").click(function () {
+  window.location.href = "{{URL::to('layanan/2')}}"
+});
+$("#flip-3").click(function () {
+  window.location.href = "{{URL::to('layanan/3')}}"
+});
+$("#flip-4").click(function () {
+  window.location.href = "{{URL::to('layanan/4')}}"
+});
+$("#flip-5").click(function () {
+  window.location.href = "{{URL::to('layanan/5')}}"
+});
+$("#flip-6").click(function () {
+  window.location.href = "{{URL::to('layanan/6')}}"
+});
+</script>
 
 
-        @yield('scripts')
+<script>
+  $( document ).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+
+  });
+</script>
+
+ @yield('scripts')
 
 </body>
 </html>

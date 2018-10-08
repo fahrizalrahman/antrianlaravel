@@ -14,7 +14,11 @@ class AddPetugasController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $petugas = User::orderby('id','asc')->get();
+=======
+        $petugas = User::where('jabatan','!=','pelanggan')->get();
+>>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
         return view('loket.petugas.indexPetugas', compact('petugas'));
     }
 

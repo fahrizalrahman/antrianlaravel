@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Loket;
+<<<<<<< HEAD
 use App\File;
 use App\Footer;
 use App\Sidebar;
 use Storage;
+=======
+use Redirect;
+
+>>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
 
 class HomeController extends Controller
 {
@@ -27,15 +32,40 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function home(){
+        if(Auth::check()){
+            if(Auth()->user()->jabatan==='admin'){
+                return Redirect::to('/home');
+            }else if(Auth()->user()->jabatan==='petugas_loket'){
+                return Redirect::to('/home');
+            }else if(Auth()->user()->jabatan==='pelanggan'){
+                return Redirect::to('/home');
+            }else{
+                Auth::logout();
+            }
+        }
+    }
+
     public function index()
     {
         if (Auth::user()->jabatan == "admin") {
             return view('home');       
          }elseif (Auth::user()->jabatan == "pelanggan"){
-        
-             return view('home_pelanggan');
+            $layanan_loket   = Loket::select()->where('lantai',1);
+            $layanan_loket_2 = Loket::select()->where('lantai',2);
+            $layanan_loket_3 = Loket::select()->where('lantai',3);
+            $layanan_loket_4 = Loket::select()->where('lantai',4);
+            $layanan_loket_5 = Loket::select()->where('lantai',5);
+            $layanan_loket_6 = Loket::select()->where('lantai',6);
+            return view('home_pelanggan', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
 
-        }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 1 ){
+        }elseif (Auth::user()->jabatan ==="petugas_loket"){
+            return view('petugas_loket.home');
+        }
+
+        /*}elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 1 ){
             return view('lantai.lantai1'); 
         }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 2 ){
             return view('lantai.lantai2'); 
@@ -47,7 +77,7 @@ class HomeController extends Controller
             return view('lantai.lantai5'); 
         }elseif (Auth::user()->jabatan == "petugas_loket" AND Auth::user()->lantai == 6 ){
             return view('lantai.lantai6'); 
-        }
+        }*/
         
     }
 
@@ -107,10 +137,10 @@ class HomeController extends Controller
         $layanan_loket   = Loket::select()->where('lantai',1);
         $layanan_loket_2 = Loket::select()->where('lantai',2);
         $layanan_loket_3 = Loket::select()->where('lantai',3);
-        $layanan_loket_4 = Loket::select()->where('lantai',3);
+        $layanan_loket_4 = Loket::select()->where('lantai',4);
         $layanan_loket_5 = Loket::select()->where('lantai',5);
         $layanan_loket_6 = Loket::select()->where('lantai',6);
-        return view('antrian', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
+        return view('home_pelanggan', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
     }
 
     public function monitor()
@@ -121,7 +151,7 @@ class HomeController extends Controller
     public function layanan($lantai)
     {   
         $layanan_lantai = Loket::select()->where('lantai',$lantai)->get();
-        return view('layanan',['layanan_lantai' => $layanan_lantai]);
+        return view('pelanggan.layanan',['layanan_lantai' => $layanan_lantai,'lantai'=>$lantai]);
     }
 
 }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'AntrianController@logout')->middleware('verified');
+Route::get('/', 'HomeController@home')->middleware('verified');
 
 
 Auth::routes(['verify' => true]);
@@ -42,11 +42,33 @@ Route::resource('petugas','addPetugasController');
 Route::get('/print-antrian/{id}', 'AntrianController@print')->name('print-antrian');
 
 // Route User
-
-Route::get('/layanan/{lantai}', 'HomeController@layanan')->name('layanan');
+Route::get('/layanan/{id}', 'HomeController@layanan');
 Route::get('/display', 'HomeController@display')->name('antrian')->middleware('verified');
 
 Route::get('/utama','HomeController@utama')->name('utama');
 Route::get('/monitor', 'HomeController@monitor')->name('monitor');
 Route::get('/display', 'HomeController@display')->name('antrian');
 
+<<<<<<< HEAD
+=======
+//route dashboard pelanggan
+Route::get('/profile-edit','ProfileController@editProfile')->name('profile');
+Route::resource('profile','ProfileController');
+Route::get('/monitor-tiket','ProfileController@monitorTiket')->name('monitor-tiket');
+Route::get('/lihat-tiket/{id}','ProfileController@lihatTiket')->name('lihat-tiket');
+
+
+/*Custom*/
+Route::get('/proses/total', 'pelayananController@total_antrian');
+Route::get('/proses/sisa', 'pelayananController@sisa_antrian');
+Route::get('/proses/akhir', 'pelayananController@nomor_terakhir');
+Route::get('/proses/konversi_nomor', 'pelayananController@konversi');
+Route::get('/proses/layanan/update', 'pelayananController@update_status');
+
+
+
+Route::resource('sublayanan','SublayananController');
+Route::get('/sublayanan/delete/{id}', 'SublayananController@delete')->name('sublayanan.delete');
+
+Route::get('pilih-sublayanan', 'ProfileController@pilih_sublayanan');
+>>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c

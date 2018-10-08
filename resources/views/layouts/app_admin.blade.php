@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Antrian BPOM') }}</title>
 
          <!-- Font Awesome -->
       <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}">
@@ -91,29 +91,39 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link">
+        <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Dashboard</p>
-                </a>
-              </li>
+            </a>
+        </li>
 
-          <li class="nav-item">
-            <a href="{{ route('loket.index') }}" class="nav-link">
-              <i class="nav-icon fa fa-th"></i>
-              <p>
-                Loket
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link">
-              <i class="nav-icon fa fa-universal-access"></i>
-              <p>
-                Presensi 
-              </p>
-            </a>
-          </li>
+          <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-user"></i>
+                <p>
+                  Tambah Loket
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('loket.index')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Layanan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('sublayanan.index')}} " class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Sublayanan</p>
+                  </a>
+                </li>
+              </ul>
+         </li>
+          
+
+
           <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-user"></i>
@@ -126,17 +136,17 @@
                 <li class="nav-item">
                   <a href="{{route('user.index')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Tambah Pelanggan</p>
+                    <p>Pelanggan</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('petugas.index')}} " class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Tambah Petugas</p>
+                    <p>Petugas</p>
                   </a>
                 </li>
-               
               </ul>
+<<<<<<< HEAD
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -167,6 +177,17 @@
                     </li>
                 </ul>
               </li>
+=======
+         </li>
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link">
+              <i class="nav-icon fa fa-universal-access"></i>
+              <p>
+                Presensi 
+              </p>
+            </a>
+          </li>
+>>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-percent"></i>
@@ -175,7 +196,8 @@
               </p>
             </a>
           </li>
-        </ul>
+
+        </ul> <!-- penutup ul nav nav-pills nav-sidebar flex-column-->
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -239,7 +261,7 @@
 $(function () {
     $('#linechart').highcharts({
         chart: {
-            type: 'line',
+            type: 'pie',
             options3d: {
                 enabled: true,
                 alpha: 45,
@@ -247,37 +269,22 @@ $(function () {
             }
         },
         title: {
-            text: 'Rekap Jenis Jabatan <br /> Berdasarkan Permenpan No. 25 Tahun 2016'
+            text: 'Grafik Pengunjung 2018'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-        plotOptions: {
-            line: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                depth: 35,
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b><br />: {point.percentage:.1f} %'
-                }
-            }
-        },
         credits: {enabled: false},
         series: [{
             type: 'line',
-            name: 'Jenis Jabatan',
+            name: 'Lantai',
             data: [
-                ['Jabatan Tinggi Pratama',   45.0],
-                ['Jabatan Administrator',       26.8],
-                {
-                    name: 'Jabatan Pengawas',
-                    y: 12.8,
-                    sliced: true,
-                    selected: true
-                },
-                ['Jabatan Fungsional',    8.5],
-                ['Pelaksana',     6.2],
+                ['Lantai 1',   45.0],
+                ['Lantai 2',       26.8],
+                ['Lantai 3',    8.5],
+                ['Lantai 4',    8.5],
+                ['Lantai 5',     6.2],
+                ['Lantai 6',     6.2],
             ]
         }]
     });
