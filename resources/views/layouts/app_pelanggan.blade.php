@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Antrian BPOM') }}</title>
 
          <!-- Font Awesome -->
       <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}">
@@ -252,8 +252,10 @@ $("#flip-6").click(function () {
 <script>
   $( document ).ready(function() {
                 $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
-            });
+
+  });
 </script>
+
  @yield('scripts')
 
 </body>

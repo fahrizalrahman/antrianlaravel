@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Loket</h1>
+            <h1>Edit Layanan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -32,7 +32,7 @@
                   </div>
 
                   <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
-                    {!! Form::label('kode', 'No Loket', ['class'=>'col-md-2 control-label']) !!}
+                    {!! Form::label('kode', 'Loket', ['class'=>'col-md-2 control-label']) !!}
                       {!! Form::text('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'kode','name' => 'kode']) !!}
                       {!! $errors->first('kode', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>

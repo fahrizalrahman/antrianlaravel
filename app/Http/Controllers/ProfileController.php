@@ -38,25 +38,17 @@ class ProfileController extends Controller
     }
 
     public function monitorTiket(){
-        $data_monitor_tiket = Antrian::select()->where('id_user',Auth::user()->id)->where('status','antri')->orderBy('id','desc');
-        if ($data_monitor_tiket->count() > 0 ) {
-            $data_loket = Loket::select()->where('id',$data_monitor_tiket->first()->id_loket)->first();
-
-            $data_sisa_panggilan = Antrian::select()->where('id_loket',$data_monitor_tiket->first()->id_loket)->where('id_user','!=',Auth::user()->id)->count();
-        }else{
-            $data_loket = 0;
-            $data_sisa_panggilan = 0;
-        }
+        $data_monitor_tiket = Antrian::select('antrians.id AS id','antrians.id_loket','lokets.nama_layanan', 'lokets.kode', 'lokets.lantai', 'antrians.no_antrian')->leftJoin('lokets', 'lokets.id', '=', 'antrians.id_loket')->where('antrians.status','antri')->where('antrians.id_user',Auth::user()->id)->orderBy('id','desc');  
         
 
-        return view('pelanggan.monitor',['monitor_tiket' => $data_monitor_tiket,'data_loket'=>$data_loket,'data_sisa_panggilan'=>$data_sisa_panggilan]);
+        return view('pelanggan.monitor',['monitor_tiket' => $data_monitor_tiket]);
     }
 
 
-     public function lihatTiket()
+     public function lihatTiket($id)
     {
         # code...
-            $data_monitor_tiket = Antrian::select()->where('id_user',Auth::user()->id)->where('status','antri');
+            $data_monitor_tiket = Antrian::select()->where('id',$id);
 
             $data_loket = Loket::select()->where('id',$data_monitor_tiket->first()->id_loket)->first();
 
@@ -163,5 +155,9 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pilih_sublayanan(){
+        
     }
 }

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Antrian BPOM') }}</title>
 
          <!-- Font Awesome -->
       <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}">
@@ -97,14 +97,33 @@
                   <p>Dashboard</p>
             </a>
         </li>
-          <li class="nav-item">
-            <a href="{{ route('loket.index') }}" class="nav-link">
-              <i class="nav-icon fa fa-th"></i>
-              <p>
-                Loket
-              </p>
-            </a>
-          </li>
+
+          <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-user"></i>
+                <p>
+                  Tambah Loket
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('loket.index')}}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Layanan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('sublayanan.index')}} " class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Sublayanan</p>
+                  </a>
+                </li>
+              </ul>
+         </li>
+          
+
+
           <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-user"></i>
@@ -117,13 +136,13 @@
                 <li class="nav-item">
                   <a href="{{route('user.index')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Tambah Pelanggan</p>
+                    <p>Pelanggan</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('petugas.index')}} " class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Tambah Petugas</p>
+                    <p>Petugas</p>
                   </a>
                 </li>
               </ul>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJabatansTable extends Migration
+class TambahKolomIdSublayananAntrian extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateJabatansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatans', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nama_jabatan');
-            $table->timestamps();
-        });
+         Schema::table('antrians', function($table) {
+            $table->integer('id_sublayanan')->nullable(); 
+            });
     }
 
     /**
@@ -27,6 +25,8 @@ class CreateJabatansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatans');
+        Schema::table('antrians', function($table) {
+            $table->dropColumn('id_sublayanan'); 
+        });
     }
 }

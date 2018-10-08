@@ -17,36 +17,19 @@
               <div class="card">
 
               <div class="card-header">
-                <div class="row">
-               <div class="col-sm-3">
-                  <div class="card">
-                       <div class="card-body" style="background-color:#3333ff;color:white;"><h3/>Sisa Antrian : {{$data_sisa_panggilan}}
-                       </div>
-                  </div>
-              </div>
-              <div class="col-sm-6">  
-              </div>
-              <div class="col-sm-3">
-                  <div class="card">
-                    @if($monitor_tiket->count() < 1)
-                       <div class="card-body" style="background-color:#3333ff;color:white;"><h3/>Nomor Antrian : 0
-                       </div>
-                       @else
-                        <div class="card-body" style="background-color:#3333ff;color:white;"><h3/>Nomor Antrian : {{$monitor_tiket->first()->no_antrian}}
-                       </div>
-                       @endif
-                  </div>
-              </div>
-              </div>          
+                <h3>Monitoring Tiket</h3>
               </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped" style="color:black;">
                 <thead>
                 <tr>
-                  <th>Loket</th>
+                  
                   <th>Nama Layanan</th>
+                  <th>Loket</th>
                   <th>Lantai</th>
+                  <th>No Antrian Anda</th>
+                  <th>No Antrian Sekarang</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -55,12 +38,24 @@
                   <tr>
                     <td colspan="4"><center>Belum Ada Antrian</center></td></tr>
                   @else
+                  @foreach ($monitor_tiket->get() as $monitor_lokets)
+
+                  <?php $no_antrian_sekarang = \App\Antrian::where('status','antri')->where('id_user','!=',Auth::user()->id)->where('id_loket',$monitor_lokets->id_loket)->orderBy('id','desc')?>
+
                  <tr>
-                  <td>{{$data_loket->kode}}</td>
-                  <td>{{$data_loket->nama_layanan}}</td>
-                  <td>{{$data_loket->lantai}}</td>
-                  <td><a href="{{ url('lihat-tiket') }}" style="background-color:#17A2B8;color:white;" class="btn btn-sm"><i class="nav-icon fa fa-eye" ></i> Lihat Tiket</a></td>
+                  <td>{{$monitor_lokets->nama_layanan}}</td>
+                  <td>{{$monitor_lokets->kode}}</td>
+                  <td>{{$monitor_lokets->lantai}}</td>
+                  <td>{{$monitor_lokets->no_antrian}}</td>
+                   
+                  @if($no_antrian_sekarang->count() == 0)
+                  <td style="background-color:green;color:white;" ><center><h4>Panggilan Anda</h4></center></td>
+                  @else
+                  <td><center><h4>{{$no_antrian_sekarang->first()->no_antrian}}</h4></center></td>
+                  @endif
+                  <td><a href="{{ route('lihat-tiket',$monitor_lokets->id) }}" style="background-color:#17A2B8;color:white;" class="btn btn-sm"><i class="nav-icon fa fa-eye" ></i> Lihat Tiket</a></td>
                 </tr>
+                @endforeach
                 @endif
                 </tbody>
               </table>

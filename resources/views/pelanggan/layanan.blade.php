@@ -2,6 +2,33 @@
 
 @section('content')
   <div class="content-wrapper">
+
+    <!-- The Modal 1-->
+<div class="modal" id="myModal1" >
+  <div class="modal-dialog" >
+    <div class="modal-content" style="color:black;">
+
+      <!-- Modal Header -->
+      <div class="modal-header" >
+        <h4 class="modal-title">LANTAI 1</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" id="list-sublayanan">
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--modal 1-->
+
         <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -15,23 +42,26 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <!-- LINE CHART -->
-            <div class="row" style="margin-top:60px; margin-left:5px;">  
-                    @foreach($layanan_lantai as $layanan_lantais)    
-                     <div class="col-sm-4">
-                        <div class="card" style="width: 20rem; background-color:azure; margin-bottom:15px;">
-                            <div class="card-header" style="background-color:chocolate; text-align:center; " data-toggle="tooltip" rel="tooltip" data-placement="top" title="{{$layanan_lantais->nama_layanan}}">
-                                {{ str_limit($layanan_lantais->nama_layanan, $limit = 40, $end = '...') }}      
-                            </div>
-                            <div class="card-body">
-                                <center><a href="{{route('print-antrian',$layanan_lantais->id)}}" style="size:8px;" class="btn btn-primary btn-sm-center" > 
-                                 <i class="fa fa-arrow-circle-right"> Pilih</i>
-                                </a></center>
-                            </div>
-                        </div>
-                    </div> 
+                <div class="container"> 
+                <section class="main" >   
+                    <div class="row">  
+                    @foreach($layanan_lantai as $layanan_lantais)  
+                    <?php $count_sublayanan = \App\Sublayanan::where('id_loket',$layanan_lantais->id)->count() ?>
+                        <div class="col-sm-4 col-xs-12">          
+                        <div class="card" style="height:170px">
+                          <div class="card-heading" style="font-size:16px; background-color:#17A2B8; color:white; text-align:center"><strong> Lantai {{$lantai}}</strong></div>
+                          <div class="card-body" style="font-size:16px; text-align:center; font-weight:bold">
+                            <p>{{$layanan_lantais->nama_layanan}} ({{$count_sublayanan}})</p>
+                          </div>
+                          <div class="card-footer">
+                           <center><a class="btn" href="{{route('print-antrian',$layanan_lantais->id)}}" style="background-color:#f7bc30; color:white"><i class="fa fa-print"></i> <b>CETAK LAYANAN</b></a></center>
+                          </div>
+                         </div>
+                      </div>
                    @endforeach
                    </div>  
+                </section>
+                </div>
             <!-- /.card -->
         </div>
     </div>
@@ -42,7 +72,6 @@
     <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>BPOM</strong>
-   
   </footer>
 
   <!-- Control Sidebar -->
@@ -51,3 +80,4 @@
   </aside>
   <!-- /.control-sidebar -->
 @endsection
+

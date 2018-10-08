@@ -105,8 +105,12 @@ class LoketController extends Controller
     public function edit($id)
     {
         //
-        $loket = Loket::find($id);
-        return view('loket.edit')->with(compact('loket'));
+        if (Auth::check()) {
+            $loket = Loket::find($id);
+            return view('loket.edit')->with(compact('loket'));
+        }else{
+           return  view('auth.login'); 
+        }   
     }
 
     /**
