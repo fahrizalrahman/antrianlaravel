@@ -42,7 +42,7 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <img src=" {{asset('img/log/logo_bpom.png')}} " width="100px" height="50px"/> <b>Antrian BPOM</b>
+                    <img src=" {{asset('img/log/logo_bpom.png')}} " width="100px" height="50px"/> <h1 tyle="font-size:8vw;">Antrian BPOM</h1>
                     {{-- <small>Sistem Antrian Berbasis Web</small> --}}
                 </div>
                 <span class="icon">

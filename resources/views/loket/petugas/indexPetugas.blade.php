@@ -43,11 +43,17 @@
                   <td>{{$value->name}}</td>
                   <td>{{$value->email}}</td>
                   <td>{{$value->nik}}</td>
-                  <td>{{$value->no_telp}}</td>
-              
+                  <td>{{$value->no_telp}}</td> 
                   <td>{{$value->jabatan}}</td>
                   <td>{{$value->lantai}}</td>
-                  <td><a href="{{ route('petugas.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || <a  href="#" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a></td>
+                  <td>
+                      <form action="{{route('petugas.destroy', $value->id)}}" method="POST"">
+                        <a href="{{ route('petugas.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
+                        @csrf
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i></button>
+                      </form>
+                  </td>
                 </tr>
                 @endforeach
                 </tbody>

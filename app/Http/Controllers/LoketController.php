@@ -56,7 +56,7 @@ class LoketController extends Controller
         //
              $this->validate($request, [
                 'nama_layanan'  => 'required|string',
-                'kode' => 'required|unique:lokets',
+                'kode' => 'required',
                 'lantai' => 'required',
                 'petugas'=>'required|unique:lokets'
                 ]);
@@ -113,9 +113,9 @@ class LoketController extends Controller
         
         $this->validate($request, [
                 'nama_layanan'  => 'required|string',
-                'kode' => 'required|unique:lokets,kode,'. $id,
+                'kode' => 'required',
                 'lantai' => 'required',
-                'petugas'=>'required|unique:lokets,petugas,'. $id,
+                'petugas'=>'required',
         ]);
 
 

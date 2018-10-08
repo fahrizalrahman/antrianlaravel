@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Pelanggan</h1>
+            <h1>Gambar Footer</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
           @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('user.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Pelanggan</a>
+                <a href="{{ route('inputImgFoot.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Gambar</a>
             
             </div>
             <!-- /.card-header -->
@@ -26,33 +26,30 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Pelanggan</th>
-                  <th>Email </th>
-                  <th>NIK </th>
-                  <th>No Telp</th>
-                  <th>Jabatan</th>
-                  <th>lantai</th>
-                  <th>Action</th>
-
-
+                  <th>id</th>
+                  <th>Title </th>
+                  <th>Lantai </th>
+                  <th>Float</th>
+                  <th>action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($pelanggan as $value)
+                @foreach($imgFooter as $value)
                  <tr>
-                  <td>{{$value->name}}</td>
-                  <td>{{$value->email}}</td>
-                  <td>{{$value->nik}}</td>
-                  <td>{{$value->no_telp}}</td>
-                  <td>{{$value->jabatan}}</td>
+                  <td>{{$value->id}}</td>
+                  <td>{{$value->title}}</td>
                   <td>{{$value->lantai}}</td>
+                  <td>{{$value->float}}</td>
                   <td>
-                    <form action="{{route('user.destroy', $value->id)}}" method="POST"">
-                        <a href="{{ route('user.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
-                        @csrf
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i></button>
-                      </form>
+                      <a href="{{ Storage::url($value->filename) }}" title="View file {{ $value->title }}">
+                          <i class="fa fa-eye"></i>
+                      </a>
+                      <a href="" title="Show or download value {{ $value->title }}">
+                          <i class="fa fa-expand fa-fw"></i>
+                      </a>
+                      <a href="" title="Download {{ $value->title }}">
+                          <i class="fa fa-download fa-fw"></i>
+                      </a>
                   </td>
                 </tr>
                 @endforeach
