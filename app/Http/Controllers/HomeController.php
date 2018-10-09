@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Loket;
-<<<<<<< HEAD
 use App\File;
 use App\Footer;
 use App\Sidebar;
 use Storage;
-=======
 use Redirect;
 
->>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
 
 class HomeController extends Controller
 {

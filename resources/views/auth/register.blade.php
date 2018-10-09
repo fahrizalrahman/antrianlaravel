@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | Register Page</title>
+	<title>Antrian BPOM | Register Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -48,7 +48,7 @@
         <div class="right-content">
             <!-- begin register-header -->
             <h1 class="register-header">
-                    <img src=" {{asset('img/log/logo_bpom.png')}} " width="100px" height="50px"/>
+                    <img src=" {{asset('img/log/logo-bpom.png')}} " width="100px" height="50px"/>
                 Sign Up
                 {{-- <small>Buat akun untuk mengakses sistem</small> --}}
             </h1>

@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | Login Page</title>
+	<title>Antrian BPOM | Login Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -42,7 +42,7 @@
             <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <img src=" {{asset('img/log/logo_bpom.png')}} " width="100px" height="50px"/> <h1 tyle="font-size:8vw;">Antrian BPOM</h1>
+                    <img src=" {{asset('img/log/logo-bpom.png')}} " width="100px" height="50px"/> <h1 tyle="font-size:8vw;">Antrian BPOM</h1>
                     {{-- <small>Sistem Antrian Berbasis Web</small> --}}
                 </div>
                 <span class="icon">

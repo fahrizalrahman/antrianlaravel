@@ -121,8 +121,6 @@
                 </li>
               </ul>
          </li>
-          
-
 
           <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -146,7 +144,6 @@
                   </a>
                 </li>
               </ul>
-<<<<<<< HEAD
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -177,7 +174,6 @@
                     </li>
                 </ul>
               </li>
-=======
          </li>
           <li class="nav-item">
             <a href="{{ route('home') }}" class="nav-link">
@@ -187,7 +183,6 @@
               </p>
             </a>
           </li>
->>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-percent"></i>
