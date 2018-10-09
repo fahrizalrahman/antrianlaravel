@@ -14,7 +14,11 @@ class AddPetugasController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+        $petugas = User::orderby('id','asc')->get();
+=======
         $petugas = User::where('jabatan','!=','pelanggan')->get();
+>>>>>>> cb9c27cb771930aec605206fd4fee22dc24a3d6c
         return view('loket.petugas.indexPetugas', compact('petugas'));
     }
 
@@ -46,8 +50,6 @@ class AddPetugasController extends Controller
         $petugas->lantai = $request->lantai;
         $petugas->password = bcrypt($request->password);
         $petugas->save();
-
-        
         return redirect()->route('petugas.index');
     }
 
@@ -106,6 +108,9 @@ class AddPetugasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $petugas = User::findorfail($id);
+        $petugas->delete();
+
+        return redirect()->route('petugas.index');
     }
 }

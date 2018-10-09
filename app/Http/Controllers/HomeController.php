@@ -7,6 +7,10 @@ use Auth;
 use App\Loket;
 use App\Antrian;
 use App\SettingHari;
+use App\File;
+use App\Footer;
+use App\Sidebar;
+use Storage;
 use Redirect;
 use DB;
 
@@ -76,11 +80,56 @@ class HomeController extends Controller
         
     }
 
+// Controller Lantai
     public function lantai()
     {
-        return view('lantai');
+        $lantai1 = Loket::where('lantai','1')->get();
+        $bgLantai1 = File::where('lantai','1')->orderby('id','desc')->LIMIT('1')->first();
+        $imgFotL1    = Footer::where('lantai','1')->where('float','footer_L')->orderby('id','desc')->first();
+        $imgFotR1    = Footer::where('lantai','1')->where('float','footer_R')->orderby('id','desc')->first();
+        return view('lantai.lantai1', compact('lantai1','bgLantai1','imgFooter','imgFotL1','imgFotR1'));
     }
 
+    public function lantai2()
+    {
+        $lantai2 = Loket::where('lantai','2')->get();
+        $bgLantai2 = File::where('lantai','2')->orderby('id','desc')->LIMIT('1')->first();
+        return view('lantai.lantai2', compact('lantai2','bgLantai2'));
+    }
+
+    public function lantai3()
+    {
+        $lantai3 = Loket::where('lantai','3')->get();
+        $bgLantai3 = File::where('lantai','3')->orderby('id','desc')->LIMIT('1')->first();
+        return view('lantai.lantai3', compact('lantai3','bgLantai3'));
+    }
+
+    public function lantai4()
+    {
+        $lantai4 = Loket::where('lantai','4')->get();
+        $bgLantai4 = File::where('lantai','4')->orderby('id','desc')->LIMIT('1')->first();
+        $imgSid4 = Sidebar::where('lantai','4')->orderby('id','desc')->LIMIT('1')->first();
+        return view('lantai.lantai4', compact('lantai4','bgLantai4','imgSid4'));
+    }
+
+    public function lantai5()
+    {
+        $lantai5 = Loket::where('lantai','5')->get();
+        $bgLantai5 = File::where('lantai','5')->orderby('id','desc')->LIMIT('1')->first();
+        $imgSid5 = Sidebar::where('lantai','5')->orderby('id','desc')->LIMIT('1')->first();
+        $imgFotL5    = Footer::where('lantai','5')->where('float','footer_L')->orderby('id','desc')->first();
+        $imgFotR5    = Footer::where('lantai','5')->where('float','footer_R')->orderby('id','desc')->first();
+        return view('lantai.lantai5', compact('lantai5','bgLantai5','imgSid5','imgFotL5','imgFotR5'));
+    }
+
+    public function lantai6()
+    {
+        $lantai6 = Loket::where('lantai','6')->get();
+        $bgLantai6 = File::where('lantai','6')->orderby('id','desc')->LIMIT('1')->first();
+        $imgFotL6    = Footer::where('lantai','6')->where('float','footer_L')->orderby('id','desc')->first();
+        $imgFotR6    = Footer::where('lantai','6')->where('float','footer_R')->orderby('id','desc')->first();
+        return view('lantai.lantai6', compact('lantai6','bgLantai6','imgFotL6','imgFotR6'));
+    }
 
     public function display()
     {

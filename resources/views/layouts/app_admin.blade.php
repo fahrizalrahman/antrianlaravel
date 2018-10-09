@@ -128,8 +128,6 @@
                 </li>
               </ul>
          </li>
-          
-
 
           <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
@@ -153,6 +151,36 @@
                   </a>
                 </li>
               </ul>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fa fa-file"></i>
+                  <p>
+                    Input Image
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('inputImg.index')}}" class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p> Image Utama</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('inputImgSid.index')}} " class="nav-link">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>Image Sidebar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{route('inputImgFoot.index')}}" class="nav-link">
+                        <i class="fa fa-circle-o nav-icon"></i>
+                        <p>Image Footer</p>
+                      </a>
+                    </li>
+                </ul>
+              </li>
          </li>
           <li class="nav-item">
             <a href="{{ route('home') }}" class="nav-link">
