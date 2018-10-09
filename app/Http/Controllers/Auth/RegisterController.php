@@ -75,25 +75,7 @@ class RegisterController extends Controller
             'token'     => str_random(25),
         ]);
 
-        if ($data['foto']) {
-                $foto = $data['foto'];
 
-                if (is_array($foto) || is_object($foto)) {
-                    // Mengambil file yang diupload
-                    $uploaded_foto = $foto;
-                    // mengambil extension file
-                    $extension = $uploaded_foto->getClientOriginalExtension();
-                    // membuat nama file random berikut extension
-                    $filename     = str_random(40) . '.' . $extension;
-                    $image_resize = Image::make($foto->getRealPath());
-                    $image_resize->fit(300);
-                    $image_resize->save(public_path('foto_user/' . $filename));
-                    $insert_barang->foto = $filename;
-                    // menyimpan field foto di table barangs  dengan filename yang baru dibuat
-                    $insert_barang->save();
-                
-                }
-        }
         return $user;
      }
 }

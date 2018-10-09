@@ -129,7 +129,7 @@
 </div>
 
     <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js')}}"></script>
         <!-- jQuery UI 1.11.4 -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -170,7 +170,8 @@
         <script src="{{ asset('plugins/datatables/jquery.dataTables.js')}}"></script>
         <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.js')}}"></script>
         <script src="/highchart/js/highcharts.js"></script>
-
+        <script src="{{ asset('js/sweetalert2.all.min.js') }}" type="text/javascript">
+    </script>
         <script src="/highchart/js/modules/exporting.js"></script>
         <script>
           $(function () {
@@ -248,6 +249,59 @@ $("#flip-6").click(function () {
 });
 </script>
 
+<script type="text/javascript">
+    $(document).on('click', '.cek-layanan', function (e) { 
+
+      var id_loket = $(this).attr('data-id-loket');
+      var batas_dari_jam = $(this).attr('data-batas-dari-jam');
+      var batas_sampai_jam = $(this).attr('data-batas-sampai-jam');
+      var batas_antrian = $(this).attr('data-batas-antrian');
+
+      var currentdate = new Date();
+      var dayNow = currentdate.getDay()
+
+      if (dayNow == 0) {
+            var hari = "minggu";
+        }else if(dayNow == 1){
+            var hari = "senin";
+        }else if(dayNow == 2){
+            var hari = "selasa";
+        }else if(dayNow == 3){
+            var hari = "rabu";
+        }else if(dayNow == 4){
+            var hari = "kamis";
+        }else if(dayNow == 5){
+            var hari = "jumat";
+        }else if(dayNow == 6){
+            var hari = "sabtu";
+        }
+
+       $.get('{{ Url("cek-setting-hari") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id_loket,hari:hari}, function(resp){  
+
+          if (resp > 0) {
+                  $.get('{{ Url("count-antrian") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id_loket}, function(resp){  
+
+                    if (currentdate.getHours() <= batas_sampai_jam && currentdate.getHours() >= batas_dari_jam && resp < batas_antrian) {
+                         window.location.href = "{{URL::to('print-antrian/')}}/"+id_loket
+                    }else{
+                      swal({
+                          html: "Batas Waktu Pengambilan Tiket Sudah Habis !!"
+                        });
+                    }
+                 });
+          }else{
+            swal({
+                html: "Hari ini Tidak Melayani Layanan yang Anda Pilih !!"
+              });
+          }
+
+        });
+
+
+
+  });
+
+</script>
 
 <script>
   $( document ).ready(function() {

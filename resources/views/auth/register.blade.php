@@ -118,30 +118,6 @@
                         </div>
                     </div>
 
-                <label class="control-label">Foto<span class="text-danger">*</span></label>
-                <div class="row row-m-b-15">
-                     <div class="col-md-12 m-b-15">
-                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail">
-
-                            <img src="../../assets/img/image_placeholder.jpg" alt="Foto Akan Tampil Disini">
-
-                        </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                        <div>
-                            <span class="btn btn-rose btn-round btn-file">
-                                <span class="fileinput-new">Ambil Foto</span>
-                                <span class="fileinput-exists">Ubah</span>
-                                {!! Form::file('foto',null,['id'=>'foto','name'=>'foto']) !!}
-                            </span>
-                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Batal</a>
-                        </div>
-                        {!! $errors->first('foto', '<p class="help-block">:message</p>') !!}
-                        <a style="color: red;">Size Foto (Ukuran Max : 3MB)</a>
-                    </div>
-                </div>
-                </div>
-
                     <label class="control-label">Password <span class="text-danger">*</span></label>
                     <div class="row m-b-15">
                         <div class="col-md-12">

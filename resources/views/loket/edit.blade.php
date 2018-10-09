@@ -59,7 +59,57 @@
                                         <strong>{{ $errors->first('petugas') }}</strong>
                                     </span>
                             @endif
-                        </div>  
+                        </div>
+
+                        <div class="form-group{{ $errors->has('batas_dari_jam') ? ' has-error' : '' }}">
+                          {!! Form::label('batas_dari_jam', 'Batas Dari Jam', ['class'=>'col-md-2 control-label']) !!}
+                              <select class="form-control{{ $errors->has('batas_dari_jam') ? ' is-invalid' : '' }}" id="batas_dari_jam" name="batas_dari_jam">
+                                    <option value="">Silakan Pilih</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                              </select>
+                              @if ($errors->has('batas_dari_jam'))
+                                <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('batas_dari_jam') }}</strong>
+                                </span>
+                               @endif
+                        </div>
+
+                      <div class="form-group{{ $errors->has('batas_sampai_jam') ? ' has-error' : '' }}">
+                          {!! Form::label('batas_sampai_jam', 'Batas Sampai Jam', ['class'=>'col-md-2 control-label']) !!}
+                              <select class="form-control{{ $errors->has('batas_sampai_jam') ? ' is-invalid' : '' }}" id="batas_sampai_jam" name="batas_sampai_jam">
+                                    <option value="">Silakan Pilih</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                              </select>
+                              @if ($errors->has('batas_sampai_jam'))
+                                <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('batas_sampai_jam') }}</strong>
+                                </span>
+                               @endif
+                        </div>
+                  <div class="form-group{{ $errors->has('batas_antrian') ? ' has-error' : '' }}">
+                    {!! Form::label('batas_antrian', 'Batas Antrian', ['class'=>'col-md-2 control-label']) !!}
+                      {!! Form::number('batas_antrian', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'batas_antrian','name' => 'batas_antrian']) !!}
+                      {!! $errors->first('batas_antrian', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
+                  </div>
+        
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

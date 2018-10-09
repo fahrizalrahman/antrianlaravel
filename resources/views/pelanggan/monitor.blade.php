@@ -13,7 +13,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-         <div class="col-md-12">
+         <div class="col-md-10 col-sm-10">
               <div class="card">
 
               <div class="card-header">
@@ -21,7 +21,7 @@
               </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped" style="color:black;">
+              <table id="example1" class="table table-hover table-bordered table-responsive">
                 <thead>
                 <tr>
                   
@@ -36,7 +36,7 @@
                 <tbody>
                   @if($monitor_tiket->count() < 1)
                   <tr>
-                    <td colspan="4"><center>Belum Ada Antrian</center></td></tr>
+                    <td colspan="6"><center>Belum Ada Antrian</center></td></tr>
                   @else
                   @foreach ($monitor_tiket->get() as $monitor_lokets)
 

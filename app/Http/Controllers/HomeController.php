@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Loket;
+use App\Antrian;
+use App\SettingHari;
 use Redirect;
-
+use DB;
 
 class HomeController extends Controller
 {
@@ -100,6 +102,25 @@ class HomeController extends Controller
     {   
         $layanan_lantai = Loket::select()->where('lantai',$lantai)->get();
         return view('pelanggan.layanan',['layanan_lantai' => $layanan_lantai,'lantai'=>$lantai]);
+    }
+
+
+        public function count_antrian(Request $request)
+    {   
+
+        $layanan_lantai = Antrian::select()->where('id_loket',$request->id)
+        ->where(DB::raw('DATE(created_at)'), '=', DB::raw('curdate()'))->count();
+
+        return $layanan_lantai;
+    }
+
+            public function cekSettingHari(Request $request)
+    {   
+
+        $count = SettingHari::select()->where('id_loket',$request->id)
+        ->where('hari',$request->hari)->count();
+
+        return $count;
     }
 
 }

@@ -75,6 +75,11 @@ class LoketController extends Controller
                     'kode'          => $request->kode,
                     'lantai'        => $request->lantai,
                     'petugas'       => $request->petugas,
+                    'batas_dari_jam'=> $request->batas_dari_jam,
+                    'batas_sampai_jam'=> $request->batas_sampai_jam,
+                    'batas_antrian'=> $request->batas_antrian,
+
+
                 ]);
 
           Session::flash("flash_notification", [
@@ -133,10 +138,14 @@ class LoketController extends Controller
 
         $loket = Loket::find($id);
         $loket->update([
-            'nama_layanan'    => $request->nama_layanan,
-            'kode'    => $request->kode,
-            'lantai'  => $request->lantai,
-            'petugas' => $request->petugas,
+            'nama_layanan'      => $request->nama_layanan,
+            'kode'              => $request->kode,
+            'lantai'            => $request->lantai,
+            'petugas'           => $request->petugas,
+            'batas_dari_jam'    => $request->batas_dari_jam,
+            'batas_sampai_jam'  => $request->batas_sampai_jam,
+            'batas_antrian'     => $request->batas_antrian,
+
         ]);
 
         Session::flash("flash_notification", [

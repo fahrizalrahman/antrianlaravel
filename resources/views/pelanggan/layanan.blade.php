@@ -54,7 +54,7 @@
                             <p>{{$layanan_lantais->nama_layanan}} ({{$count_sublayanan}})</p>
                           </div>
                           <div class="card-footer">
-                           <center><a class="btn" href="{{route('print-antrian',$layanan_lantais->id)}}" style="background-color:#f7bc30; color:white"><i class="fa fa-print"></i> <b>CETAK LAYANAN</b></a></center>
+                           <center><button class="btn cek-layanan" data-id-loket="{{$layanan_lantais->id}}" data-batas-dari-jam="{{$layanan_lantais->batas_dari_jam}}" data-batas-sampai-jam="{{$layanan_lantais->batas_sampai_jam}}" data-batas-antrian="{{$layanan_lantais->batas_antrian}}" style="background-color:#f7bc30; color:white"><i class="fa fa-print"></i> <b>CETAK LAYANAN</b></button></center>
                           </div>
                          </div>
                       </div>

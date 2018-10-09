@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Sublayanan</h1>
+            <h1>Setting Hari</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
             @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('sublayanan.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Sublayanan</a>
+                <a href="{{ route('settinghari.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Setting Hari</a>
             
             </div>
             <!-- /.card-header -->
@@ -26,20 +26,20 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Sublayanan </th>
                   <th>Nama Layanan</th>
-                  <th >Aksi</th>
+                  <th>Hari</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($data_sublayanan as $value)
+                @foreach($data_setting_hari as $value)
                  <tr>
-                  <td>{{$value->nama_sublayanan}}</td>
                   <td>{{$value->nama_layanan}}</td>
+                  <td>{{$value->hari}}</td>
                   <td>
-                    <a href="{{ route('sublayanan.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
+                    <a href="{{ route('settinghari.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
                     
-                     <a href="{{ route('sublayanan.delete',$value->id)}}" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a>
+                     <a href="{{ route('settinghari.delete',$value->id)}}" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a>
 
                   </td>
                 </tr>

@@ -53,8 +53,19 @@ Route::get('/proses/konversi_nomor', 'pelayananController@konversi');
 Route::get('/proses/layanan/update', 'pelayananController@update_status');
 
 
-
+//sublayanan
 Route::resource('sublayanan','SublayananController');
 Route::get('/sublayanan/delete/{id}', 'SublayananController@delete')->name('sublayanan.delete');
 
 Route::get('pilih-sublayanan', 'ProfileController@pilih_sublayanan');
+
+
+Route::get('count-antrian', 'HomeController@count_antrian');
+Route::get('cek-setting-hari', 'HomeController@cekSettingHari');
+
+
+//setting hari
+Route::resource('settinghari','SettingHariController');
+Route::get('/settinghari/delete/{id}', 'SettingHariController@delete')->name('settinghari.delete');
+
+

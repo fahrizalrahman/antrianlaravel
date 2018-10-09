@@ -8,7 +8,7 @@ class Loket extends Model
 {
     //
     protected $fillable = [
-        'nama_layanan', 'kode', 'lantai','petugas'
+        'nama_layanan', 'kode', 'lantai','petugas','batas_dari_jam','batas_sampai_jam','batas_antrian'
     ];
 
     // relasi ke user
