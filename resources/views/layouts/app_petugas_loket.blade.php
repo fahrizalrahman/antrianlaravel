@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    @yield('header_script')
+
+         <!-- Font Awesome -->
+      <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}">
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+      <!-- iCheck -->
+      <link rel="stylesheet" href="{{ asset('plugins/iCheck/flat/blue.css') }}">
+      <!-- Morris chart -->
+      <link rel="stylesheet" href="{{ asset('plugins/morris/morris.css') }}">
+      <!-- jvectormap -->
+      <link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}">
+      <!-- Date Picker -->
+      <link rel="stylesheet" href="{{ asset('plugins/datepicker/datepicker3.css') }}">
+      <!-- Daterange picker -->
+      <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker-bs3.css') }}">
+      <!-- bootstrap wysihtml5 - text editor -->
+      <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+      <!-- Google Font: Source Sans Pro -->
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+             
+      <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap4.css')}}">
+
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper" id="app">
@@ -89,6 +112,26 @@
         </aside>
         @yield('content')
     </div>
-    @yield('footer_script')
+
+{{ Html::script('/plugins/jquery/jquery.min.js') }}
+{{ Html::script('/plugins/jQueryUI/jquery-ui.min.js') }}
+{{ Html::script('/plugins/bootstrap/js/bootstrap.min.js') }}
+{{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }}
+{{ Html::script('/plugins/morris/morris.min.js') }}
+{{ Html::script('/plugins/sparkline/jquery.sparkline.min.js') }}
+{{ Html::script('/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}
+{{ Html::script('/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}
+{{ Html::script('/plugins/knob/jquery.knob.js') }}
+{{ Html::script('/plugins/bootstrap/js/bootstrap.min.js') }}
+{{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js') }}
+{{ Html::script('/plugins/daterangepicker/daterangepicker.js') }}
+{{ Html::script('/plugins/datepicker/bootstrap-datepicker.js') }}
+{{ Html::script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
+{{ Html::script('/plugins/slimScroll/jquery.slimscroll.min.js') }}
+{{ Html::script('/plugins/fastclick/fastclick.js') }}
+{{ Html::script('/dist/js/adminlte.min.js') }}
+
+
+@yield('footer_script')
 </body>
 </html>

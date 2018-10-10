@@ -156,7 +156,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
-                    Input Image
+                    Tambah Gambar
                     <i class="right fa fa-angle-left"></i>
                   </p>
                 </a>
@@ -164,19 +164,19 @@
                   <li class="nav-item">
                     <a href="{{route('inputImg.index')}}" class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p> Image Utama</p>
+                      <p> Gambar Utama</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="{{route('inputImgSid.index')}} " class="nav-link">
                       <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Image Sidebar</p>
+                      <p>Gambar Sidebar</p>
                     </a>
                   </li>
                   <li class="nav-item">
                       <a href="{{route('inputImgFoot.index')}}" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Image Footer</p>
+                        <p>Gambar Footer</p>
                       </a>
                     </li>
                 </ul>
@@ -210,7 +210,7 @@
 </div>
 
     <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
+        <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
         <!-- jQuery UI 1.11.4 -->
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -251,6 +251,7 @@
         <script src="{{ asset('plugins/datatables/jquery.dataTables.js')}}"></script>
         <script src="{{ asset('plugins/datatables/dataTables.bootstrap4.js')}}"></script>
         <script src="/highchart/js/highcharts.js"></script>
+        <script src="{{ asset('js/sweetalert2.all.min.js') }}" type="text/javascript">
 
         <script src="/highchart/js/modules/exporting.js"></script>
         <script>
@@ -292,9 +293,6 @@ $(function () {
     });
 });
 </script>
-
-
-
         @yield('scripts')
 
 </body>

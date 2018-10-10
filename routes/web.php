@@ -60,7 +60,9 @@ Route::get('/lihat-tiket/{id}','ProfileController@lihatTiket')->name('lihat-tike
 Route::get('/proses/total', 'pelayananController@total_antrian');
 Route::get('/proses/sisa', 'pelayananController@sisa_antrian');
 Route::get('/proses/akhir', 'pelayananController@nomor_terakhir');
+Route::get('/proses/berikut', 'pelayananController@nomor_berikut');
 Route::get('/proses/konversi_nomor', 'pelayananController@konversi');
+Route::get('/proses/check status', 'pelayananController@check_status');
 Route::get('/proses/layanan/update', 'pelayananController@update_status');
 
 
@@ -80,3 +82,17 @@ Route::resource('settinghari','SettingHariController');
 Route::get('/settinghari/delete/{id}', 'SettingHariController@delete')->name('settinghari.delete');
 
 
+Route::get('cek-pilih-lantai', 'SettingHariController@cekPilihLantai');
+
+
+/*Route pelayanan loket*/
+Route::get('/layanan-antrian/{lantai}/{layanan}/{loket}', 'LoketController@petugas');
+
+/*Monitoring Layar*/
+Route::get('/monitoring/1', 'monitoringController@layanan_satu');
+Route::get('/monitoring/2', 'monitoringController@layanan_dua');
+Route::get('/monitoring/3', 'monitoringController@layanan_tiga');
+Route::get('/monitoring/4', 'monitoringController@layanan_empat');
+Route::get('/monitoring/5', 'monitoringController@layanan_lima');
+Route::get('/monitoring/6', 'monitoringController@layanan_enam');
+Route::get('/monitoring/aktif', 'monitoringController@layanan_aktif');

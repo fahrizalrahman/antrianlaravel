@@ -8,6 +8,7 @@ use App\Antrian;
 use App\Loket;
 use Auth;
 use File;
+use DB;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class ProfileController extends Controller
@@ -38,7 +39,7 @@ class ProfileController extends Controller
     }
 
     public function monitorTiket(){
-        $data_monitor_tiket = Antrian::select('antrians.id AS id','antrians.id_loket','lokets.nama_layanan', 'lokets.kode', 'lokets.lantai', 'antrians.no_antrian')->leftJoin('lokets', 'lokets.id', '=', 'antrians.id_loket')->where('antrians.status','antri')->where('antrians.id_user',Auth::user()->id)->orderBy('id','desc');  
+        $data_monitor_tiket = Antrian::select('antrians.id AS id','antrians.id_loket','lokets.nama_layanan', 'lokets.kode', 'lokets.lantai', 'antrians.no_antrian')->leftJoin('lokets', 'lokets.id', '=', 'antrians.id_loket')->where(DB::raw('DATE(antrians.created_at)'), '=', DB::raw('curdate()'))->where('antrians.id_user',Auth::user()->id)->orderBy('id','desc');  
         
 
         return view('pelanggan.monitor',['monitor_tiket' => $data_monitor_tiket]);

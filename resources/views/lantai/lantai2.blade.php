@@ -9,6 +9,8 @@
     <link rel="stylesheet" href=" {{asset('css/file.css')}} ">
     <script src="{{asset ('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
+        <script src="{{asset('js/moment.min.js')}}"></script>
+
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <title>Contoh Lantai 2</title>
 </head>
@@ -27,20 +29,25 @@
 
             <div class="col-md-12" style="height:2px; width:100%; background-color:#3badc9;">
                 </div>
-            <div class="col-sm-7" style="background-image:url({{url(Storage::url($bgLantai2->filename))}}); width:auto; height:auto;">                
+            @if($bgLantai2->count() > 0)
+            <div class="col-sm-7" style="background-image:url({{url(Storage::url($bgLantai2->first()->filename))}}); width:auto; height:auto;">                
             </div>
+            @else
+            <div class="col-sm-7" style="background-color:white; width:auto; height:auto;">                
+            </div>
+            @endif
 
             <div class="col-sm-5" style="width:500px;">
-                <table border="1px" style="margin-right:-15px; width:550px; margin-left:-14px;">
+                <table border="1px" style="margin-right:-15px; width:615px; margin-left:-14px;">
                     @foreach ($lantai2 as $lantai2)
 
                     <tr>
-                        <td class="col-md-4" style="background-color:#2b869d; height:40px; width:388px;">{{$lantai2->nama_layanan}}</td>
-                        <td rowspan="2" style="background-color:#236c7d; width:100px; height:40px; text-align:center; border-color:honeydew;"><h3>A-002</h3></td>
+                        <td class="col-md-4" style="color:white;background-color:#2b869d; height:53px; width:388px;">{{$lantai2->nama_layanan}}</td>
+                        <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3>A-002</h3></td>
                     </tr>
                     
                     <tr>
-                        <td class="col-md-4" style="background-color:#34a1bc; height:40px; width:100px;">{{$lantai2->kode}}</td>
+                        <td class="col-md-4" style="color:white;background-color:#34a1bc; height:53px; width:100px;">{{$lantai2->kode}}</td>
                     </tr>
                     @endforeach
                 
@@ -51,13 +58,19 @@
         </div>
         
         <div class="row">
-            <div class="col-md-12" style="background-color:#252525;">
-                    {{-- <span style="float:left; height:30px; background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"> <h3> 12:03</h3></span>  --}}
-                   
-                    <span style="float:right; height:30px; width:95%; text-align:center; margin-top:5px;"><marquee> <b> SELAMAT DATANG DI BPOM </b></marquee></span>
-                    
-                  </div>
+            <div class="col-md-12" style="background-color:#252525; height:40px;">
+                <span style="float:left; height:40px;color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"><b> <h3 id="time-part">  </h3></b></span> 
+            </div>
         </div>
     </div>
 </body>
 </html>
+
+   <script type="text/javascript">
+       $(document).ready(function() {
+            var interval = setInterval(function() {
+            var momentNow = moment();
+            $('#time-part').html(momentNow.format('hh:mm'));
+            }, 100);
+        });
+   </script>

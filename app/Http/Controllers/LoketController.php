@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Loket;
+use App\Antrian;
+use DB;
 use Alert;
 use Session;
 
@@ -23,18 +25,62 @@ class LoketController extends Controller
             if(Auth::user()->jabatan==='admin'){
                 $loket = Loket::select('lokets.id AS id', 'lokets.nama_layanan', 'lokets.kode', 'users.name AS petugas', 'lokets.lantai')->leftJoin('users', 'users.id', '=', 'lokets.petugas')->orderBy('id','desc')->get();  
                 return view('loket.index')->with(compact('loket'));
-            }else{
-                $loket = Loket::select('lokets.id AS id', 'lokets.nama_layanan', 'lokets.kode AS kode', 'users.name AS petugas', 'lokets.lantai')
-                    -> leftJoin('users', 'users.id', '=', 'lokets.petugas')
-                    -> orderBy('id','desc')
-                    -> first();
+            }elseif(Auth::user()->jabatan==='petugas_loket'){
+
+                $loket = Loket::select('nama_layanan', 'kode', 'lantai')
+                    -> where ('petugas', '=', Auth::user()->id)->first();
+
                 return view('petugas_loket.loket')
                     -> with('_loket', $loket);
+            }elseif(Auth::user()->jabatan==='pelanggan'){
+                return "Pelanggan";
             }
         }else{
                 return view('auth.login');
         }
 
+    }
+
+    public function petugas($lantai, $layanan, $loket, Request $request){
+        if(Auth::check()){
+            $layanan = Loket::select('nama_layanan', 'kode', 'lantai')
+                -> where ('petugas', '=', Auth::user()->id)->first();
+
+            $total = Antrian::select('id')
+                -> where('id_loket', '=', Auth::user()->lantai)
+                -> count();
+            $sisa = Antrian::select('id')
+                -> where(['id_loket'=>Auth::user()->lantai, 'status'=>'antri'])
+                -> count();
+            $saat_ini = DB::table('proses_antrians AS a')
+                -> leftJoin('antrians AS b', 'b.id', '=', 'a.id_antrian')
+                -> select('a.id', 'b.no_antrian')
+                -> where([
+                    'a.id_petugas'  => Auth::user()->id,
+                    'a.status'      => 'proses'])
+                -> first();
+            $berikut = Antrian::select('no_antrian')
+                -> where([
+                        'status'    => 'antri',
+                        'id_loket'  => Auth::user()->lantai
+                    ])
+                -> first();
+            $data = DB::table('antrians AS a')
+                -> leftJoin('users AS b', 'b.id', '=', 'a.id_user')
+                -> select('a.no_antrian', 'b.name', 'a.status')
+                -> whereRaw('a.status<>"selesai" And a.status<>"lewati" And a.id_loket="' . Auth::user()->lantai . '"')
+                -> get();
+
+            return view('loket.index_antrian')
+                -> with ('_layanan', $layanan)
+                -> with('_total', $total)
+                -> with('_sisa', $sisa)
+                -> with('_saat_ini', $saat_ini)
+                -> with('_berikut', $berikut)
+                -> with('_data', $data);
+        }else{
+            return view('auth.login');
+        }
     }
 
 

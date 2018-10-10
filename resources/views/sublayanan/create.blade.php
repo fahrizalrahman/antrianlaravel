@@ -31,17 +31,27 @@
                       {!! $errors->first('nama_sublayanan', '<p class="help-block" id="nama_layanan_error">:message</p>') !!}
                   </div>
 
-                   <div class="form-group{{ $errors->has('id_loket') ? ' has-error' : '' }}">
-                        {!! Form::label('id_loket', 'Nama Layanan', ['class'=>'col-md-2 control-label']) !!}
-                        {!! Form::select('id_loket',App\Loket::pluck('nama_layanan','id')->all(), null,['class'=>'form-control','name'=>'id_loket','id'=>'id_loket']) !!}
-                            {!! $errors->first('id_loket', '<p class="help-block">:message</p>') !!}
-
-                             @if ($errors->has('id_loket'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('id_loket') }}</strong>
-                                    </span>
-                            @endif
+                   <div class="form-group{{ $errors->has('lantai') ? ' has-error' : '' }}">
+                          {!! Form::label('lantai', 'Lantai', ['class'=>'col-md-2 control-label']) !!}
+                          <select class="form-control{{ $errors->has('lantai') ? ' is-invalid' : '' }}" id="lantai" name="lantai">
+                                    <option value="">Silakan Pilih</option>
+                                    <option value="1">Lantai 1 </option>
+                                    <option value="2">Lantai 2</option>
+                                    <option value="3">Lantai 3</option>
+                                    <option value="4">Lantai 4</option>
+                                    <option value="5">Lantai 5</option>
+                                    <option value="6">Lantai 6</option>
+                          </select>
+                              @if ($errors->has('lantai'))
+                                <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('lantai') }}</strong>
+                                </span>
+                               @endif
                         </div>
+
+                  <span id="select-layanan">
+
+                    </span>
 
                 </div>
                 <!-- /.card-body -->
@@ -67,4 +77,30 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+@endsection
+
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+         var lantai = $("#lantai").val();
+
+          $.get('{{ Url("cek-pilih-lantai") }}',{'_token': $('meta[name=csrf-token]').attr('content'),lantai:lantai}, function(resp){  
+
+            $("#select-layanan").html(resp);
+             
+          });
+    });
+
+        $(document).on('change', '#lantai', function (e) { 
+         var lantai = $(this).val();
+
+          $.get('{{ Url("cek-pilih-lantai") }}',{'_token': $('meta[name=csrf-token]').attr('content'),lantai:lantai}, function(resp){  
+
+            $("#select-layanan").html(resp);
+             
+          });
+    });
+
+</script>
 @endsection

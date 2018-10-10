@@ -27,6 +27,7 @@
                 <thead>
                 <tr>
                   <th>Nama Layanan</th>
+                  <th>Lantai</th>
                   <th>Hari</th>
                   <th>Aksi</th>
                 </tr>
@@ -35,6 +36,7 @@
                 @foreach($data_setting_hari as $value)
                  <tr>
                   <td>{{$value->nama_layanan}}</td>
+                  <td>{{$value->lantai}}</td>
                   <td>{{$value->hari}}</td>
                   <td>
                     <a href="{{ route('settinghari.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 

@@ -19,7 +19,7 @@ class SettingHariController extends Controller
     public function index()
     {
         //
-        $data_setting_hari = SettingHari::select(['lokets.nama_layanan as nama_layanan','setting_haris.hari as hari','setting_haris.id as id'])->leftjoin('lokets','lokets.id', '=', 'setting_haris.id_loket')->get();
+        $data_setting_hari = SettingHari::select(['lokets.nama_layanan as nama_layanan','setting_haris.hari as hari','setting_haris.id as id','lokets.lantai as lantai'])->leftjoin('lokets','lokets.id', '=', 'setting_haris.id_loket')->orderBy('lokets.lantai','asc')->get();
 
         return view('settinghari.index')->with(compact('data_setting_hari'));
     }
@@ -84,7 +84,7 @@ class SettingHariController extends Controller
     public function edit($id)
     {
        if (Auth::check()) {
-            $settinghari = SettingHari::find($id);
+            $settinghari = SettingHari::select(['lokets.nama_layanan as nama_layanan','setting_haris.hari as hari','setting_haris.id as id','lokets.lantai as lantai'])->leftjoin('lokets','lokets.id', '=', 'setting_haris.id_loket')->where('setting_haris.id',$id)->first();
             return view('settinghari.edit')->with(compact('settinghari'));
         }else{
            return  view('auth.login'); 
@@ -126,13 +126,13 @@ class SettingHariController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+        public function destroy($id)
+        {
+            //
+        }
 
 
-            public function delete($id)
+         public function delete($id)
     {
         //
         SettingHari::where('id', $id)->delete();
@@ -142,5 +142,24 @@ class SettingHariController extends Controller
             "message"=>"Berhasil Mengapus Setting Hari"
             ]);
             return redirect()->route('settinghari.index');
+    }
+
+    public function cekPilihLantai(Request $request){
+
+            $data_loket = Loket::select('nama_layanan','id')->where('lantai',$request->lantai)->get();
+
+             $select = '';
+             $select .= '<div class="form-group">
+                         <label for="id_loket" class="col-md-2 control-label">Nama Layanan</label>
+                         <select id="id_loket" class="form-control" name="id_loket">
+                         ';
+                        foreach ($data_loket as $data_lokets) {
+
+            $select .= '<option value="'.$data_lokets->id.'">'.$data_lokets->nama_layanan.'         </option>';
+                            }'
+                            </select> 
+                        </div>';
+
+            return $select;
     }
 }

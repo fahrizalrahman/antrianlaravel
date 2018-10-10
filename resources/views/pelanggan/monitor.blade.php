@@ -40,7 +40,7 @@
                   @else
                   @foreach ($monitor_tiket->get() as $monitor_lokets)
 
-                  <?php $no_antrian_sekarang = \App\Antrian::where('status','antri')->where('id_user','!=',Auth::user()->id)->where('id_loket',$monitor_lokets->id_loket)->orderBy('id','desc')?>
+                  <?php $no_antrian_sekarang = \App\Antrian::where('status','dipanggil')->where('id_loket',$monitor_lokets->id_loket)->orderBy('id','desc')?>
 
                  <tr>
                   <td>{{$monitor_lokets->nama_layanan}}</td>
@@ -49,7 +49,9 @@
                   <td>{{$monitor_lokets->no_antrian}}</td>
                    
                   @if($no_antrian_sekarang->count() == 0)
-                  <td style="background-color:green;color:white;" ><center><h4>Panggilan Anda</h4></center></td>
+                  <td  ><center><h4>0</h4></center></td>
+                  @elseif($no_antrian_sekarang->first()->no_antrian == $monitor_lokets->no_antrian)
+                  <td style="background-color:green;color:white;"><center><h4>Panggilan Anda</h4></center></td>
                   @else
                   <td><center><h4>{{$no_antrian_sekarang->first()->no_antrian}}</h4></center></td>
                   @endif

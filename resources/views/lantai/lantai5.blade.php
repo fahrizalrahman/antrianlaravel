@@ -28,37 +28,56 @@
     <div class="col-md-12" style="height:5px; width:100%; background-color:deepskyblue;">
     </div>
 
-    <div class="col-md-5" style="width:550px; height:auto;">
-      <table border="1px" style="margin-left:-15px; margin-right:-14px; width:550px;">
+    <div class="col-md-5" style="width:623px; height:auto;">
+      <table border="1px" style="margin-left:-15px; margin-right:-14px; width:623px;">
           @foreach ($lantai5 as $lantai5)
 
           <tr>
-              <td class="col-md-4" style="background-color:#2b869d; height:40px; width:388px;">{{$lantai5->nama_layanan}}</td>
-              <td rowspan="2" style="background-color:#236c7d; width:100px; height:40px; text-align:center; border-color:honeydew;"><h3>A-002</h3></td>
+              <td class="col-md-4" style="color:white;background-color:#2b869d; height:45px; width:388px;">{{$lantai5->nama_layanan}}</td>
+              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:45px; text-align:center; border-color:honeydew;"><h3>A-002</h3></td>
           </tr>
           
           <tr>
-              <td class="col-md-4" style="background-color:#34a1bc; height:40px; width:100px;">{{$lantai5->kode}}</td>
+              <td class="col-md-4" style="color:white;background-color:#34a1bc; height:45px; width:100px;">{{$lantai5->kode}}</td>
           </tr>
           @endforeach
       </table>
 
       <div>
-          <img src="{{url(Storage::url($imgSid5->filename))}}" style="background-position:center; background-repeat:no-repeat; margin-left:-15px; margin-right:-16px; height:160px; width:550px;">
+          @if($imgSid5->count() > 0)
+          <img src="{{url(Storage::url($imgSid5->first()->filename))}}" style="background-position:center;  margin-left:-15px; margin-right:-16px; height:310px; width:623px;">
+          @else
+          <img  style="background-color:white;background-position:center;  margin-left:-15px; margin-right:-16px; height:310px; width:623px;">
+          @endif
+
       </div>
     </div>
-
-      <div class="col-md-7" style="background-image:url({{url(Storage::url($bgLantai5->filename))}}); width:auto; height:auto; background-position:center; background-repeat:no-repeat;">               
+     @if($bgLantai5->count() > 0)
+      <div class="col-md-7" style="background-image:url({{url(Storage::url($bgLantai5->first()->filename))}}); width:auto; height:auto; background-position:center; ">               
       </div>
+      @else
+      <div class="col-md-7" style="background-color:white; width:auto; height:auto; background-position:center; ">               
+      </div>
+      @endif
 
-      <div class="col-md-6" style="background-image:url({{url(Storage::url($imgFotL5->filename))}}); width:auto; height:75px;">
+     @if($imgFotL5->count() > 0)
+      <div class="col-md-6" style="background-image:url({{url(Storage::url($imgFotL5->first()->filename))}}); width:auto; height:75px;">
         </div>
+        @else
+       <div class="col-md-6" style="background-color:white; width:auto; height:75px;">
+        </div> 
+        @endif
     
-        <div class="col-md-6" style="background-image:url({{url(Storage::url($imgFotR5->filename))}}); width:auto; height:75px;">
+         @if($imgFotR5->count() > 0)
+        <div class="col-md-6" style="background-image:url({{url(Storage::url($imgFotR5->first()->filename))}}); width:auto; height:75px;">
           </div>
+          @else
+        <div class="col-md-6" style="background-color:white; width:auto; height:75px;">
+        </div> 
+        @endif
 
           <div class="col-md-12" style="background-color:#252525;">
-              <span style="float:left; height:30px; background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"> <h3> 12:03</h3></span> 
+              <span style="float:left; height:35px; color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"> <h3 id="time-part"></h3></span> 
               {{-- <span style="float:right; height:10px; width:95%; text-align:center;"><marquee>Tulisan berjalan disini</marquee></span> --}}
             </div>
 
@@ -66,3 +85,23 @@
 
 </body>
 </html>
+
+ {{-- Javascript --}}
+    
+ <script src="{{asset ('js/jquery.min.js')}}"></script>
+ <script src="{{asset('js/popper.min.js')}}"></script>
+ <script src="{{asset('js/bootstrap.min.js')}}"></script>
+ <script src="{{asset('js/moment.min.js')}}"></script>
+ <script src="{{asset('js/jquery.nicescroll.js')}}"></script>
+ <!-- custom -->
+ <script src="{{asset('js/main.js')}}"></script>
+
+ 
+<script type="text/javascript">
+       $(document).ready(function() {
+            var interval = setInterval(function() {
+            var momentNow = moment();
+            $('#time-part').html(momentNow.format('hh:mm'));
+            }, 100);
+        });
+</script>

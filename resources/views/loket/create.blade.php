@@ -33,7 +33,7 @@
 
                   <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
                     {!! Form::label('kode', 'Loket', ['class'=>'col-md-2 control-label']) !!}
-                      {!! Form::text('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'kode','name' => 'kode']) !!}
+                      {!! Form::number('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'kode','name' => 'kode']) !!}
                       {!! $errors->first('kode', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>
 

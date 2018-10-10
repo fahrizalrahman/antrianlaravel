@@ -28,6 +28,7 @@
                 <tr>
                   <th>Nama Sublayanan </th>
                   <th>Nama Layanan</th>
+                  <th>Lantai</th>
                   <th >Aksi</th>
                 </tr>
                 </thead>
@@ -36,6 +37,7 @@
                  <tr>
                   <td>{{$value->nama_sublayanan}}</td>
                   <td>{{$value->nama_layanan}}</td>
+                  <td>{{$value->lantai}}</td>
                   <td>
                     <a href="{{ route('sublayanan.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
                     

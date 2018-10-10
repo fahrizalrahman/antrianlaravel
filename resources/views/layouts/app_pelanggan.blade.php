@@ -281,12 +281,13 @@ $("#flip-6").click(function () {
           if (resp > 0) {
                   $.get('{{ Url("count-antrian") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id_loket}, function(resp){  
 
-                    if (currentdate.getHours() <= batas_sampai_jam && currentdate.getHours() >= batas_dari_jam && resp < batas_antrian) {
-                         window.location.href = "{{URL::to('print-antrian/')}}/"+id_loket
-                    }else{
-                      swal({
+                    if (currentdate.getHours() >= batas_sampai_jam && currentdate.getHours() <= batas_dari_jam && resp > batas_antrian) {
+                        swal({
                           html: "Batas Waktu Pengambilan Tiket Sudah Habis !!"
                         });
+                    }else{
+                      window.location.href = "{{URL::to('print-antrian/')}}/"+id_loket
+
                     }
                  });
           }else{

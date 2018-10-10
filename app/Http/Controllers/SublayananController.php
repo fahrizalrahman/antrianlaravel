@@ -18,7 +18,7 @@ class SublayananController extends Controller
     public function index()
     {
         //
-        $data_sublayanan = Sublayanan::select(['lokets.nama_layanan as nama_layanan','sublayanans.nama_sublayanan as nama_sublayanan','sublayanans.id as id'])->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')->get();
+        $data_sublayanan = Sublayanan::select(['lokets.nama_layanan as nama_layanan','sublayanans.nama_sublayanan as nama_sublayanan','sublayanans.id as id','lokets.lantai as lantai'])->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')->orderBy('lokets.lantai','asc')->get();
 
         return view('sublayanan.index')->with(compact('data_sublayanan'));
     }
@@ -83,7 +83,9 @@ class SublayananController extends Controller
     public function edit($id)
     {
        if (Auth::check()) {
-            $sublayanan = Sublayanan::find($id);
+
+            $sublayanan = Sublayanan::select(['lokets.nama_layanan as nama_layanan','sublayanans.nama_sublayanan as nama_sublayanan','sublayanans.id as id','lokets.lantai as lantai','sublayanans.id_loket as id_loket'])->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')->where('sublayanans.id',$id)->first();
+
             return view('sublayanan.edit')->with(compact('sublayanan'));
         }else{
            return  view('auth.login'); 
