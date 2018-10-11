@@ -29,34 +29,35 @@
     </div>
 
     <div class="col-md-5" style="width:623px; height:auto;">
-      <table border="1px" style="margin-left:-15px; margin-right:-14px; width:623px;">
+      <table border="1px" style="margin-left:-15px; margin-right:-14px; width:104.5%;">
+        <?php $_i = 1; ?>
           @foreach ($lantai5 as $lantai5)
-
           <tr>
               <td class="col-md-4" style="color:white;background-color:#2b869d; height:45px; width:388px;">{{$lantai5->nama_layanan}}</td>
-              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:45px; text-align:center; border-color:honeydew;"><h3>A-002</h3></td>
+              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:45px; text-align:center; border-color:honeydew;"><h3 id="lok_{{ $_i }}"></h3></td>
           </tr>
           
           <tr>
               <td class="col-md-4" style="color:white;background-color:#34a1bc; height:45px; width:100px;">{{$lantai5->kode}}</td>
           </tr>
+        <?php $_i++; ?>
           @endforeach
       </table>
 
-      <div>
+      <div >
           @if($imgSid5->count() > 0)
-          <img src="{{url(Storage::url($imgSid5->first()->filename))}}" style="background-position:center;  margin-left:-15px; margin-right:-16px; height:310px; width:623px;">
+          <img src="{{url(Storage::url($imgSid5->first()->filename))}}" style="margin-left:-15px; margin-right:-16px; background-position:center; height:310px; width:104.5%;">
           @else
-          <img  style="background-color:white;background-position:center;  margin-left:-15px; margin-right:-16px; height:310px; width:623px;">
+          <img  style="background-color:white;background-position:center;  margin-left:-15px; margin-right:-16px; height:310px; width:102.4%;">
           @endif
 
       </div>
     </div>
      @if($bgLantai5->count() > 0)
-      <div class="col-md-7" style="background-image:url({{url(Storage::url($bgLantai5->first()->filename))}}); width:auto; height:auto; background-position:center; ">               
+      <div class="col-md-7" style="background-image:url({{url(Storage::url($bgLantai5->first()->filename))}}); width:820px; height:auto; background-size:cover; background-position:center; background-repeat:no-repeat;">               
       </div>
       @else
-      <div class="col-md-7" style="background-color:white; width:auto; height:auto; background-position:center; ">               
+      <div class="col-md-7" style="background-color:white; width:820px; height:auto; background-size:cover; background-position:center; background-repeat:no-repeat; ">               
       </div>
       @endif
 
@@ -78,13 +79,10 @@
 
           <div class="col-md-12" style="background-color:#252525;">
               <span style="float:left; height:35px; color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"> <h3 id="time-part"></h3></span> 
-              {{-- <span style="float:right; height:10px; width:95%; text-align:center;"><marquee>Tulisan berjalan disini</marquee></span> --}}
-            </div>
+          </div>
 
 </div>
 
-</body>
-</html>
 
  {{-- Javascript --}}
     
@@ -105,3 +103,69 @@
             }, 100);
         });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+         var interval = setInterval(function() {
+         var momentNow = moment();
+         $('#time-part').html(momentNow.format('hh:mm'));
+         }, 100);
+     });
+</script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+      var interval = setInterval(function() {
+      var momentNow = moment();
+      $('#time-part').html(momentNow.format('hh:mm'));
+      }, 100);
+  });
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring5Controller@layanan_satu'); ?>");
+es.onmessage = function(f) {
+  if(f.data.length > 0){
+      $('#lok_1').html(f.data);
+  }else{
+      $('#lok_1').html('0');
+  }
+}
+
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring5Controller@layanan_dua'); ?>");
+es.onmessage = function(f) {
+  if(f.data.length > 0){
+      $('#lok_2').html(f.data);
+  }else{
+      $('#lok_2').html('0');
+  }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring5Controller@layanan_tiga'); ?>");
+es.onmessage = function(f) {
+  if(f.data.length > 0){
+      $('#lok_3').html(f.data);
+  }else{
+      $('#lok_3').html('0');
+  }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring5Controller@layanan_empat'); ?>");
+es.onmessage = function(f) {
+  if(f.data.length > 0){
+      $('#lok_4').html(f.data);
+  }else{
+      $('#lok_4').html('0');
+  }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring5Controller@layanan_aktif'); ?>");
+es.onmessage = function(f) {
+  if(f.data.length > 0){
+      $('#td_style').css('background-color', '#34a1bc');
+      $('#lok_' + f.data).parent('td').css('background-color', 'red');
+  }
+}
+</script>
+
+</body>
+</html>

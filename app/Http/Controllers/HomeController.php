@@ -143,6 +143,7 @@ class HomeController extends Controller
         $layanan_loket_6 = Loket::select()->where('lantai',6);
         return view('home_pelanggan', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
     }
+    
 
     public function monitor()
     {

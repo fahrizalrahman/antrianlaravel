@@ -29,25 +29,26 @@
     </div>
 
     @if($bgLantai6->count() > 0)
-    <div class="col-md-7" style="background-image:url({{url(Storage::url($bgLantai6->first()->filename))}}); width:616px; height:auto; background-position:center;">               
+    <div class="col-md-7" style="background-image:url({{url(Storage::url($bgLantai6->first()->filename))}}); width:626px; height:auto; background-position:center;">               
     </div>
     @else
         <div class="col-md-7" style="background-color:white; width:615px; height:auto; background-position:center;">               
     </div>
     @endif
     
-    <div class="col-md-5" style="width:500px; height:auto;">
-      <table border="1px;" style="margin-left:-15px; width:616px; margin-right:-14px; border-color:gray;">
+    <div class="col-md-5" style="width:105%; height:auto;">
+      <table border="1px;" style=" width:105%; margin-left:-15px; border-color:gray;">
+        <?php $_i=1; ?>
           @foreach ($lantai6 as $lantai6)
-
           <tr>
               <td class="col-md-4" style="color:white;background-color:#2b869d; width:388px; height:53px;">{{$lantai6->nama_layanan}}</td>
-              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3>A-002</h3></td>
+              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3 id="lok_{{ $_i }}"></h3></td>
           </tr>
           
           <tr>
               <td class="col-md-4" style="color:white;background-color:#34a1bc; width:100px; height:53px;">{{$lantai6->kode}}</td>
           </tr>
+          <?php $_i++; ?>
           @endforeach
       </table>
      
@@ -72,8 +73,7 @@
     @endif
 
     <div class="col-md-12" style="background-color:#252525;">
-      <span style="float:left; height:55px; color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"> <h3 id="time-part"></h3></span> 
-      {{-- <span style="float:right; height:10px; width:95%; text-align:center;"><marquee>Tulisan berjalan disini</marquee></span> --}}
+      <span style="float:left; height:35px; color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"> <h3 id="time-part"></h3></span> 
     </div>
 
 </div>
@@ -89,9 +89,6 @@
  <!-- custom -->
  <script src="{{asset('js/main.js')}}"></script>
 
-</body>
-</html>
-
    <script type="text/javascript">
        $(document).ready(function() {
             var interval = setInterval(function() {
@@ -100,3 +97,87 @@
             }, 100);
         });
    </script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+      var interval = setInterval(function() {
+      var momentNow = moment();
+      $('#time-part').html(momentNow.format('hh:mm'));
+      }, 100);
+  });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+   var interval = setInterval(function() {
+   var momentNow = moment();
+   $('#time-part').html(momentNow.format('hh:mm'));
+   }, 100);
+});
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_satu'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+        $('#lok_1').html(f.data);
+    }else{
+        $('#lok_1').html('0');
+    }
+}
+
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_dua'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+       $('#lok_2').html(f.data);
+    }else{
+       $('#lok_2').html('0');
+    }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_tiga'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+       $('#lok_3').html(f.data);
+    }else{
+       $('#lok_3').html('0');
+    }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_empat'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+       $('#lok_4').html(f.data);
+    }else{
+        $('#lok_4').html('0');
+    }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_lima'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+       $('#lok_5').html(f.data);
+    }else{
+        $('#lok_5').html('0');
+    }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_enam'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+       $('#lok_6').html(f.data);
+    }else{
+        $('#lok_6').html('0');
+    }
+}
+
+var es = new EventSource("<?php echo action('Monitoring\monitoring6Controller@layanan_aktif'); ?>");
+    es.onmessage = function(f) {
+    if(f.data.length > 0){
+        $('#td_style').css('background-color', '#34a1bc');
+        $('#lok_' + f.data).parent('td').css('background-color', 'red');
+    }
+}
+</script>
+
+</body>
+</html>

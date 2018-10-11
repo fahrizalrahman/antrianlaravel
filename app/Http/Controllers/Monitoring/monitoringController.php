@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Monitoring;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use DB;
 
 class monitoringController extends Controller
 {
-    
+// Monitoring Layanan Lantai 1
     public function layanan_satu(Request $request){
     	$response = new StreamedResponse();
 			$response->headers->set('Content-Type', 'text/event-stream');
@@ -142,6 +143,6 @@ class monitoringController extends Controller
                     flush();
                 });
 			$response->send();
-    }
-
+	}
+	
 }
