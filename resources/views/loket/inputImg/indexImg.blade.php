@@ -39,14 +39,11 @@
                   <td>{{$value->title}}</td>
                   <td>{{$value->lantai}}</td>
                   <td>
-                      <a href="{{ Storage::url($value->filename) }}" title="View file {{ $value->title }}">
-                          <i class="fa fa-eye"></i>
-                      </a>
-                      <a href="" title="Show or download value {{ $value->title }}">
-                          <i class="fa fa-expand fa-fw"></i>
-                      </a>
-                      <a href="" title="Download {{ $value->title }}">
-                          <i class="fa fa-download fa-fw"></i>
+                      <a href="{{route('inputImg.edit', $value->id)}}" class="btn btn-warning btn-sm" title="Show or download value {{ $value->title }}">
+                          <i class="nav-icon fa fa-wrench"></i>
+                        </a> ||
+                        <a href="{{route('inputImg.edit', $value->id)}}" class="btn btn-danger btn-sm" title="Show or download value {{ $value->title }}">
+                          <i class="nav-icon fa fa-trash"></i>
                       </a>
                   </td>
                 </tr>

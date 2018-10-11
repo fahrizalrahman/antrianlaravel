@@ -71,7 +71,8 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $updateFile = File::findorfail($id);
+        return view('loket.inputImg.editImg', compact('updateFile'));
     }
 
     /**
