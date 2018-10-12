@@ -92,6 +92,7 @@ Route::get('cek-pilih-lantai', 'SettingHariController@cekPilihLantai');
 /*Route pelayanan loket*/
 Route::get('/layanan-antrian/{lantai}/{layanan}/{loket}', 'LoketController@petugas');
 
+
 /*Monitoring Layar*/
 Route::get('/monitoring/1', 'monitoringController@layanan_satu');
 Route::get('/monitoring/2', 'monitoringController@layanan_dua');
@@ -104,3 +105,54 @@ Route::get('/monitoring/aktif', 'monitoringController@layanan_aktif');
 //setting hari
 Route::resource('settingharisub','SettingHariSubController');
 Route::get('/settingharisub/delete/{id}', 'SettingHariSubController@delete')->name('settingharisub.delete');
+
+/*Monitoring Layar Lantai 1*/
+Route::get('/monitoring/1', 'Monitoring\monitoringController@layanan_satu');
+Route::get('/monitoring/2', 'Monitoring\monitoringController@layanan_dua');
+Route::get('/monitoring/3', 'Monitoring\monitoringController@layanan_tiga');
+Route::get('/monitoring/4', 'Monitoring\monitoringController@layanan_empat');
+Route::get('/monitoring/5', 'Monitoring\monitoringController@layanan_lima');
+Route::get('/monitoring/6', 'Monitoring\monitoringController@layanan_enam');
+Route::get('/monitoring/aktif', 'Monitoring\monitoringController@layanan_aktif');
+
+/*Monitoring Layar Lantai 2*/
+Route::get('/monitoring2/1', 'Monitoring\monitoring2Controller@layanan_satu');
+Route::get('/monitoring2/2', 'Monitoring\monitoring2Controller@layanan_dua');
+Route::get('/monitoring2/3', 'Monitoring\monitoring2Controller@layanan_tiga');
+Route::get('/monitoring2/4', 'Monitoring\monitoring2Controller@layanan_empat');
+Route::get('/monitoring2/5', 'Monitoring\monitoring2Controller@layanan_lima');
+Route::get('/monitoring2/6', 'Monitoring\monitoring2Controller@layanan_enam');
+Route::get('/monitoring2/7', 'Monitoring\monitoring2Controller@layanan_tujuh');
+Route::get('/monitoring2/aktif', 'Monitoring\monitoring2Controller@layanan_aktif');
+
+/*Monitoring Layar Lantai 3*/
+Route::get('/monitoring3/1', 'Monitoring\monitoring3Controller@layanan_satu');
+Route::get('/monitoring3/2', 'Monitoring\monitoring3Controller@layanan_dua');
+Route::get('/monitoring3/3', 'Monitoring\monitoring3Controller@layanan_tiga');
+Route::get('/monitoring3/4', 'Monitoring\monitoring3Controller@layanan_empat');
+Route::get('/monitoring3/5', 'Monitoring\monitoring3Controller@layanan_lima');
+Route::get('/monitoring3/6', 'Monitoring\monitoring3Controller@layanan_enam');
+Route::get('/monitoring3/7', 'Monitoring\monitoring3Controller@layanan_tujuh');
+Route::get('/monitoring3/aktif', 'Monitoring\monitoring3Controller@layanan_aktif');
+
+/*Monitoring Layar Lantai 4*/
+Route::get('/monitoring4/1', 'Monitoring\monitoring4Controller@layanan_satu');
+Route::get('/monitoring4/2', 'Monitoring\monitoring4Controller@layanan_dua');
+Route::get('/monitoring4/3', 'Monitoring\monitoring4Controller@layanan_tiga');
+Route::get('/monitoring4/aktif', 'Monitoring\monitoring4Controller@layanan_aktif');
+
+/*Monitoring Layar Lantai 5*/
+Route::get('/monitoring5/1', 'Monitoring\monitoring5Controller@layanan_satu');
+Route::get('/monitoring5/2', 'Monitoring\monitoring5Controller@layanan_dua');
+Route::get('/monitoring5/3', 'Monitoring\monitoring5Controller@layanan_tiga');
+Route::get('/monitoring5/4', 'Monitoring\monitoring5Controller@layanan_empat');
+Route::get('/monitoring5/aktif', 'Monitoring\monitoring5Controller@layanan_aktif');
+
+/*Monitoring Layar Lantai 6*/
+Route::get('/monitoring6/1', 'Monitoring\monitoring6Controller@layanan_satu');
+Route::get('/monitoring6/2', 'Monitoring\monitoring6Controller@layanan_dua');
+Route::get('/monitoring6/3', 'Monitoring\monitoring6Controller@layanan_tiga');
+Route::get('/monitoring6/4', 'Monitoring\monitoring6Controller@layanan_empat');
+Route::get('/monitoring6/5', 'Monitoring\monitoring6Controller@layanan_lima');
+Route::get('/monitoring6/6', 'Monitoring\monitoring6Controller@layanan_enam');
+Route::get('/monitoring6/aktif', 'Monitoring\monitoring6Controller@layanan_aktif');

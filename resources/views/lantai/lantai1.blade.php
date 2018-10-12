@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset ('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href=" {{asset('css/file.css')}} ">
-    <title>Contoh Lantai 1</title>
+    <title>Dashboard Lantai 1</title>
 </head>
 <body class="container-fluid" style="background-image:url({{('img/log/bg-log.jpg')}})">
     <div class="container-fluid">
@@ -31,22 +31,22 @@
                     </span>
             </div>
             @if($bgLantai1->count() > 0)
-            <div class="col-sm-7" style="background-image:url({{url(Storage::url($bgLantai1->first()->filename))}}); width:800px; height:660px; background-size:cover; background-position:center; background-repeat:no-repeat;">     
+            <div class="col-sm-7" style="background-image:url({{url(Storage::url($bgLantai1->first()->filename))}}); margin-right:-13px; width:820px; height:auto; background-size:cover; background-position:center; background-repeat:no-repeat;">     
             </div>
             @else
-             <div class="col-sm-7" style="background-color:white; width:800px; height:660px; background-size:cover; background-position:center; background-repeat:no-repeat;">
+             <div class="col-sm-7" style="background-color:white; width:820px; height:660px; background-size:cover; background-position:center; background-repeat:no-repeat;">
             </div>
             @endif
-            <div class="col-sm-5" style="width:500px; height:auto;">
-                <table border="1px;" style="margin-left:-15px; width:617px; margin-right:-14px; border-color:gray;">
+            <div class="col-sm-4" style="width:120.%; height:auto;">
+                <table border="1px;" style="width:132.8%; border-color:gray;">
                         <?php $_i=1; ?>
                         @foreach ($lantai1 as $lantai1)
                         <tr>
-                            <td class="col-md-4" style="background-color:#2b869d; height:55px; width:388px;color:white;">{{$lantai1->nama_layanan}}</td>
+                            <td class="col-sm-5" style="background-color:#2b869d; height:55px; width:400px;color:white;">{{$lantai1->nama_layanan}}</td>
                             <td id="td_style" rowspan="2" style="background-color:#236c7d; width:100px; height:55px; text-align:center; border-color:honeydew;color:white;"><h3 id="lok_{{ $_i }}"></h3></td>
                         </tr>
                         <tr>
-                            <td class="col-md-4" style="background-color:#34a1bc; height:55px; width:100px;color:white;">{{$lantai1->kode}}</td>
+                            <td class="col-sm-5" style="background-color:#34a1bc; height:55px; width:400px;color:white;">{{$lantai1->kode}}</td>
                         </tr>
                         <?php $_i++; ?>
                         @endforeach
@@ -71,9 +71,19 @@
                  <div class="col-md-6" style="background-color:white; width:auto; height:75px;">
                 </div>
                 @endif
-            <div class="col-md-12" style="background-color:#252525;; height:40px;">
-                <span style="float:left; height:40px; color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"><b> <h3 id="time-part">  </h3></b></span> 
+            {{-- <div class="col-md-12" style="background-color:#252525; height:40px;">
+                <span style="float:left; height:40px; color:white;background-color:#3badc9; text-align:center; width:10%; margin-left:-15px;"><b> <h3 id="time-part">  </h3></b></span>
+            </div> --}}
+
+            <div class="col-md-12" style="width:102%;">
+                <table border="0px" style="width:102%; height:40px; margin-left:-15px;">
+                    <tr>
+                        <td style="width:150px; margin-right:10px; background-color:#34a1bc; text-align:center; "><b> <h3 id="time-part"></h3></b></td>
+                        <td style="width:1500px; background-color:#252525; color:antiquewhite; size:19px;"><marquee>SELAMAT DATANG</marquee></td>
+                    </tr>
+                </table>
             </div>
+
             </div>
         </div>
     </div>
@@ -95,7 +105,7 @@
         radioClass: 'iradio_flat-aero'
       });
      });
-   </script>
+    </script>
    <!-- end: Javascript -->
 
    <script type="text/javascript">
@@ -106,7 +116,7 @@
             }, 100);
         });
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_satu'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_satu'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#lok_1').html(f.data);
@@ -116,7 +126,7 @@ es.onmessage = function(f) {
 }
 
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_dua'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_dua'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#lok_2').html(f.data);
@@ -125,7 +135,7 @@ es.onmessage = function(f) {
     }
 }
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_tiga'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_tiga'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#lok_3').html(f.data);
@@ -134,7 +144,7 @@ es.onmessage = function(f) {
     }
 }
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_empat'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_empat'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#lok_4').html(f.data);
@@ -143,7 +153,7 @@ es.onmessage = function(f) {
     }
 }
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_lima'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_lima'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#lok_5').html(f.data);
@@ -152,7 +162,7 @@ es.onmessage = function(f) {
     }
 }
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_enam'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_enam'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#lok_6').html(f.data);
@@ -161,7 +171,7 @@ es.onmessage = function(f) {
     }
 }
 
-var es = new EventSource("<?php echo action('monitoringController@layanan_aktif'); ?>");
+var es = new EventSource("<?php echo action('Monitoring\monitoringController@layanan_aktif'); ?>");
 es.onmessage = function(f) {
     if(f.data.length > 0){
         $('#td_style').css('background-color', '#34a1bc');

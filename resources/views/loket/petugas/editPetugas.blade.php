@@ -49,17 +49,22 @@
                       <input type="text" class="form-control" value="{{$editPetugas->alamat}}" name="alamat" placeholder="Masukan Alamat">
                   </div>
           
-                        <div class="form-group">
-                            <label>Pilih Lantai</label>
-                            <select class="form-control" value="{{$editPetugas->lantai}}" name="lantai">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </div>
+                  <div class="form-group">
+                      <label>Pilih Lantai</label>
+                      <select class="form-control" value="{{$editPetugas->lantai}}" name="lantai">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="text" class="form-control" value="{{$editPetugas->password}}" name="password" placeholder="Masukan Password baru">
+                  </div>
                       </div>
                       <!-- /.card-body -->
       
