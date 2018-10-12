@@ -18,7 +18,7 @@ class monitoring5Controller extends Controller
 				function() {
 					$lt2 = DB::table('antrians')
 						-> select('no_antrian')
-						-> whereRaw('(status="dipanggil" or status="diproses" or status="selesai") and id_loket=1')
+						-> whereRaw('(status="dipanggil" or status="diproses" or status="selesai") and id_loket=24')
 						-> orderBy('updated_at', 'DESC')
 						-> first();
 
@@ -38,7 +38,7 @@ class monitoring5Controller extends Controller
 				function() {
 					$lt2 = DB::table('antrians')
 						-> select('no_antrian')
-						-> whereRaw('(status="dipanggil" or status="diproses") and id_loket=2')
+						-> whereRaw('(status="dipanggil" or status="diproses") and id_loket=25')
 						-> first();
 
 					echo "retry: 2000\n\n"; // no retry would default to 3 seconds.
@@ -57,7 +57,7 @@ class monitoring5Controller extends Controller
 				function() {
 					$lt2 = DB::table('antrians')
 						-> select('no_antrian')
-						-> whereRaw('(status="dipanggil" or status="diproses") and id_loket=3')
+						-> whereRaw('(status="dipanggil" or status="diproses") and id_loket=26')
 						-> first();
 
 					echo "retry: 2000\n\n"; // no retry would default to 3 seconds.
@@ -76,7 +76,7 @@ class monitoring5Controller extends Controller
 				function() {
 					$loket = DB::table('antrians')
 						-> select('no_antrian')
-						-> whereRaw('(status="dipanggil" or status="diproses") and id_loket=4')
+						-> whereRaw('(status="dipanggil" or status="diproses") and id_loket=27')
 						-> first();
 
 					echo "retry: 2000\n\n"; // no retry would default to 3 seconds.
@@ -95,7 +95,7 @@ class monitoring5Controller extends Controller
 				function() {
 					$aktif = DB::table('antrians')
 						-> select('id_loket')
-						-> whereRaw('(`status`="dipanggil" or `status`="diproses") and id_loket<=4')
+						-> whereRaw('(`status`="dipanggil" or `status`="diproses") and id_loket<=27')
 						-> orderBy('updated_at', 'ASC')
 						-> first();
 

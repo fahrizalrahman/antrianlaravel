@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Petugas</h1>
+            <h1>Input Text</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
           @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('petugas.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Petugas</a>
+                <a href="{{ route('inputTulisan.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Tulisan</a>
             
             </div>
             <!-- /.card-header -->
@@ -26,31 +26,21 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Petugas</th>
-                  <th>Email </th>
-                  <th>NIK </th>
-                  <th>No Telp</th>
-                  <th>Jabatan</th>
-                  <th>Lantai</th>
-                   <th>Aksi</th> 
+                  <th>Judul</th>
+                  <th>Isi Tulisan</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($petugas as $value)
+                @foreach($tampilTulisan as $value)
                  <tr>
-                  <td>{{$value->name}}</td>
-                  <td>{{$value->email}}</td>
-                  <td>{{$value->nik}}</td>
-                  <td>{{$value->no_telp}}</td> 
-                  <td>{{$value->jabatan}}</td>
-                  <td>{{$value->lantai}}</td>
+                  <td>{{$value->judul}}</td>
+                  <td>{{$value->isi}}</td>
                   <td>
-                      <form action="{{route('petugas.destroy', $value->id)}}" method="POST"">
-                        <a href="{{ route('petugas.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
-                        @csrf
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger"><i class="nav-icon fa fa-trash"></i></button>
-                      </form>
+                    <a href="{{ route('inputTulisan.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
+                    
+                     <a href="{{route('loket.delete',$value->id)}}" class="btn btn-danger btn-sm"><i class="nav-icon fa fa-trash"></i></a>
+
                   </td>
                 </tr>
                 @endforeach
