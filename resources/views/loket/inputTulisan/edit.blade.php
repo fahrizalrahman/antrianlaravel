@@ -37,6 +37,27 @@
                     <textarea name="isi" class="form-control" value="{{$editTulisan->isi}}" placeholder="Edit Text" id="isi" cols="30" rows="10">{{$editTulisan->isi}}</textarea>
                 </div>
 
+                <div class="form-group">
+                  <label>Pilih Lantai</label>
+                  <select class="form-control" name="lantai" value="{{$editTulisan->lantai}}">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="monitor">Monitor</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Pilih Letak</label>
+                  <select class="form-control" name="float" value="{{$editTulisan->float}}">
+                      <option value="footer">Footer</option>
+                      <option value="monitor">Monitor</option>
+                  </select>
+              </div>
+
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Edit Tulisan</button>
               </div>

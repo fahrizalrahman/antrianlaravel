@@ -42,7 +42,7 @@
           @foreach ($lantai6 as $lantai6)
           <tr>
               <td class="col-md-4" style="color:white;background-color:#2b869d; width:388px; height:53px;">{{$lantai6->nama_layanan}}</td>
-              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3 id="lok_{{ $_i }}"></h3></td>
+              <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3 style="float:left; margin-left:25px;">{{$lantai6->kode_antrian}} - </h3><h3 style="float:left; margin-left:8px;" id="lok_{{ $_i }}"></h3></td>
           </tr>
           
           <tr>

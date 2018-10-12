@@ -31,15 +31,15 @@
                         <table class="table-responsive" style="position:static;">
                         <col width="90">
                         <col width="430">
-                        <col width="80">
-                        <col width="50">
+                        <col width="60">
+                        <col width="100">
                         <td rowspan="0" style="background-color:#276a7b; height:40px; text-align:center; "><h1> <b> 1 </b></h1></td>
                         <?php $_1=1; ?>
                         @foreach ($MonitorLt1 as $Lt1)
                             <tr>
                             <td style="background-color:#278698; height:40px;">{{$Lt1->nama_layanan}}</td>
                                 <td style="background-color:#278698; height:40px;">{{$Lt1->kode}}</td>
-                                <td style="background-color:#278698; height:40px;"><h4 id="lok_{{ $_1 }}"></h4></td>
+                                <td style="background-color:#278698; height:40px;"><h4 style="float:left; margin-left:25px;">{{$Lt1->kode_antrian}} - </h4><h4 style="float:left; margin-left:8px;" id="lok_{{ $_1 }}"></h4></td>
                             </tr>
                         <?php $_1++; ?>    
                         @endforeach
@@ -51,15 +51,16 @@
                         <table class="table-responsive" style=" position:static;">
                         <col width="90">
                         <col width="430">
-                        <col width="80">
-                        <col width="50">
+                        <col width="60">
+                        <col width="100">
                         <td rowspan="0" style="background-color:#276a7b; height:40px; text-align:center; "><h1> <b> 2</b> </h1></td>
                         <?php $_2=1; ?>
                         @foreach ($MonitorLt2 as $Lt2)    
                             <tr>
                                 <td style="background-color:#278698; height:40px;">{{$Lt2->nama_layanan}}</td>
                                 <td style="background-color:#278698; height:40px;">{{$Lt2->kode}}</td>
-                                <td style="background-color:#278698; height:40px;"><h4 id="lok2_{{ $_2 }}"></h4></td>
+                                <td style="background-color:#278698; height:40px;"><h4 style="float:left; margin-left:25px;">{{$Lt2->kode_antrian}} - </h4><h4 style="float:left; margin-left:8px;" id="lok2_{{ $_2 }}"></h4></td>
+                                
                             </tr>
                         <?php $_2++; ?>
                         @endforeach
@@ -70,15 +71,15 @@
                         <table class="table-responsive" style=" position:static;">
                         <col width="90">
                         <col width="430">
-                        <col width="80">
-                        <col width="50">
+                        <col width="60">
+                        <col width="100">
                         <td style="background-color:#276a7b; height:40px; text-align:center; " rowspan="0"><h1> <b> 3</b> </h1></td>
                         <?php $_3=1; ?>
                         @foreach ($MonitorLt3 as $Lt3)    
                             <tr>
                                 <td style="background-color:#278698; height:40px;">{{$Lt3->nama_layanan}}</td>
                                 <td style="background-color:#278698; height:40px;">{{$Lt3->kode}}</td>
-                                <td style="background-color:#278698; height:40px;"><h4 id="lok3_{{ $_3 }}"></td>
+                                <td style="background-color:#278698; height:40px;"><h4 style="float:left; margin-left:25px;">{{$Lt3->kode_antrian}} - </h4><h4 style="float:left; margin-left:8px;" id="lok3_{{ $_3 }}"></h4></td>
                             </tr>
                         <?php $_3++; ?>
                         @endforeach
@@ -89,15 +90,15 @@
                         <table class="table-responsive" style=" position:static;">
                         <col width="90">
                         <col width="430">
-                        <col width="80">
-                        <col width="50">    
+                        <col width="60">
+                        <col width="100">    
                         <td style="background-color:#276a7b; height:40px; text-align:center; " rowspan="0"><h1> <b> 4</b> </h1></td>
                         <?php $_4=1; ?>
                         @foreach ($MonitorLt4 as $Lt4)    
                             <tr>
                                 <td style="background-color:#278698; height:40px;">{{$Lt4->nama_layanan}}</td>
                                 <td style="background-color:#278698; height:40px;">{{$Lt4->kode}}</td>
-                                <td style="background-color:#278698; height:40px;"><h4 id="lok4_{{ $_4 }}"></td>
+                                <td style="background-color:#278698; height:40px;"><h4 style="float:left; margin-left:25px;">{{$Lt4->kode_antrian}} - </h4><h4 style="float:left; margin-left:8px;" id="lok4_{{ $_4 }}"></h4></td>
                             </tr>
                         <?php $_4++; ?>
                         @endforeach
@@ -108,15 +109,15 @@
                         <table class="table-responsive" style=" position:static;">
                         <col width="90">
                         <col width="430">
-                        <col width="80">
-                        <col width="50">
+                        <col width="60">
+                        <col width="100">
                         <td style="background-color:#276a7b; height:40px; text-align:center; " rowspan="0"><h1> <b> 5</b> </h1></td>
                         <?php $_5=1; ?>
                         @foreach ($MonitorLt5 as $Lt5)    
                             <tr>
                                 <td style="background-color:#278698; height:40px;">{{$Lt5->nama_layanan}}</td>
                                 <td style="background-color:#278698; height:40px;">{{$Lt5->kode}}</td>
-                                <td style="background-color:#278698; height:40px;"><h4 id="lok5_{{ $_5 }}"></td>
+                                <td style="background-color:#278698; height:40px;"><h4 style="float:left; margin-left:25px;">{{$Lt5->kode_antrian}} - </h4><h4 style="float:left; margin-left:8px;" id="lok5_{{ $_5 }}"></h4></td>
                             </tr>
                         <?php $_5++; ?>
                         @endforeach
@@ -127,15 +128,15 @@
                         <table class="table-responsive" style=" position:static;">
                         <col width="90">
                         <col width="430">
-                        <col width="80">
-                        <col width="50">    
+                        <col width="60">
+                        <col width="100">    
                         <td style="background-color:#276a7b; height:40px; text-align:center; " rowspan="0"><h1> <b> 6</b> </h1></td>
                         <?php $_6=1; ?>
                         @foreach ($MonitorLt6 as $Lt6)    
                             <tr>
                                 <td style="background-color:#278698; height:40px;">{{$Lt6->nama_layanan}}</td>
                                 <td style="background-color:#278698; height:40px;">{{$Lt6->kode}}</td>
-                                <td style="background-color:#278698; height:40px;"><h4 id="lok6_{{ $_6 }}"></td>
+                                <td style="background-color:#278698; height:40px;"><h4 style="float:left; margin-left:25px;">{{$Lt6->kode_antrian}} - </h4><h4 style="float:left; margin-left:8px;" id="lok6_{{ $_6 }}"></h4></td>
                             </tr>
                         <?php $_6++; ?>
                         @endforeach
@@ -145,16 +146,16 @@
                     <div class="col-sm-6" style=" margin-top:0.4%;">
                         <table class="table-responsive" style="background-color:beige; position:static; margin-bottom:4px;">
                         <col width="600px">    
+                        @foreach ($textmonitor as $text)
                             <tr>
-                                <td style="color:blue; padding-left:20px;"> <b> <u> Keamanan Pangan Faktor Penting Dalam Perhelatan Asian Games</u></b></td>
+                                <td style="color:blue; padding-left:20px;"> <b> <u> {{$text->judul}}</u></b></td>
                             </tr>
                             <tr>
                                 <td style="color:black; font-size:11px; padding-left:20px; ">
-                                     Jakarta- Perhelatan Asian Games ke-18 akan segera dimulai pada tanggal 18 Agustus 2018.
-                                     Indonesia sebagai tuan rumah terus bekerja keras memastikan kesiapan seluruh infrastruktur
-                                     Asian Games yang akan di fokuskan di dua kota yakni Jakarta dan Palembang.
+                                    {{$text->isi}}
                                 </td>
                             </tr>
+                            @endforeach
                         </table>
                     </div>                    
                 </div>

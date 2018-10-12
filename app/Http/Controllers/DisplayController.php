@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Loket;
+use App\Tulisan;
 use Illuminate\Http\Request;
 
 class DisplayController extends Controller
@@ -14,6 +15,7 @@ class DisplayController extends Controller
         $MonitorLt4 = Loket::where('lantai','4')->get();
         $MonitorLt5 = Loket::where('lantai','5')->get();
         $MonitorLt6 = Loket::where('lantai','6')->get();
-        return view('monitor', compact('MonitorLt1','MonitorLt2','MonitorLt3','MonitorLt4','MonitorLt5','MonitorLt6'));
+        $textmonitor = Tulisan::where('lantai','monitor')->LIMIT('1')->get();
+        return view('monitor', compact('MonitorLt1','MonitorLt2','MonitorLt3','MonitorLt4','MonitorLt5','MonitorLt6','textmonitor'));
     }
 }

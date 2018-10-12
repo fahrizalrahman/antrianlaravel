@@ -10,6 +10,7 @@ use App\SettingHari;
 use App\File;
 use App\Footer;
 use App\Sidebar;
+use App\Tulisan;
 use Storage;
 use Redirect;
 use DB;
@@ -157,8 +158,4 @@ class HomeController extends Controller
         $layanan_lantai = Loket::select()->where('lantai',$lantai)->get();
         return view('pelanggan.layanan',['layanan_lantai' => $layanan_lantai,'lantai'=>$lantai]);
     }
-
-
-
-
 }

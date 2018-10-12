@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tulisan;
-
+use Auth;
 class TulisanController extends Controller
 {
     /**
@@ -38,14 +38,18 @@ class TulisanController extends Controller
     {
         $this->validate($request, [
             'judul' => 'required',
-            'isi'   => 'required'
+            'isi'   => 'required',
+            'lantai'   => 'required',
+            'float'   => 'required'
         ]);
 
         $Tulisan = new Tulisan;
         $Tulisan->judul = $request->judul;
         $Tulisan->isi = $request->isi;
+        $Tulisan->lantai = $request->lantai;
+        $Tulisan->float = $request->float;
         $Tulisan->save();
-        return redirect()->route('loket.inputTulisan.index');
+        return redirect()->route('inputTulisan.index');
     }
 
     /**
