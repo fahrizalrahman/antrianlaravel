@@ -135,17 +135,13 @@
           if (resp > 0) {
                   $.get('{{ Url("count-antrian") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id_loket}, function(resp){  
 
-                    if (currentdate.getHours() >= batas_sampai_jam) {
+                    if (currentdate.getHours() >= batas_sampai_jam && resp > batas_antrian) {
                         swal({
                           html: "Batas Pengambilan Tiket Sudah Ditutup !!"
                         });
-                    }else if (currentdate.getHours() <= batas_dari_jam){
+                    }else if (currentdate.getHours() <= batas_dari_jam && resp > batas_antrian){
                         swal({
                           html: "Batas Pengambilan Tiket Belum Dibuka !!"
-                        });
-                    }else if (resp > batas_antrian){
-                         swal({
-                          html: "Batas Pengambilan Tiket Habis !!"
                         });
                     }else{
                       window.location.href = "{{URL::to('print-antrian-sub/')}}/"+id_loket+"/"+id_sublayanan

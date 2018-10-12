@@ -53,8 +53,8 @@ p{
 			<p>--------------------------------------------------------</p>
 			<p>Jalan Percetakan Negara Nomor 23 <br> Jakarta - 10560 - Indonesia </p>
 			<p>--------------------------------------------------------</p>
-      <p style="margin-left:50px">Nomor Antrian Anda</p>
-        <h1 style="margin-left:100px">{{$data_antri->no_antrian}}</h1>
+      <p style="margin-left:20px">Nomor Antrian Anda</p>
+        <h1 style="margin-left:50px">{{ $data_loket->kode_antrian }}{{$data_antri->no_antrian}}</h1>
       <p>--------------------------------------------------------</p>
       <p> Loket  : {{ $data_loket->kode }} </p>
       <p> Lantai : {{ $data_loket->lantai }}</p>

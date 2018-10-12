@@ -11,7 +11,10 @@ use App\SettingHari;
 use App\SettingHariSub;
 use Auth;
 use Session;
+use Redirect;
 use DB;
+use Jenssegers\Agent\Agent;
+
 
 class AntrianController extends Controller
 {
@@ -28,7 +31,7 @@ class AntrianController extends Controller
 
     public function print($id)
     {
-
+        $agent = new Agent();
         $antrian_terbaru = Antrian::select(['no_antrian'])->where('id_loket',$id)->whereDate('created_at', Carbon::today())->orderBy('id','desc');
 
         if ($antrian_terbaru->count() > 0) {
@@ -42,7 +45,13 @@ class AntrianController extends Controller
 
             $data_loket = Loket::select()->where('id',$create_antrian->id_loket)->first();
             
-            return redirect()->route('monitor-tiket'); 
+            if ($agent->isMobile()) {
+               return redirect()->route('monitor-tiket'); 
+            }else{
+               //return Redirect::away(url('lihat-tiket/'.$create_antrian->id));
+            return redirect()->route('monitor-tiket');
+            }
+            
             //$this->logout(); return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
             
         }else{
@@ -55,7 +64,12 @@ class AntrianController extends Controller
            
             $data_loket = Loket::select()->where('id',$create_antrian->id_loket)->first();
 
-            return redirect()->route('monitor-tiket'); 
+            if ($agent->isMobile()) {
+               return redirect()->route('monitor-tiket'); 
+            }else{
+               //return Redirect::away(url('lihat-tiket/'.$create_antrian->id));
+            return redirect()->route('monitor-tiket');
+            }
 
 //            $this->logout(); return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
             
@@ -64,7 +78,7 @@ class AntrianController extends Controller
 
         public function printSub($id,$id_sub)
     {
-
+        $agent = new Agent();
         $antrian_terbaru = Antrian::select(['no_antrian'])->where('id_loket',$id)->whereDate('created_at', Carbon::today())->orderBy('id','desc');
 
         if ($antrian_terbaru->count() > 0) {
@@ -77,9 +91,22 @@ class AntrianController extends Controller
                     'id_sublayanan'=> $id_sub
                 ]);
 
-            $data_loket = Loket::select()->where('id',$create_antrian->id_loket)->first();
-            
-            return redirect()->route('monitor-tiket'); 
+                  $data_loket = Sublayanan::select([
+                        'sublayanans.nama_sublayanan as nama_layanan',
+                        'sublayanans.id as id',
+                        'lokets.lantai as lantai',
+                        'sublayanans.kode_loket as kode'
+                ])
+                ->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')
+                ->where('sublayanans.id',$create_antrian->id_sublayanan)
+                ->first();
+
+            if ($agent->isMobile()) {
+               return redirect()->route('monitor-tiket'); 
+            }else{
+               //return Redirect::away(url('lihat-tiket/'.$create_antrian->id));
+            return redirect()->route('monitor-tiket');
+            }
             //$this->logout(); return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
             
         }else{
@@ -91,9 +118,22 @@ class AntrianController extends Controller
                     'id_sublayanan'=> $id_sub
                 ]);
            
-            $data_loket = Loket::select()->where('id',$create_antrian->id_loket)->first();
+                  $data_loket = Sublayanan::select([
+                        'sublayanans.nama_sublayanan as nama_layanan',
+                        'sublayanans.id as id',
+                        'lokets.lantai as lantai',
+                        'sublayanans.kode_loket as kode'
+                ])
+                ->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')
+                ->where('sublayanans.id',$create_antrian->id_sublayanan)
+                ->first();
 
-            return redirect()->route('monitor-tiket'); 
+            if ($agent->isMobile()) {
+               return redirect()->route('monitor-tiket'); 
+            }else{
+               //return Redirect::away(url('lihat-tiket/'.$create_antrian->id));
+            return redirect()->route('monitor-tiket');
+            }
 
 //            $this->logout(); return view('cetak.antrian',['data_antri' => $create_antrian,'data_loket'=>$data_loket]);
             
@@ -231,7 +271,8 @@ class AntrianController extends Controller
             'lokets.lantai',
             'antrians.no_antrian',
             'sublayanans.nama_sublayanan as nama_sublayanan',
-            'sublayanans.kode_loket as kode_loket'
+            'sublayanans.kode_loket as kode_loket',
+            'lokets.kode_antrian as kode_antrian'
           )->leftJoin('lokets', 'lokets.id', '=', 'antrians.id_loket')
            ->leftJoin('sublayanans', 'sublayanans.id', '=', 'antrians.id_sublayanan')
         ->where(DB::raw('DATE(antrians.created_at)'), '=', DB::raw('curdate()'))->where('antrians.id_user',Auth::user()->id)->orderBy('id','desc');  
@@ -255,7 +296,8 @@ class AntrianController extends Controller
                         'sublayanans.nama_sublayanan as nama_layanan',
                         'sublayanans.id as id',
                         'lokets.lantai as lantai',
-                        'sublayanans.kode_loket as kode'
+                        'sublayanans.kode_loket as kode',
+                        'lokets.kode_antrian as kode_antrian'
                 ])
                 ->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')
                 ->where('sublayanans.id',$data_monitor_tiket->first()->id_sublayanan)

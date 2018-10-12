@@ -37,6 +37,11 @@
                       {!! $errors->first('kode', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>
 
+                  <div class="form-group{{ $errors->has('kode_antrian') ? ' has-error' : '' }}">
+                    {!! Form::label('kode_antrian', 'Kode Antrian', ['class'=>'col-md-2 control-label']) !!}
+                      {!! Form::text('kode_antrian', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'Loket', 'id' => 'kode_antrian','name' => 'kode_antrian']) !!}
+                      {!! $errors->first('kode_antrian', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
+                  </div>
 
                   <div class="form-group{{ $errors->has('lantai') ? ' has-error' : '' }}">
                       {!! Form::label('lantai', 'Lantai', ['class'=>'col-md-2 control-label']) !!}
