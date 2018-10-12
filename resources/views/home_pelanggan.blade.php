@@ -30,15 +30,26 @@
                               <center><h1 style="color:white">LANTAI </h1></center>
                               <center><h1 style="color:white">1</h1></center>
                             </div>
-                             <div class="card-footer">
+                             <div class="card-footer" style="background-color:grey;">
                                 <div class="row">
-                                 <div class="col-sm-6 col-xs-6">
+                                 @if($agent->isMobile())
+                                  <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" class="card-link btn btn-primary" id="flip-1" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
+                                  </div>
+                                @else
+                                <div class="col-sm-6 col-xs-6">
                                   <button style="width:150px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
                                   </div>
 
                                   <div class="col-sm-6 col-xs-6">
                                   <button style="width:150px" class="card-link btn btn-primary" id="flip-1" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                 </div>
+                                @endif
                                 </div>
                             </div>
                           </div>
@@ -49,14 +60,26 @@
                               <center><h1 style="color:white">LANTAI </h1></center>
                               <center><h1 style="color:white">2</h1></center>
                             </div>
-                             <div class="card-footer">
+                             <div class="card-footer" style="background-color:grey;">
                                 <div class="row">
-                                 <div class="col-sm-6 col-xs-6">
-                                  <button style="width:150px" data-toggle="modal" data-target="#myModal2" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  @if($agent->isMobile())
+                                  <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" class="card-link btn btn-primary" id="flip-2" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                   </div>
+                                @else
+                                <div class="col-sm-6 col-xs-6">
+                                  <button style="width:150px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  </div>
+
                                   <div class="col-sm-6 col-xs-6">
                                   <button style="width:150px" class="card-link btn btn-primary" id="flip-2" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                 </div>
+                                @endif
                                 </div>
                             </div>
                           </div>
@@ -67,14 +90,26 @@
                               <center><h1 style="color:white">LANTAI </h1></center>
                               <center><h1 style="color:white">3</h1></center>
                             </div>
-                             <div class="card-footer">
+                             <div class="card-footer" style="background-color:grey;">
                                 <div class="row">
-                                 <div class="col-sm-6 col-xs-6">
-                                  <button style="width:150px" data-toggle="modal" data-target="#myModal3" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  @if($agent->isMobile())
+                                  <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" class="card-link btn btn-primary" id="flip-3" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                   </div>
+                                @else
+                                <div class="col-sm-6 col-xs-6">
+                                  <button style="width:150px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  </div>
+
                                   <div class="col-sm-6 col-xs-6">
                                   <button style="width:150px" class="card-link btn btn-primary" id="flip-3" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                 </div>
+                                @endif
                                 </div>
                             </div>
                           </div>
@@ -87,14 +122,26 @@
                               <center><h1 style="color:white">LANTAI </h1></center>
                               <center><h1 style="color:white">4</h1></center>
                             </div>
-                             <div class="card-footer">
+                             <div class="card-footer" style="background-color:grey;">
                                 <div class="row">
-                                 <div class="col-sm-6 col-xs-6">
-                                  <button style="width:150px" data-toggle="modal" data-target="#myModal4" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                @if($agent->isMobile())
+                                  <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" class="card-link btn btn-primary" id="flip-4" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                   </div>
+                                @else
+                                <div class="col-sm-6 col-xs-6">
+                                  <button style="width:150px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  </div>
+
                                   <div class="col-sm-6 col-xs-6">
                                   <button style="width:150px" class="card-link btn btn-primary" id="flip-4" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                 </div>
+                                @endif
                                 </div>
                             </div>
                           </div>
@@ -105,14 +152,26 @@
                               <center><h1 style="color:white">LANTAI </h1></center>
                               <center><h1 style="color:white">5</h1></center>
                             </div>
-                             <div class="card-footer">
+                             <div class="card-footer" style="background-color:grey;">
                                 <div class="row">
-                                 <div class="col-sm-6 col-xs-6">
-                                  <button  style="width:150px" data-toggle="modal" data-target="#myModal5" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  @if($agent->isMobile())
+                                  <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" class="card-link btn btn-primary" id="flip-5" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                   </div>
+                                @else
+                                <div class="col-sm-6 col-xs-6">
+                                  <button style="width:150px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  </div>
+
                                   <div class="col-sm-6 col-xs-6">
-                                  <button  style="width:150px" class="card-link btn btn-primary" id="flip-5" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
+                                  <button style="width:150px" class="card-link btn btn-primary" id="flip-5" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                 </div>
+                                @endif
                                 </div>
                             </div>
                           </div>
@@ -123,14 +182,26 @@
                               <center><h1 style="color:white">LANTAI </h1></center>
                               <center><h1 style="color:white">6</h1></center>
                             </div>
-                             <div class="card-footer">
+                             <div class="card-footer" style="background-color:grey;">
                                 <div class="row">
-                                 <div class="col-sm-6 col-xs-6">
-                                  <button style="width:150px" data-toggle="modal" data-target="#myModal6" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    @if($agent->isMobile())
+                                  <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-12 col-xs-12">
+                                    <button style="width:270px" class="card-link btn btn-primary" id="flip-6" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                   </div>
+                                @else
+                                <div class="col-sm-6 col-xs-6">
+                                  <button style="width:150px" data-toggle="modal" data-target="#myModal1" class="card-link btn btn-primary" type="button"><i class="fa fa-info"></i> Info </button>
+                                  </div>
+
                                   <div class="col-sm-6 col-xs-6">
                                   <button style="width:150px" class="card-link btn btn-primary" id="flip-6" type="button"><i class="fa fa-briefcase"></i> Pilih</button> 
                                 </div>
+                                @endif
                                 </div>
                             </div>
                           </div>
@@ -159,6 +230,23 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-    
+$("#flip-1").click(function () {
+  window.location.href = "{{URL::to('layanan/1')}}"
+});
+$("#flip-2").click(function () {
+  window.location.href = "{{URL::to('layanan/2')}}"
+});
+$("#flip-3").click(function () {
+  window.location.href = "{{URL::to('layanan/3')}}"
+});
+$("#flip-4").click(function () {
+  window.location.href = "{{URL::to('layanan/4')}}"
+});
+$("#flip-5").click(function () {
+  window.location.href = "{{URL::to('layanan/5')}}"
+});
+$("#flip-6").click(function () {
+  window.location.href = "{{URL::to('layanan/6')}}"
+});
 </script>
 @endsection

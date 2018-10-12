@@ -49,7 +49,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-                     <a class="nav-link" href="#" data-toggle="dropdown">
+                     <a class="nav-link" href="#" data-toggle="dropdown" style="color:white;">
          <i class="nav-icon fa fa-user"></i> {{ Auth::user()->name }}        
           </a>
         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
@@ -78,7 +78,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <center><a href="index3.html" class="brand-link" style="background-color:#17A2B8">
-      <img src="{{ asset('logo/bpom.png') }}" style="height:35px;">
+      <img src="{{ asset('logo/logo-kecil.png') }}" style="height:35px;">
     </a></center>
 
     <!-- Sidebar -->
@@ -100,7 +100,7 @@
 
           <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-user"></i>
+                <i class="nav-icon fa fa-user-md"></i>
                 <p>
                   Tambah Loket
                   <i class="right fa fa-angle-left"></i>
@@ -116,16 +116,36 @@
                 <li class="nav-item">
                   <a href="{{route('sublayanan.index')}} " class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Sublayanan</p>
+                    <p>Sub Layanan</p>
                   </a>
                 </li>
 
+              </ul>
+         </li>
+
+
+        <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p>
+                  Setting Hari
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('settinghari.index')}} " class="nav-link">
+                  <a href="{{route('settinghari.index')}}" class="nav-link">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Setting Hari</p>
+                    <p>Layanan</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="{{route('settingharisub.index')}} " class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Sub Layanan</p>
+                  </a>
+                </li>
+
               </ul>
          </li>
 

@@ -33,8 +33,15 @@
 
                   <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
                     {!! Form::label('kode', 'Loket', ['class'=>'col-md-2 control-label']) !!}
-                      {!! Form::number('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'kode','name' => 'kode']) !!}
+                      {!! Form::text('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'kode','name' => 'kode']) !!}
                       {!! $errors->first('kode', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
+                  </div>
+
+                  
+                  <div class="form-group{{ $errors->has('kode_antrian') ? ' has-error' : '' }}">
+                    {!! Form::label('kode_antrian', 'Kode Antrian', ['class'=>'col-md-2 control-label']) !!}
+                      {!! Form::text('kode_antrian', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'Loket', 'id' => 'kode_antrian','name' => 'kode_antrian']) !!}
+                      {!! $errors->first('kode_antrian', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>
 
 
@@ -61,10 +68,10 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('batas_dari_jam') ? ' has-error' : '' }}">
+                         <div class="form-group{{ $errors->has('batas_dari_jam') ? ' has-error' : '' }}">
                           {!! Form::label('batas_dari_jam', 'Batas Dari Jam', ['class'=>'col-md-2 control-label']) !!}
                               <select class="form-control{{ $errors->has('batas_dari_jam') ? ' is-invalid' : '' }}" id="batas_dari_jam" name="batas_dari_jam">
-                                    <option value="">Silakan Pilih</option>
+                                    <option value="{{$loket->batas_dari_jam}}">{{$loket->batas_dari_jam}}</option>
                                     <option value="8">8</option>
                                     <option value="9">9</option>
                                     <option value="10">10</option>
@@ -86,7 +93,7 @@
                       <div class="form-group{{ $errors->has('batas_sampai_jam') ? ' has-error' : '' }}">
                           {!! Form::label('batas_sampai_jam', 'Batas Sampai Jam', ['class'=>'col-md-2 control-label']) !!}
                               <select class="form-control{{ $errors->has('batas_sampai_jam') ? ' is-invalid' : '' }}" id="batas_sampai_jam" name="batas_sampai_jam">
-                                    <option value="">Silakan Pilih</option>
+                                    <option value="{{$loket->batas_sampai_jam}}">{{$loket->batas_sampai_jam}}</option>
                                     <option value="8">8</option>
                                     <option value="9">9</option>
                                     <option value="10">10</option>
@@ -109,7 +116,8 @@
                       {!! Form::number('batas_antrian', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'batas_antrian','name' => 'batas_antrian']) !!}
                       {!! $errors->first('batas_antrian', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>
-        
+
+                  
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

@@ -13,6 +13,7 @@ use App\Sidebar;
 use Storage;
 use Redirect;
 use DB;
+use Jenssegers\Agent\Agent;
 
 class HomeController extends Controller
 {
@@ -53,13 +54,14 @@ class HomeController extends Controller
             return view('petugas_loket')
                 -> with('_layanan', $layanan);
         }elseif (Auth::user()->jabatan == "pelanggan"){
+            $agent = new Agent();
             $layanan_loket   = Loket::select()->where('lantai',1);
             $layanan_loket_2 = Loket::select()->where('lantai',2);
             $layanan_loket_3 = Loket::select()->where('lantai',3);
             $layanan_loket_4 = Loket::select()->where('lantai',4);
             $layanan_loket_5 = Loket::select()->where('lantai',5);
             $layanan_loket_6 = Loket::select()->where('lantai',6);
-            return view('home_pelanggan', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6]);
+            return view('home_pelanggan', ['layanan_loket' => $layanan_loket,'layanan_loket_2'=>$layanan_loket_2,'layanan_loket_3'=>$layanan_loket_3,'layanan_loket_4'=>$layanan_loket_4,'layanan_loket_5'=>$layanan_loket_5,'layanan_loket_6'=>$layanan_loket_6,'agent'=>$agent]);
 
         }elseif (Auth::user()->jabatan ==="petugas_loket"){
             return view('petugas_loket.home');
@@ -157,22 +159,6 @@ class HomeController extends Controller
     }
 
 
-        public function count_antrian(Request $request)
-    {   
 
-        $layanan_lantai = Antrian::select()->where('id_loket',$request->id)
-        ->where(DB::raw('DATE(created_at)'), '=', DB::raw('curdate()'))->count();
-
-        return $layanan_lantai;
-    }
-
-            public function cekSettingHari(Request $request)
-    {   
-
-        $count = SettingHari::select()->where('id_loket',$request->id)
-        ->where('hari',$request->hari)->count();
-
-        return $count;
-    }
 
 }

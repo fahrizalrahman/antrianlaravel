@@ -23,7 +23,20 @@ class LoketController extends Controller
         //  
         if (Auth::check()) {
             if(Auth::user()->jabatan==='admin'){
-                $loket = Loket::select('lokets.id AS id', 'lokets.nama_layanan', 'lokets.kode', 'users.name AS petugas', 'lokets.lantai')->leftJoin('users', 'users.id', '=', 'lokets.petugas')->orderBy('id','desc')->get();  
+                $loket = Loket::select(
+                    'lokets.id AS id',
+                     'lokets.nama_layanan',
+                     'lokets.kode',
+                     'users.name AS petugas',
+                     'lokets.lantai', 
+                     'lokets.batas_dari_jam',
+                     'lokets.batas_sampai_jam',
+                     'lokets.batas_antrian'
+                 )
+                ->leftJoin('users', 'users.id', '=', 'lokets.petugas')
+                ->orderBy('id','asc')
+                ->orderBy('lantai','asc')
+                ->get();  
                 return view('loket.index')->with(compact('loket'));
             }elseif(Auth::user()->jabatan==='petugas_loket'){
 
@@ -112,7 +125,7 @@ class LoketController extends Controller
                 'nama_layanan'  => 'required|string',
                 'kode' => 'required',
                 'lantai' => 'required',
-                'petugas'=>'required|unique:lokets'
+                'kode_antrian'=>'required'
                 ]);
 
   //INSERT MASTER DATA KAS WARUNG, JADI DEFAULT KAS
@@ -124,8 +137,7 @@ class LoketController extends Controller
                     'batas_dari_jam'=> $request->batas_dari_jam,
                     'batas_sampai_jam'=> $request->batas_sampai_jam,
                     'batas_antrian'=> $request->batas_antrian,
-
-
+                    'kode_antrian'  => $request->kode_antrian
                 ]);
 
           Session::flash("flash_notification", [
@@ -178,7 +190,7 @@ class LoketController extends Controller
                 'nama_layanan'  => 'required|string',
                 'kode' => 'required',
                 'lantai' => 'required',
-                'petugas'=>'required',
+                'kode_antrian'=>'required'
         ]);
 
 
@@ -191,7 +203,7 @@ class LoketController extends Controller
             'batas_dari_jam'    => $request->batas_dari_jam,
             'batas_sampai_jam'  => $request->batas_sampai_jam,
             'batas_antrian'     => $request->batas_antrian,
-
+            'kode_antrian'      =>$request->kode_antrian
         ]);
 
         Session::flash("flash_notification", [

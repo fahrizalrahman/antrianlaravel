@@ -41,8 +41,10 @@ Route::resource('user','AddUserController');
 // Tambah Petugas
 Route::resource('petugas','addPetugasController');
 
-// Route User
+// Route Antrian
 Route::get('/print-antrian/{id}', 'AntrianController@print')->name('print-antrian');
+Route::get('/print-antrian-sub/{id}/{id_sub}', 'AntrianController@printSub')->name('print-antrian-sub');
+
 
 // Route User
 Route::get('/layanan/{id}', 'HomeController@layanan');
@@ -55,8 +57,8 @@ Route::get('/display', 'HomeController@display')->name('antrian');
 //route dashboard pelanggan
 Route::get('/profile-edit','ProfileController@editProfile')->name('profile');
 Route::resource('profile','ProfileController');
-Route::get('/monitor-tiket','ProfileController@monitorTiket')->name('monitor-tiket');
-Route::get('/lihat-tiket/{id}','ProfileController@lihatTiket')->name('lihat-tiket');
+Route::get('/monitor-tiket','AntrianController@monitorTiket')->name('monitor-tiket');
+Route::get('/lihat-tiket/{id}','AntrianController@lihatTiket')->name('lihat-tiket');
 
 
 /*Custom*/
@@ -73,11 +75,13 @@ Route::get('/proses/layanan/update', 'pelayananController@update_status');
 Route::resource('sublayanan','SublayananController');
 Route::get('/sublayanan/delete/{id}', 'SublayananController@delete')->name('sublayanan.delete');
 
-Route::get('pilih-sublayanan', 'ProfileController@pilih_sublayanan');
+Route::get('pilih-sublayanan', 'AntrianController@pilih_sublayanan');
 
 
-Route::get('count-antrian', 'HomeController@count_antrian');
-Route::get('cek-setting-hari', 'HomeController@cekSettingHari');
+Route::get('count-antrian', 'AntrianController@count_antrian');
+Route::get('cek-setting-hari', 'AntrianController@cekSettingHari');
+Route::get('cek-setting-hari-sub', 'AntrianController@cekSettingHariSub');
+
 
 
 //setting hari
@@ -91,7 +95,23 @@ Route::get('cek-pilih-lantai', 'SettingHariController@cekPilihLantai');
 /*Route pelayanan loket*/
 Route::get('/layanan-antrian/{lantai}/{layanan}/{loket}', 'LoketController@petugas');
 
+<<<<<<< HEAD
 Route::get('/monitor','DisplayController@Display')->name('monitor');
+=======
+
+/*Monitoring Layar*/
+Route::get('/monitoring/1', 'monitoringController@layanan_satu');
+Route::get('/monitoring/2', 'monitoringController@layanan_dua');
+Route::get('/monitoring/3', 'monitoringController@layanan_tiga');
+Route::get('/monitoring/4', 'monitoringController@layanan_empat');
+Route::get('/monitoring/5', 'monitoringController@layanan_lima');
+Route::get('/monitoring/6', 'monitoringController@layanan_enam');
+Route::get('/monitoring/aktif', 'monitoringController@layanan_aktif');
+
+//setting hari
+Route::resource('settingharisub','SettingHariSubController');
+Route::get('/settingharisub/delete/{id}', 'SettingHariSubController@delete')->name('settingharisub.delete');
+>>>>>>> c95359793a88e1818f5ac5fed85bb9e0391916fa
 
 /*Monitoring Layar Lantai 1*/
 Route::get('/monitoring/1', 'Monitoring\monitoringController@layanan_satu');

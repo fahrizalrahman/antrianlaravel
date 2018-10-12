@@ -39,6 +39,7 @@ class AddPetugasController extends Controller
         $petugas = New User;
         $petugas->name = $request->name;
         $petugas->email = $request->email;
+        $petugas->email_verified_at = now();
         $petugas->nik = $request->nik;
         $petugas->no_telp = $request->no_telp;
         $petugas->alamat = $request->alamat;
