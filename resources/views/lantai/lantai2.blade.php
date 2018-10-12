@@ -39,7 +39,7 @@
                     @foreach ($lantai2 as $lantai2)
                     <tr>
                         <td class="col-md-4" style="color:white;background-color:#2b869d; height:53px; width:388px;">{{$lantai2->nama_layanan}}</td>
-                        <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3 id="lok_{{ $_i }}"></h3></td>
+                        <td rowspan="2" style="color:white;background-color:#236c7d; width:100px; height:53px; text-align:center; border-color:honeydew;"><h3 id="lok2_{{ $_i }}"></h3></td>
                     </tr>
                     
                     <tr>
@@ -70,7 +70,6 @@
         </div>
     </div>
 
-
     <script src="{{asset ('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/moment.min.js')}}"></script>
@@ -98,9 +97,9 @@
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_satu'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_1').html(f.data);
+            $('#lok2_1').html(f.data);
         }else{
-            $('#lok_1').html('0');
+            $('#lok2_1').html('0');
         }
     }
 
@@ -108,54 +107,54 @@
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_dua'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_2').html(f.data);
+            $('#lok2_2').html(f.data);
         }else{
-            $('#lok_2').html('0');
+            $('#lok2_2').html('0');
         }
     }
 
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_tiga'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_3').html(f.data);
+            $('#lok2_3').html(f.data);
         }else{
-            $('#lok_3').html('0');
+            $('#lok2_3').html('0');
         }
     }
 
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_empat'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_4').html(f.data);
+            $('#lok2_4').html(f.data);
         }else{
-            $('#lok_4').html('0');
+            $('#lok2_4').html('0');
         }
     }
 
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_lima'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_5').html(f.data);
+            $('#lok2_5').html(f.data);
         }else{
-            $('#lok_5').html('0');
+            $('#lok2_5').html('0');
         }
     }
 
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_enam'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_6').html(f.data);
+            $('#lok2_6').html(f.data);
         }else{
-            $('#lok_6').html('0');
+            $('#lok2_6').html('0');
         }
     }
 
     var es = new EventSource("<?php echo action('Monitoring\monitoring2Controller@layanan_tujuh'); ?>");
     es.onmessage = function(f) {
         if(f.data.length > 0){
-            $('#lok_7').html(f.data);
+            $('#lok2_7').html(f.data);
         }else{
-            $('#lok_7').html('0');
+            $('#lok2_7').html('0');
         }
     }
 
@@ -163,7 +162,7 @@
     es.onmessage = function(f) {
         if(f.data.length > 0){
             $('#td_style').css('background-color', '#34a1bc');
-            $('#lok_' + f.data).parent('td').css('background-color', 'red');
+            $('#lok2_' + f.data).parent('td').css('background-color', 'red');
         }
     }
    </script>

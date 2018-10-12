@@ -28,6 +28,9 @@ Route::get('/lantai6', 'HomeController@lantai6')->name('lantai6');
 Route::resource('loket','LoketController');
 Route::get('/loket/delete/{id}', 'LoketController@delete')->name('loket.delete');
 
+// Tambah Tulisan
+Route::resource('inputTulisan','TulisanController');
+
 // Route Tambah Gambar
 Route::resource('inputImg','FileController');
 Route::resource('inputImgFoot','FotterController');
@@ -87,6 +90,8 @@ Route::get('cek-pilih-lantai', 'SettingHariController@cekPilihLantai');
 
 /*Route pelayanan loket*/
 Route::get('/layanan-antrian/{lantai}/{layanan}/{loket}', 'LoketController@petugas');
+
+Route::get('/monitor','DisplayController@Display')->name('monitor');
 
 /*Monitoring Layar Lantai 1*/
 Route::get('/monitoring/1', 'Monitoring\monitoringController@layanan_satu');

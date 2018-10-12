@@ -154,7 +154,7 @@
             </li>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-file"></i>
+                  <i class="nav-icon fa fa-image"></i>
                   <p>
                     Tambah Gambar
                     <i class="right fa fa-angle-left"></i>
@@ -182,6 +182,14 @@
                 </ul>
               </li>
          </li>
+         <li class="nav-item">
+          <a href="{{ route('inputTulisan.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-pencil"></i>
+            <p>
+              Tambah Tulisan 
+            </p>
+          </a>
+        </li>
           <li class="nav-item">
             <a href="{{ route('home') }}" class="nav-link">
               <i class="nav-icon fa fa-universal-access"></i>
