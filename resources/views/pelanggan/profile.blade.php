@@ -109,7 +109,7 @@
                 </div>
                 </div>
                 <div class="register-buttons" style="padding-top:10px;padding-bottom:10px">
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Ubah</button>
                 </div>
              {!! Form::close() !!}
           </div>

@@ -129,7 +129,7 @@ class ProfileController extends Controller
             }
 
 
-       return view('home_pelanggan');        
+       return view('pelanggan.profile',['data_user' => $update_user]);    
     }
 
     /**
