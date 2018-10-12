@@ -8,7 +8,7 @@ class Sublayanan extends Model
 {
     //
         protected $fillable = [
-        'id_loket', 'nama_sublayanan'
+        'id_loket', 'nama_sublayanan','kode_loket','batas_dari_jam','batas_sampai_jam','batas_antrian','petugas'
     ];
 
 

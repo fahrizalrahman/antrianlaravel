@@ -13,7 +13,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-         <div class="col-md-10 col-sm-10">
+         <div class="col-md-12 col-sm-12">
               <div class="card">
 
               <div class="card-header">
@@ -25,7 +25,9 @@
                 <thead>
                 <tr>
                   
-                  <th>Nama Layanan</th>
+                  <th>Layanan</th>
+                  <th>Loket</th>
+                  <th>Sublayanan</th>
                   <th>Loket</th>
                   <th>Lantai</th>
                   <th>No Antrian Anda</th>
@@ -45,6 +47,8 @@
                  <tr>
                   <td>{{$monitor_lokets->nama_layanan}}</td>
                   <td>{{$monitor_lokets->kode}}</td>
+                  <td>{{$monitor_lokets->nama_sublayanan}}</td>
+                  <td>{{$monitor_lokets->kode_loket}}</td>
                   <td>{{$monitor_lokets->lantai}}</td>
                   <td>{{$monitor_lokets->no_antrian}}</td>
                    

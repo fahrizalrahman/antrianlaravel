@@ -94,12 +94,6 @@
                with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="{{ route('home') }}" class="nav-link">
-                  <i class="fa fa-tachometer nav-icon"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-            <li class="nav-item">
-                <a href="{{ route('antrian') }}" class="nav-link">
                   <i class="fa fa-ticket nav-icon"></i>
                   <p>Pesan Tiket</p>
                 </a>
@@ -228,88 +222,6 @@ $(function () {
 });
 </script>
 
-<script type="text/javascript">
-$("#flip-1").click(function () {
-  window.location.href = "{{URL::to('layanan/1')}}"
-});
-$("#flip-2").click(function () {
-  window.location.href = "{{URL::to('layanan/2')}}"
-});
-$("#flip-3").click(function () {
-  window.location.href = "{{URL::to('layanan/3')}}"
-});
-$("#flip-4").click(function () {
-  window.location.href = "{{URL::to('layanan/4')}}"
-});
-$("#flip-5").click(function () {
-  window.location.href = "{{URL::to('layanan/5')}}"
-});
-$("#flip-6").click(function () {
-  window.location.href = "{{URL::to('layanan/6')}}"
-});
-</script>
-
-<script type="text/javascript">
-    $(document).on('click', '.cek-layanan', function (e) { 
-
-      var id_loket = $(this).attr('data-id-loket');
-      var batas_dari_jam = $(this).attr('data-batas-dari-jam');
-      var batas_sampai_jam = $(this).attr('data-batas-sampai-jam');
-      var batas_antrian = $(this).attr('data-batas-antrian');
-
-      var currentdate = new Date();
-      var dayNow = currentdate.getDay()
-
-      if (dayNow == 0) {
-            var hari = "minggu";
-        }else if(dayNow == 1){
-            var hari = "senin";
-        }else if(dayNow == 2){
-            var hari = "selasa";
-        }else if(dayNow == 3){
-            var hari = "rabu";
-        }else if(dayNow == 4){
-            var hari = "kamis";
-        }else if(dayNow == 5){
-            var hari = "jumat";
-        }else if(dayNow == 6){
-            var hari = "sabtu";
-        }
-
-       $.get('{{ Url("cek-setting-hari") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id_loket,hari:hari}, function(resp){  
-
-          if (resp > 0) {
-                  $.get('{{ Url("count-antrian") }}',{'_token': $('meta[name=csrf-token]').attr('content'),id:id_loket}, function(resp){  
-
-                    if (currentdate.getHours() >= batas_sampai_jam && currentdate.getHours() <= batas_dari_jam && resp > batas_antrian) {
-                        swal({
-                          html: "Batas Waktu Pengambilan Tiket Sudah Habis !!"
-                        });
-                    }else{
-                      window.location.href = "{{URL::to('print-antrian/')}}/"+id_loket
-
-                    }
-                 });
-          }else{
-            swal({
-                html: "Hari ini Tidak Melayani Layanan yang Anda Pilih !!"
-              });
-          }
-
-        });
-
-
-
-  });
-
-</script>
-
-<script>
-  $( document ).ready(function() {
-                $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
-
-  });
-</script>
 
  @yield('scripts')
 

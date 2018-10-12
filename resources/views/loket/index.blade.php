@@ -30,6 +30,9 @@
                   <th>Nama Layanan</th>
                   <th>Lantai</th>
                   <th>Petugas</th>
+                  <th>Batas Dari Jam</th>
+                  <th>Batas Sampai Jam</th>
+                  <th>Batas Antrian</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -40,6 +43,9 @@
                   <td>{{$value->nama_layanan}}</td>
                   <td>{{$value->lantai}}</td>
                   <td>{{$value->petugas}}</td>
+                  <td>{{$value->batas_dari_jam}}</td>
+                  <td>{{$value->batas_sampai_jam}}</td>
+                  <td>{{$value->batas_antrian}}</td>
                   <td>
                     <a href="{{ route('loket.edit', $value->id) }}" class="btn btn-warning btn-sm"><i class="nav-icon fa fa-wrench"></i></a> || 
                     

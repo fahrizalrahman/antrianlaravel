@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Setting Hari Layanan</h1>
+            <h1>Tambah Setting Hari Sublayanan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -23,7 +23,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              {!! Form::open(['url' => route('settinghari.store'),'method' => 'post']) !!}
+              {!! Form::open(['url' => route('settingharisub.store'),'method' => 'post']) !!}
                 <div class="card-body">
                   
                    <div class="form-group{{ $errors->has('hari') ? ' has-error' : '' }}">
@@ -43,27 +43,17 @@
                                @endif
                         </div>
 
-                   <div class="form-group{{ $errors->has('lantai') ? ' has-error' : '' }}">
-                          {!! Form::label('lantai', 'Lantai', ['class'=>'col-md-2 control-label']) !!}
-                          <select class="form-control{{ $errors->has('lantai') ? ' is-invalid' : '' }}" id="lantai" name="lantai">
-                                    <option value="">Silakan Pilih</option>
-                                    <option value="1">Lantai 1 </option>
-                                    <option value="2">Lantai 2</option>
-                                    <option value="3">Lantai 3</option>
-                                    <option value="4">Lantai 4</option>
-                                    <option value="5">Lantai 5</option>
-                                    <option value="6">Lantai 6</option>
-                          </select>
-                              @if ($errors->has('lantai'))
-                                <span class="invalid-feedback" role="alert">
-                                  <strong>{{ $errors->first('lantai') }}</strong>
-                                </span>
-                               @endif
+                   <div class="form-group{{ $errors->has('id_sublayanan') ? ' has-error' : '' }}">
+                        {!! Form::label('id_sublayanan', 'Nama Sublayanan', ['class'=>'col-md-2 control-label']) !!}
+                        {!! Form::select('id_sublayanan',App\Sublayanan::pluck('nama_sublayanan','id')->all(), null,['class'=>'form-control','name'=>'id_sublayanan','id'=>'id_sublayanan']) !!}
+                            {!! $errors->first('id_sublayanan', '<p class="help-block">:message</p>') !!}
+
+                             @if ($errors->has('id_sublayanan'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('id_sublayanan') }}</strong>
+                                    </span>
+                            @endif
                         </div>
-
-                  <span id="select-layanan">
-
-                    </span>
 
                 </div>
                 <!-- /.card-body -->
@@ -96,7 +86,7 @@
       $(document).ready(function() {
          var lantai = $("#lantai").val();
 
-          $.get('{{ Url("cek-pilih-lantai-sub") }}',{'_token': $('meta[name=csrf-token]').attr('content'),lantai:lantai}, function(resp){  
+          $.get('{{ Url("cek-pilih-lantai") }}',{'_token': $('meta[name=csrf-token]').attr('content'),lantai:lantai}, function(resp){  
 
             $("#select-layanan").html(resp);
              
@@ -106,7 +96,7 @@
         $(document).on('change', '#lantai', function (e) { 
          var lantai = $(this).val();
 
-          $.get('{{ Url("cek-pilih-lantai-sub") }}',{'_token': $('meta[name=csrf-token]').attr('content'),lantai:lantai}, function(resp){  
+          $.get('{{ Url("cek-pilih-lantai") }}',{'_token': $('meta[name=csrf-token]').attr('content'),lantai:lantai}, function(resp){  
 
             $("#select-layanan").html(resp);
              

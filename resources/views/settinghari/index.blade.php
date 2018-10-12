@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Setting Hari</h1>
+            <h1>Setting Hari Layanan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
             @include('layouts._flash')
            <div class="card">
             <div class="card-header">
-                <a href="{{ route('settinghari.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah Setting Hari</a>
+                <a href="{{ route('settinghari.create') }}" class="btn btn-primary" type="button" ><i class="nav-icon fa fa-plus"></i> Tambah</a>
             
             </div>
             <!-- /.card-header -->

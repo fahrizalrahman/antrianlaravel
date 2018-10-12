@@ -18,7 +18,20 @@ class SublayananController extends Controller
     public function index()
     {
         //
-        $data_sublayanan = Sublayanan::select(['lokets.nama_layanan as nama_layanan','sublayanans.nama_sublayanan as nama_sublayanan','sublayanans.id as id','lokets.lantai as lantai'])->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')->orderBy('lokets.lantai','asc')->get();
+        $data_sublayanan = Sublayanan::select([
+                'lokets.nama_layanan as nama_layanan',
+                'sublayanans.nama_sublayanan as nama_sublayanan',
+                'sublayanans.id as id','lokets.lantai as lantai',
+                'sublayanans.kode_loket as kode_loket',
+                'sublayanans.batas_dari_jam as batas_dari_jam',
+                'sublayanans.batas_sampai_jam as batas_sampai_jam',
+                'sublayanans.batas_antrian as batas_antrian',
+                'users.name AS petugas'
+            ])
+        ->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')
+        ->leftJoin('users', 'users.id', '=', 'sublayanans.petugas')
+        ->orderBy('sublayanans.kode_loket','asc')
+        ->get();
 
         return view('sublayanan.index')->with(compact('data_sublayanan'));
     }
@@ -46,13 +59,20 @@ class SublayananController extends Controller
     public function store(Request $request)
     {
            $this->validate($request, [
-                'nama_sublayanan'  => 'required|string',
-                'id_loket' => 'required',
+                'kode_loket'        => 'required|unique:sublayanans',
+                'nama_sublayanan'   => 'required|string',
+                'id_loket'          => 'required',
+                'petugas'           =>'required|unique:sublayanans'
                 ]);
 
                 $sublayanan = Sublayanan::create([
-                    'nama_sublayanan'  => $request->nama_sublayanan,
+                    'kode_loket'        => $request->kode_loket,
+                    'nama_sublayanan'   => $request->nama_sublayanan,
                     'id_loket'          => $request->id_loket,
+                    'petugas'           => $request->petugas,
+                    'batas_dari_jam'    => $request->batas_dari_jam,
+                    'batas_sampai_jam'  => $request->batas_sampai_jam,
+                    'batas_antrian'     => $request->batas_antrian,
                 ]);
 
           Session::flash("flash_notification", [
@@ -84,7 +104,19 @@ class SublayananController extends Controller
     {
        if (Auth::check()) {
 
-            $sublayanan = Sublayanan::select(['lokets.nama_layanan as nama_layanan','sublayanans.nama_sublayanan as nama_sublayanan','sublayanans.id as id','lokets.lantai as lantai','sublayanans.id_loket as id_loket'])->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')->where('sublayanans.id',$id)->first();
+            $sublayanan = Sublayanan::select([
+                'lokets.nama_layanan as nama_layanan',
+                'sublayanans.nama_sublayanan as nama_sublayanan',
+                'sublayanans.id as id','lokets.lantai as lantai',
+                'sublayanans.id_loket as id_loket',
+                'sublayanans.kode_loket as kode_loket',
+                'sublayanans.batas_dari_jam as batas_dari_jam',
+                'sublayanans.batas_sampai_jam as batas_sampai_jam',
+                'sublayanans.batas_antrian as batas_antrian'
+            ])
+            ->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')
+            ->where('sublayanans.id',$id)
+            ->first();
 
             return view('sublayanan.edit')->with(compact('sublayanan'));
         }else{
@@ -102,14 +134,21 @@ class SublayananController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request, [
-                'nama_sublayanan'  => 'required|string',
-                'id_loket' => 'required',
+                'kode_loket'        => 'required|unique:sublayanans,kode_loket,'. $id,
+                'nama_sublayanan'   => 'required|string',
+                'id_loket'          => 'required',
+                'petugas'           =>'required|unique:sublayanans,petugas,'. $id
                 ]);
 
         $sublayanan = Sublayanan::find($id);
         $sublayanan->update([
+                    'kode_loket'       => $request->kode_loket,
                     'nama_sublayanan'  => $request->nama_sublayanan,
                     'id_loket'          => $request->id_loket,
+                    'petugas'           => $request->petugas,
+                    'batas_dari_jam'    => $request->batas_dari_jam,
+                    'batas_sampai_jam'  => $request->batas_sampai_jam,
+                    'batas_antrian'     => $request->batas_antrian,
                 ]);
 
           Session::flash("flash_notification", [

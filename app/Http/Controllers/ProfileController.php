@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Antrian;
 use App\Loket;
+use App\Sublayanan;
 use Auth;
 use File;
 use DB;
@@ -38,23 +39,7 @@ class ProfileController extends Controller
        return view('pelanggan.profile',['data_user' => $data_user]);
     }
 
-    public function monitorTiket(){
-        $data_monitor_tiket = Antrian::select('antrians.id AS id','antrians.id_loket','lokets.nama_layanan', 'lokets.kode', 'lokets.lantai', 'antrians.no_antrian')->leftJoin('lokets', 'lokets.id', '=', 'antrians.id_loket')->where(DB::raw('DATE(antrians.created_at)'), '=', DB::raw('curdate()'))->where('antrians.id_user',Auth::user()->id)->orderBy('id','desc');  
-        
-
-        return view('pelanggan.monitor',['monitor_tiket' => $data_monitor_tiket]);
-    }
-
-
-     public function lihatTiket($id)
-    {
-        # code...
-            $data_monitor_tiket = Antrian::select()->where('id',$id);
-
-            $data_loket = Loket::select()->where('id',$data_monitor_tiket->first()->id_loket)->first();
-
-            return view('cetak.antrian',['data_antri' => $data_monitor_tiket->first(),'data_loket'=>$data_loket]);
-    }   
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -157,8 +142,5 @@ class ProfileController extends Controller
     {
         //
     }
-
-    public function pilih_sublayanan(){
-        
-    }
+  
 }

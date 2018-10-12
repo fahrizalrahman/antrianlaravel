@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SettingHari;
-use App\Loket;
+use App\SettingHariSub;
+use App\Sublayanan;
 use Auth;
 use Session;
 
 
-class SettingHariController extends Controller
+class SettingHariSubController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,18 +19,18 @@ class SettingHariController extends Controller
     public function index()
     {
         //
-        $data_setting_hari = SettingHari::select([
+        $data_setting_hari_sub = SettingHariSub::select([
+            'sublayanans.nama_sublayanan as nama_sublayanan',
+            'setting_hari_subs.hari as hari',
+            'setting_hari_subs.id as id',
             'lokets.nama_layanan as nama_layanan',
-            'setting_haris.hari as hari',
-            'setting_haris.id as id',
-            'lokets.lantai as lantai'
-        ])->leftjoin('lokets','lokets.id', '=', 'setting_haris.id_loket')
-        ->orderBy('lokets.nama_layanan', 'DESC')
-        ->orderBy('setting_haris.hari', 'DESC')
-        ->orderBy('lokets.lantai','DESC')
-        ->get();
+        ])->leftjoin('sublayanans','sublayanans.id', '=', 'setting_hari_subs.id_sublayanan')
+        ->leftjoin('lokets','lokets.id', '=', 'sublayanans.id_loket')
+        ->orderBy('sublayanans.nama_sublayanan', 'DESC')
+        ->orderBy('setting_hari_subs.hari', 'DESC')
+        ->orderBy('lokets.lantai','DESC')->get();
 
-        return view('settinghari.index')->with(compact('data_setting_hari'));
+        return view('settingharisub.index')->with(compact('data_setting_hari_sub'));
     }
 
     /**
@@ -41,7 +41,7 @@ class SettingHariController extends Controller
     public function create()
     {
        if (Auth::check()) {
-             return  view('settinghari.create');
+             return  view('settingharisub.create');
         }else{
              return  view('auth.login');
         }
@@ -57,12 +57,12 @@ class SettingHariController extends Controller
     {
            $this->validate($request, [
                 'hari'  => 'required|string',
-                'id_loket' => 'required',
+                'id_sublayanan' => 'required',
                 ]);
 
-                $settinghari = SettingHari::create([
+                $settingharisub = SettingHariSub::create([
                     'hari'      => $request->hari,
-                    'id_loket'  => $request->id_loket,
+                    'id_sublayanan'  => $request->id_sublayanan,
                 ]);
 
           Session::flash("flash_notification", [
@@ -70,7 +70,7 @@ class SettingHariController extends Controller
             "message"=>"Berhasil Menambah Setting Hari"
             ]);
 
-         return redirect()->route('settinghari.index');
+         return redirect()->route('settingharisub.index');
     }
 
     /**
@@ -93,15 +93,16 @@ class SettingHariController extends Controller
     public function edit($id)
     {
        if (Auth::check()) {
-            $settinghari = SettingHari::select([
-                'lokets.nama_layanan as nama_layanan',
-                'setting_haris.hari as hari',
-                'setting_haris.id as id',
-                'lokets.lantai as lantai'
-            ])->leftjoin('lokets','lokets.id', '=', 'setting_haris.id_loket')
-            ->where('setting_haris.id',$id)
+            $settingharisub = SettingHariSub::select([
+                'sublayanans.nama_sublayanan as nama_sublayanan',
+                'setting_hari_subs.hari as hari',
+                'setting_hari_subs.id_sublayanan as id_sublayanan',
+                'setting_hari_subs.id as id'
+            ])->leftjoin('sublayanans','sublayanans.id', '=', 'setting_hari_subs.id_sublayanan')
+            ->where('setting_hari_subs.id',$id)
             ->first();
-            return view('settinghari.edit')->with(compact('settinghari'));
+
+            return view('settingharisub.edit')->with(compact('settingharisub'));
         }else{
            return  view('auth.login'); 
         }  
@@ -118,14 +119,14 @@ class SettingHariController extends Controller
     {
            $this->validate($request, [
                 'hari'  => 'required|string',
-                'id_loket' => 'required',
+                'id_sublayanan' => 'required',
                 ]);
 
 
-        $settinghari = SettingHari::find($id);
-        $settinghari->update([
-                    'hari'  => $request->hari,
-                    'id_loket'          => $request->id_loket,
+        $settingharisub = SettingHariSub::find($id);
+        $settingharisub->update([
+                    'hari'          => $request->hari,
+                    'id_sublayanan'      => $request->id_sublayanan,
                 ]);
 
           Session::flash("flash_notification", [
@@ -133,7 +134,7 @@ class SettingHariController extends Controller
             "message"=>"Berhasil Mengubah Setting Hari"
             ]);
 
-         return redirect()->route('settinghari.index');
+         return redirect()->route('settingharisub.index');
     }
 
     /**
@@ -151,31 +152,14 @@ class SettingHariController extends Controller
          public function delete($id)
     {
         //
-        SettingHari::where('id', $id)->delete();
+        SettingHariSub::where('id', $id)->delete();
 
         Session::flash("flash_notification", [
             "level"=>"danger",
             "message"=>"Berhasil Mengapus Setting Hari"
             ]);
-            return redirect()->route('settinghari.index');
+            return redirect()->route('settingharisub.index');
     }
 
-    public function cekPilihLantai(Request $request){
 
-            $data_loket = Loket::select('nama_layanan','id')->where('lantai',$request->lantai)->get();
-
-             $select = '';
-             $select .= '<div class="form-group">
-                         <label for="id_loket" class="col-md-2 control-label">Nama Layanan</label>
-                         <select id="id_loket" class="form-control" name="id_loket">
-                         ';
-                        foreach ($data_loket as $data_lokets) {
-
-            $select .= '<option value="'.$data_lokets->id.'">'.$data_lokets->nama_layanan.'         </option>';
-                            }'
-                            </select> 
-                        </div>';
-
-            return $select;
-    }
 }

@@ -33,7 +33,7 @@
 
                   <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
                     {!! Form::label('kode', 'Loket', ['class'=>'col-md-2 control-label']) !!}
-                      {!! Form::number('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'kode','name' => 'kode']) !!}
+                      {!! Form::text('kode', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'Loket', 'id' => 'kode','name' => 'kode']) !!}
                       {!! $errors->first('kode', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>
 
@@ -112,7 +112,7 @@
                         </div>
                   <div class="form-group{{ $errors->has('batas_antrian') ? ' has-error' : '' }}">
                     {!! Form::label('batas_antrian', 'Batas Antrian', ['class'=>'col-md-2 control-label']) !!}
-                      {!! Form::number('batas_antrian', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'No Loket', 'id' => 'batas_antrian','name' => 'batas_antrian']) !!}
+                      {!! Form::number('batas_antrian', null, ['class'=>'form-control','required','autocomplete'=>'off', 'placeholder' => 'Batas Antrian', 'id' => 'batas_antrian','name' => 'batas_antrian']) !!}
                       {!! $errors->first('batas_antrian', '<p class="help-block" id="kode_error" style="color:red;">:message</p>') !!}
                   </div>
 
