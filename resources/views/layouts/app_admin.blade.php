@@ -49,7 +49,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-                     <a class="nav-link" href="#" data-toggle="dropdown">
+                     <a class="nav-link" href="#" data-toggle="dropdown" style="color:white;">
          <i class="nav-icon fa fa-user"></i> {{ Auth::user()->name }}        
           </a>
         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
@@ -78,7 +78,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <center><a href="index3.html" class="brand-link" style="background-color:#17A2B8">
-      <img src="{{ asset('logo/bpom.png') }}" style="height:35px;">
+      <img src="{{ asset('logo/logo-kecil.png') }}" style="height:35px;">
     </a></center>
 
     <!-- Sidebar -->

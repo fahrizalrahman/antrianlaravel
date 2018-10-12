@@ -53,9 +53,9 @@
                   <td>{{$monitor_lokets->kode_antrian}}{{$monitor_lokets->no_antrian}}</td>
                    
                   @if($no_antrian_sekarang->count() == 0)
-                  <td  ><center><h4>0</h4></center></td>
+                  <td style="background-color:red;color:white;"><center><h5>Tidak Ada Panggilan</h5></center></td>
                   @elseif($no_antrian_sekarang->first()->no_antrian == $monitor_lokets->no_antrian)
-                  <td style="background-color:green;color:white;"><center><h4>Panggilan Anda</h4></center></td>
+                  <td style="background-color:green;color:white;"><center><h5>Panggilan Anda</h5></center></td>
                   @else
                   <td><center><h4>{{$no_antrian_sekarang->first()->kode_antrian}}{{$no_antrian_sekarang->first()->no_antrian}}</h4></center></td>
                   @endif
